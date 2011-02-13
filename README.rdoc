@@ -1,27 +1,29 @@
-#= Information
+= Information
 
 Original plugin created by Vitaly Klimov. Thanks his great work!
+
 See following urls.
-http://www.redmine.org/plugins/redmine_xls_export
-http://www.redmine.org/boards/3/topics/11986
 
-#== Changelog since fork
+* http://www.redmine.org/plugins/redmine_xls_export
+* http://www.redmine.org/boards/3/topics/11986
 
-#=== 2011-02-13
-# - forked from http://www.redmine.org/boards/3/topics/11986?r=21403#message-21403.
+== Changelog since fork
+
+=== 2011-02-13
+* forked from http://www.redmine.org/boards/3/topics/11986?r=21403#message-21403.
 
 
-h1. Redmine XLS export plugin
+= Redmine XLS export plugin
 
 Plugin allows to export list of issues to XLS file using Microsoft Excel 2003 format.
 
-h1. Requirements
+= Requirements
 
 Plugin requires Redmine version 1.0.1 or higher.
 
 Plugin relies on gem spreadsheet for XLS based operations. Please install this gem before running plugin.
 
-h1. Features
+= Features
 
 * Export only displayed or all columns
 * Export issue descriptions
@@ -32,14 +34,14 @@ h1. Features
 * Split information by sheets based on grouping criteria
 * Correct formatting and width of worksheet cells
 
-h1. Details
+= Details
 
 Plugin adds two links with 'XLS export:' prefix at the bottom of the page under 'Also available in' bar. One link allows 'one click' export to XLS using default settings (settings can be customized on the plugin' configuration screen) Another link brings up dialog where it is possible to select individual options.
 
-h1. Installation and Setup
+= Installation and Setup
 
-# Install spreadsheet gem ('gem install spreadsheet')
-# Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins 
-# Restart your Redmine web servers (e.g. mongrel, thin, mod_rails)
-# Login and configure the plugin (Administration > Plugins > Configure)
+1. Install spreadsheet gem ('gem install spreadsheet')
+2. Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins
+3. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails)
+4. Login and configure the plugin (Administration > Plugins > Configure)
 
