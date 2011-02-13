@@ -1,0 +1,24 @@
+de:
+  label_plugin_xlse_relations: "Ticket-Beziehnungen exportieren"
+  label_plugin_xlse_watchers: "Beobachter exportieren"
+  label_plugin_xlse_description: "Beschreibungen exportieren"
+  label_plugin_xlse_time: "Aufgewendete Zeit exportieren"
+  label_plugin_xlse_attachments: "Anhänge auflisten"
+  label_plugin_xlse_query_columns_only: "Nur ausgewählte Spalten exportieren"
+  label_plugin_xlse_group: "Unterteilung durch Gruppeneigenschaften"
+  label_plugin_xlse_generate_name: "Namen generieren"
+  label_plugin_xlse_issues_limit: "Ticket Export Obergrenze setzten"
+  label_plugin_xlse_issues_limit_help: "0 - Standard verwenden"
+  label_plugin_xlse_export_name: "Dateiendung"
+
+  label_plugin_xlse_settings_title: "Export Details"
+  label_plugin_xlse_button_export: "Export"
+  label_plugin_xlse_button_back: "Zu den Tickets"
+
+  label_plugin_xlse_field_attachment: "Anhänge"
+
+  label_plugin_xlse_export_format: "XLS Export:"
+  label_plugin_xlse_export_format_quick: "Express Export"
+  label_plugin_xlse_export_format_quick_tooltip: "Exportiere mit Standard Einstellungen"
+  label_plugin_xlse_export_format_detailed: "Detailierter Export"
+  label_plugin_xlse_export_format_detailed_tooltip: "Wähle Export Optionen"

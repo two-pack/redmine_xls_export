@@ -1,0 +1,25 @@
+en:
+  label_plugin_xlse_relations: "Export relations"
+  label_plugin_xlse_watchers: "Export watchers"
+  label_plugin_xlse_description: "Export description"
+  label_plugin_xlse_time: "Export spent time"
+  label_plugin_xlse_attachments: "List attachments"
+  label_plugin_xlse_query_columns_only: "Export selected columns only"
+  label_plugin_xlse_group: "Split by grouping criteria"
+  label_plugin_xlse_generate_name: "Suggest export name"
+  label_plugin_xlse_issues_limit: "Override export limit"
+  label_plugin_xlse_issues_limit_help: "0 - use default"
+  label_plugin_xlse_export_name: "Export name suffix"
+  
+  label_plugin_xlse_settings_title: "Export details"
+  label_plugin_xlse_button_export: "Export"
+  label_plugin_xlse_button_back: "Back to issues"
+  
+  label_plugin_xlse_field_attachment: "Attachments"
+
+  label_plugin_xlse_export_format: "XLS export:"
+  label_plugin_xlse_export_format_quick: "Quick"
+  label_plugin_xlse_export_format_quick_tooltip: "Export using default settings"
+  label_plugin_xlse_export_format_detailed: "Detailed"
+  label_plugin_xlse_export_format_detailed_tooltip: "Choose options before export"
+

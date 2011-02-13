@@ -1,0 +1,24 @@
+
+<% fields_all = [['relations','watchers','description', 'time','attachments' ], ['query_columns_only','group','generate_name'] ] %>
+<% fields_all.each do |c|%>
+	<div class="box tabular">
+	<p><% c.each do |fnm| -%>
+		<label class="floating">
+			<%= check_box_tag "settings[#{fnm}]", 1, @settings[fnm] == '1'? true : false %>
+			<%= l("label_plugin_xlse_#{fnm}") %>
+		</label>
+	<% end -%></p>
+	</div>
+<% end %>
+
+<div class="box tabular">
+<p>
+  <%= label_tag('settings[issues_limit]', "#{l(:label_plugin_xlse_issues_limit)}<br>#{l(:label_plugin_xlse_issues_limit_help)}" ) %>
+	<%= text_field_tag 'settings[issues_limit]', @settings['issues_limit'], {:size => 6, :maxlength => 10 } %>
+</p>
+
+<p>
+  <%= label_tag('settings[export_name]', l(:label_plugin_xlse_export_name) ) %>
+	<%= text_field_tag 'settings[export_name]', @settings['export_name'], {:size => 40, :maxlength => 80 } %>
+</p>
+</div>

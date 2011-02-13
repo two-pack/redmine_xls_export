@@ -1,0 +1,24 @@
+ru:
+  label_plugin_xlse_relations: "Экспортировать отношения"
+  label_plugin_xlse_watchers: "Экспортировать наблюдатeлей"
+  label_plugin_xlse_description: "Экспортировать описания"
+  label_plugin_xlse_time: "Экспортировать затраченное время"
+  label_plugin_xlse_attachments: "Список вложений"
+  label_plugin_xlse_query_columns_only: "Экспортировать только выделенные поля"
+  label_plugin_xlse_group: "Разбить по критерию группировки"
+  label_plugin_xlse_generate_name: "Угадать имя экспорта"
+  label_plugin_xlse_issues_limit: "Переопределить ограничение экспорта"
+  label_plugin_xlse_issues_limit_help: "0 — по умолчанию"
+  label_plugin_xlse_export_name: "Суффикс имени экспорта"
+  
+  label_plugin_xlse_settings_title: "Параметры экспорта"
+  label_plugin_xlse_button_export: "Экспортировать"
+  label_plugin_xlse_button_back: "Вернуться к задачам"
+  
+  label_plugin_xlse_field_attachment: "Вложения"
+  
+  label_plugin_xlse_export_format: "Экспорт в XLS:"
+  label_plugin_xlse_export_format_quick: "Быстрый"
+  label_plugin_xlse_export_format_quick_tooltip: "Сохранить в XLSб используя значения по умолчанию"
+  label_plugin_xlse_export_format_detailed: "Подробный"
+  label_plugin_xlse_export_format_detailed_tooltip: "Выбрать опции перед сохранением в XLS"

@@ -1,0 +1,32 @@
+h1. Redmine XLS export plugin
+
+Plugin allows to export list of issues to XLS file using Microsoft Excel 2003 format.
+
+h1. Requirements
+
+Plugin requires Redmine version 1.0.1 or higher.
+
+Plugin relies on gem spreadsheet for XLS based operations. Please install this gem before running plugin.
+
+h1. Features
+
+* Export only displayed or all columns
+* Export issue descriptions
+* Export relations information
+* Export spent time data
+* List attachments information
+* Export watchers
+* Split information by sheets based on grouping criteria
+* Correct formatting and width of worksheet cells
+
+h1. Details
+
+Plugin adds two links with 'XLS export:' prefix at the bottom of the page under 'Also available in' bar. One link allows 'one click' export to XLS using default settings (settings can be customized on the plugin' configuration screen) Another link brings up dialog where it is possible to select individual options.
+
+h1. Installation and Setup
+
+# Install spreadsheet gem ('gem install spreadsheet')
+# Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins 
+# Restart your Redmine web servers (e.g. mongrel, thin, mod_rails)
+# Login and configure the plugin (Administration > Plugins > Configure)
+

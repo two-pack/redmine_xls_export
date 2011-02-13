@@ -1,0 +1,19 @@
+cs:
+  label_plugin_xlse_relations: "Exportovat vazby"
+  label_plugin_xlse_watchers: "Exportovat sledování"
+  label_plugin_xlse_description: "Exportovat popis"
+  label_plugin_xlse_time: "Exportovat strávený čas"
+  label_plugin_xlse_attachments: "Vypsat přílohy"
+  label_plugin_xlse_query_columns_only: "Exportovat pouze zvolené sloupce"
+  label_plugin_xlse_group: "Rozdělit podle seskupení"
+  label_plugin_xlse_generate_name: "Generovat název exportu"
+  label_plugin_xlse_issues_limit: "Změnit horní mez exportu"
+  label_plugin_xlse_issues_limit_help: "0 - použít výchozí"
+  label_plugin_xlse_export_name: "Postfix názvu exportního souboru"
+  
+  label_plugin_xlse_settings_title: "Detaily exportu"
+  label_plugin_xlse_button_export: "Export"
+  label_plugin_xlse_button_back: "Zpět na úkoly"
+  
+  label_plugin_xlse_field_attachment: "Přílohy"
+  
