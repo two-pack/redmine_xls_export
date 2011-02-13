@@ -1,0 +1,23 @@
+zh:
+  label_plugin_xlse_relations: "导出关系"
+  label_plugin_xlse_watchers: "导出跟踪者"
+  label_plugin_xlse_description: "导出描述"
+  label_plugin_xlse_time: "导出耗时"
+  label_plugin_xlse_attachments: "列出附件"
+  label_plugin_xlse_query_columns_only: "仅导出选中"
+  label_plugin_xlse_group: "依据分组条件分隔"
+  label_plugin_xlse_generate_name: "建议导出文件名"
+  label_plugin_xlse_issues_limit: "忽略导出大小限制"
+  label_plugin_xlse_issues_limit_help: "0 - 使用默认值"
+  label_plugin_xlse_export_name: "导出文件名后缀"
+  
+  label_plugin_xlse_settings_title: "导出详细"
+  label_plugin_xlse_button_export: "导出"
+  label_plugin_xlse_button_back: "返回问题列表"
+  
+  label_plugin_xlse_field_attachment: "附件"
+  label_plugin_xlse_export_format: "XLS导出:"
+  label_plugin_xlse_export_format_quick: "便捷"
+  label_plugin_xlse_export_format_quick_tooltip: "使用默认设置导出"
+  label_plugin_xlse_export_format_detailed: "详情"
+  label_plugin_xlse_export_format_detailed_tooltip: "导出之前选择配置"
