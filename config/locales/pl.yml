@@ -1,0 +1,27 @@
+# Polish translation by Tomasz Sawicki (https://github.com/Furgas)
+
+pl:
+  label_plugin_xlse_relations: "Eksportuj powiązania"
+  label_plugin_xlse_watchers: "Eksportuj obserwatorów"
+  label_plugin_xlse_description: "Eksportuj opis"
+  label_plugin_xlse_time: "Eksportuj dziennik"
+  label_plugin_xlse_attachments: "Ekportuj listę załączników"
+  label_plugin_xlse_query_columns_only: "Eksportuj tylko zaznaczone kolumny"
+  label_plugin_xlse_group: "Podziel wg kryteriów grupujących"
+  label_plugin_xlse_generate_name: "Sugeruj nazwę pliku"
+  label_plugin_xlse_issues_limit: "Limit eksportowanych pozycji"
+  label_plugin_xlse_issues_limit_help: "0 - domyślna"
+  label_plugin_xlse_export_name: "Przyrostek nazwy pliku"
+  
+  label_plugin_xlse_settings_title: "Szczegóły eksportu"
+  label_plugin_xlse_button_export: "Eksportuj"
+  label_plugin_xlse_button_back: "Wróć do zagadnień"
+  
+  label_plugin_xlse_field_attachment: "Załączniki"
+
+  label_plugin_xlse_export_format: "Eksport XLS:"
+  label_plugin_xlse_export_format_quick: "Szybki"
+  label_plugin_xlse_export_format_quick_tooltip: "Eksportuj z domyślnymi ustawieniami"
+  label_plugin_xlse_export_format_detailed: "Szczegółowy"
+  label_plugin_xlse_export_format_detailed_tooltip: "Ustaw opcje przed eksportem"
+
