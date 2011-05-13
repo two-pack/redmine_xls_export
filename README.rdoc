@@ -7,10 +7,10 @@ See following urls.
 * http://www.redmine.org/plugins/redmine_xls_export
 * http://www.redmine.org/boards/3/topics/11986
 
-== Changelog since fork
+== Changelog
 
 === 2011-02-13
-* forked from http://www.redmine.org/boards/3/topics/11986?r=21403#message-21403.
+* Gathered files from http://www.redmine.org/boards/3/topics/11986?r=21403#message-21403.
 
 
 = Redmine XLS export plugin
