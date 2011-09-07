@@ -2,6 +2,7 @@ zh-TW:
   label_plugin_xlse_relations: "導出關係"
   label_plugin_xlse_watchers: "導出跟蹤者"
   label_plugin_xlse_description: "導出描述"
+  label_plugin_xlse_history: "導出歷史"
   label_plugin_xlse_time: "導出耗時"
   label_plugin_xlse_attachments: "列出附件"
   label_plugin_xlse_query_columns_only: "僅導出選中"
@@ -21,3 +22,5 @@ zh-TW:
   label_plugin_xlse_export_format_quick_tooltip: "使用預設設置導出"
   label_plugin_xlse_export_format_detailed: "詳情"
   label_plugin_xlse_export_format_detailed_tooltip: "導出之前選擇配置"
+  
+  field_history: "歷史"

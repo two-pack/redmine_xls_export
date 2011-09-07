@@ -2,6 +2,7 @@ pt-BR:
   label_plugin_xlse_relations: "Exportar tarefas relacionadas"
   label_plugin_xlse_watchers: "Exportar observadores"
   label_plugin_xlse_description: "Exportar descrição"
+  label_plugin_xlse_history: "Exportar história"
   label_plugin_xlse_time: "Exportar tempo de trabalho"
   label_plugin_xlse_attachments: "Listar anexos"
   label_plugin_xlse_query_columns_only: "Exportar apenas as colunas selecionadas"
@@ -22,3 +23,5 @@ pt-BR:
   label_plugin_xlse_export_format_quick_tooltip: "Exportar usando as configurações padrão"
   label_plugin_xlse_export_format_detailed: "Detalhado"
   label_plugin_xlse_export_format_detailed_tooltip: "Escolher as opções antes da exportação"
+
+  field_history: "história"

@@ -28,6 +28,7 @@ unless Redmine::Plugin.registered_plugins.keys.include?(:redmine_xls_export)
                'relations' => '1',
                'watchers' => '1',
                'description' => '1',
+               'history' => '0',
                'time' => '0',
                'attachments' => '0',
                'query_columns_only' => '0',
