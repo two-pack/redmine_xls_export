@@ -2,6 +2,7 @@ de:
   label_plugin_xlse_relations: "Ticket-Beziehnungen exportieren"
   label_plugin_xlse_watchers: "Beobachter exportieren"
   label_plugin_xlse_description: "Beschreibungen exportieren"
+  label_plugin_xlse_history: "Export history"
   label_plugin_xlse_time: "Aufgewendete Zeit exportieren"
   label_plugin_xlse_attachments: "Anhänge auflisten"
   label_plugin_xlse_query_columns_only: "Nur ausgewählte Spalten exportieren"
@@ -22,3 +23,5 @@ de:
   label_plugin_xlse_export_format_quick_tooltip: "Exportiere mit Standard Einstellungen"
   label_plugin_xlse_export_format_detailed: "Detailierter Export"
   label_plugin_xlse_export_format_detailed_tooltip: "Wähle Export Optionen"
+  
+  field_history: "Historie"

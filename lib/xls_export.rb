@@ -40,6 +40,7 @@ module Redmine
 # :watchers - export watchers
 # :time - export time spent
 # :description - export descriptions
+# :history - export history
 # :attachments - export attachments info
 # :query_columns_only - export only columns from actual query
 # :group - group by query grouping  
@@ -52,6 +53,7 @@ module Redmine
 			show_watchers = options[:watchers] 
 			show_time = options[:time]
 			show_descr = options[:description]
+      show_hist = options[:history]
 			query_columns_only = options[:query_columns_only]
 			show_attachment = options[:attachments]
 			group_by_query = query.grouped? ? options[:group] : false
@@ -81,7 +83,11 @@ module Redmine
     	
     	if show_descr == '1'
 	    	issue_columns << QueryColumn.new(:description)
-    	end
+	   end
+    
+      if show_hist == '1'
+        issue_columns << QueryColumn.new(:history)
+      end
 	    
 	    sheet1 = nil
 			group = false
@@ -151,6 +157,25 @@ module Redmine
 									end
 								end
 								descr_str
+						when :history
+                hist_str = '' 
+                issue_updates = issue.journals.find(
+                          :all, :include => [:user, :details],
+                          :order => "#{Journal.table_name}.created_on ASC")
+                for journal in issue_updates                    
+                    hist_str << format_time(journal.created_on) + " - " + journal.user.name
+                    hist_str << "\n"                    
+                    for detail in journal.details
+                      hist_str <<  " - " + show_detail(detail, true)
+                      hist_str << "\n" unless detail == journal.details.last
+                    end
+                    if journal.notes?
+                      hist_str << "\n" unless journal.details.empty?
+                      hist_str << journal.notes.to_s
+                    end
+                    hist_str << "\n" unless journal == issue_updates.last
+                  end
+                hist_str
 							when :formatted_relations
 								rel_str = ''
 								relations = issue.relations.select {|r| r.other_issue(issue).visible?}
@@ -186,7 +211,7 @@ module Redmine
 						end
 					end
 					
-					value = ['Time', 'Date', 'Fixnum', 'Float', 'Integer', 'String'].include?(v.class.name) ? v : v.to_s
+					value = ['Time', 'Date', 'Fixnum', 'Float', 'Integer', 'String', 'String'].include?(v.class.name) ? v : v.to_s
 
 					lf_pos = get_value_width(value)
 					columns_width[j+1] = lf_pos unless columns_width[j+1] >= lf_pos

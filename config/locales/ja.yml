@@ -2,6 +2,7 @@ ja:
   label_plugin_xlse_relations: "関連を出力"
   label_plugin_xlse_watchers: "ウォッチャーを出力"
   label_plugin_xlse_description: "説明を出力"
+  label_plugin_xlse_history: "Export history"
   label_plugin_xlse_time: "作業時間を出力"
   label_plugin_xlse_attachments: "添付ファイルのリストを出力"
   label_plugin_xlse_query_columns_only: "選択した列だけを出力"
@@ -22,4 +23,6 @@ ja:
   label_plugin_xlse_export_format_quick_tooltip: "標準の設定で出力する"
   label_plugin_xlse_export_format_detailed: "オプション"
   label_plugin_xlse_export_format_detailed_tooltip: "オプションを指定して出力する"
+  
+  field_history: "History"
 
