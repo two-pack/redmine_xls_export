@@ -4,6 +4,7 @@ pl:
   label_plugin_xlse_relations: "Eksportuj powiązania"
   label_plugin_xlse_watchers: "Eksportuj obserwatorów"
   label_plugin_xlse_description: "Eksportuj opis"
+  label_plugin_xlse_history: "Eksportuj Historia"
   label_plugin_xlse_time: "Eksportuj dziennik"
   label_plugin_xlse_attachments: "Ekportuj listę załączników"
   label_plugin_xlse_query_columns_only: "Eksportuj tylko zaznaczone kolumny"
@@ -25,3 +26,4 @@ pl:
   label_plugin_xlse_export_format_detailed: "Szczegółowy"
   label_plugin_xlse_export_format_detailed_tooltip: "Ustaw opcje przed eksportem"
 
+  field_history: "Historia"
