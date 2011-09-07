@@ -34,6 +34,17 @@ module Redmine
 	module Export
 		module XLS
 		unloadable
+
+		def issue_list(issues, &block)
+    			ancestors = []
+    			issues.each do |issue|
+      			while (ancestors.any? && !issue.is_descendant_of?(ancestors.last))
+        			ancestors.pop
+      			end
+      			yield issue, ancestors.size
+      			ancestors << issue unless issue.leaf?
+   			end
+  		end
 		
 # options are
 # :relations - export relations
@@ -87,8 +98,8 @@ module Redmine
 			group = false
 			columns_width = []
 			idx = 0
-# xls rows
-			issues.each do |issue|
+# xls rows			
+			issue_list(issues) do |issue, level|
 
 				if group_by_query == '1'
 					new_group=query_get_group_column_name(issue,query)
@@ -110,28 +121,40 @@ module Redmine
 				
 				row.replace [issue.id]
 				
+				
 				lf_pos = get_value_width(issue.id)
 				columns_width[0] = lf_pos unless columns_width[0] >= lf_pos
 				
 				last_prj = project
+
+				if level > 0
+					s = s.to_s.rjust(level*3) 					
+					issue.subject = s + issue.subject
+				end
 				
-				issue_columns.each_with_index do |c, j|
+				boldfmt = Spreadsheet::Format.new :weight => :bold
+				row.set_format(0, boldfmt) if issue.children?
+				issue_columns.each_with_index do |c, j|	
+					fmt = Spreadsheet::Format.new :weight => :bold
 					v = if c.is_a?(QueryCustomFieldColumn)
 						case c.custom_field.field_format
 							when "int"
 								begin
+									fmt.number_format = "0"
 									Integer(issue.custom_value_for(c.custom_field).to_s)
 								rescue
 									show_value(issue.custom_value_for(c.custom_field))
 								end
 							when "float"
 								begin
+									fmt.number_format = "0.00"
 									Float(issue.custom_value_for(c.custom_field).to_s)
 								rescue
 									show_value(issue.custom_value_for(c.custom_field))
 								end
 							when "date"
 								begin
+									fmt.number_format = "dd.mm.yyyy"
 									Date.parse(issue.custom_value_for(c.custom_field).to_s)
 								rescue
 									show_value(issue.custom_value_for(c.custom_field))
@@ -142,6 +165,7 @@ module Redmine
 					else
 						case c.name
 							when :done_ratio
+								fmt.number_format = "0%"
 								(Float(issue.send(c.name)))/100
 							when :description
 								descr_str = '' 
@@ -181,19 +205,24 @@ module Redmine
 							when :project
 								last_prj = issue.send(c.name)
 								last_prj
-						else
-							issue.respond_to?(c.name) ? issue.send(c.name) : c.value(issue)
+							when :start_date, :due_date
+								fmt.number_format = "dd.mm.yyyy"
+								c.value(issue)
+						else							
+					 		issue.respond_to?(c.name) ? issue.send(c.name) : c.value(issue)
 						end
 					end
 					
 					value = ['Time', 'Date', 'Fixnum', 'Float', 'Integer', 'String'].include?(v.class.name) ? v : v.to_s
 
+					row.set_format(j+1, fmt) if issue.children?
+					
 					lf_pos = get_value_width(value)
 					columns_width[j+1] = lf_pos unless columns_width[j+1] >= lf_pos
 					row << value
 				end
 				
-				idx = idx + 1
+				idx = idx + 1				
 				
 			end
 			
