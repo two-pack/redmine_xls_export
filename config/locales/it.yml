@@ -2,6 +2,7 @@ it:
   label_plugin_xlse_relations: "Esporta relazioni"
   label_plugin_xlse_watchers: "Esporta osservatori"
   label_plugin_xlse_description: "Esporta descrizione"
+  label_plugin_xlse_history: "Esporta storia"
   label_plugin_xlse_time: "Esporta tempo impiegato"
   label_plugin_xlse_attachments: "Elenco allegati"
   label_plugin_xlse_query_columns_only: "Esporta solo le colonne selezionate"
@@ -22,3 +23,6 @@ it:
   label_plugin_xlse_export_format_quick_tooltip: "Esporta utilizzando impostazioni predefinite"
   label_plugin_xlse_export_format_detailed: "Dettagliato"
   label_plugin_xlse_export_format_detailed_tooltip: "Seleziona opzioni prima di esportare"
+  
+  field_history: "Storia"
+
