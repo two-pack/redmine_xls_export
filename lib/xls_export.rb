@@ -138,10 +138,8 @@ module Redmine
 					issue.subject = s + issue.subject
 				end
 				
-				boldfmt = Spreadsheet::Format.new :weight => :bold
-				row.set_format(0, boldfmt) if issue.children?
 				issue_columns.each_with_index do |c, j|	
-					fmt = Spreadsheet::Format.new :weight => :bold
+					fmt = Spreadsheet::Format.new
 					v = if c.is_a?(QueryCustomFieldColumn)
 						case c.custom_field.field_format
 							when "int"
@@ -239,7 +237,7 @@ module Redmine
 					end
 					
 					value = ['Time', 'Date', 'Fixnum', 'Float', 'Integer', 'String', 'String'].include?(v.class.name) ? v : v.to_s
-					row.set_format(j+1, fmt) if issue.children?
+					row.set_format(j+1, fmt)
 					lf_pos = get_value_width(value)
 					columns_width[j+1] = lf_pos unless columns_width[j+1] >= lf_pos
 					row << value
