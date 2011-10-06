@@ -32,7 +32,8 @@ module IssuesControllerXLSPatch
 			
 			if retrieve_xls_export_data
 				export_name = get_xls_export_name
-				send_data(issues_to_xls2(@issues, @project, @query, @settings), :type => :xls, :filename => export_name)
+        @sort_parent = session['issues_index_sort'].include?('parent:')
+				send_data(issues_to_xls2(@issues, @project, @query, @settings, @sort_parent), :type => :xls, :filename => export_name)
 			else
 	      # Send html if the query is not valid
 	      render(:template => 'issues/index.rhtml', :layout => !request.xhr?)
@@ -42,9 +43,10 @@ module IssuesControllerXLSPatch
 		def xls_export_action
 			if request.post?
 				@settings = params[:settings]
+        @sort_parent = session['issues_index_sort'].include?('parent:')
 				if retrieve_xls_export_data(@settings)
 					export_name = get_xls_export_name
-					send_data(issues_to_xls2(@issues, @project, @query, @settings), :type => :xls, :filename => export_name)
+					send_data(issues_to_xls2(@issues, @project, @query, @settings, @sort_parent), :type => :xls, :filename => export_name)
 				else
 					redirect_to :action => 'index', :project_id => @project				
 				end

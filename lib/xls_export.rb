@@ -55,7 +55,7 @@ module Redmine
 # :attachments - export attachments info
 # :query_columns_only - export only columns from actual query
 # :group - group by query grouping  
-		def issues_to_xls2(issues, project, query, options = {})
+		def issues_to_xls2(issues, project, query, options = {}, sort_parent = false)
 	
 			Spreadsheet.client_encoding = 'UTF-8'
 			
@@ -139,8 +139,13 @@ module Redmine
 					issue.subject = s + issue.subject
 				end
 				
-				issue_columns.each_with_index do |c, j|	
-					fmt = Spreadsheet::Format.new
+        if issue.children? and sort_parent then
+          fmt = Spreadsheet::Format.new :weight => :bold
+        else
+          fmt = Spreadsheet::Format.new
+        end
+
+				issue_columns.each_with_index do |c, j|
 					v = if c.is_a?(QueryCustomFieldColumn)
 						case c.custom_field.field_format
 							when "int"
