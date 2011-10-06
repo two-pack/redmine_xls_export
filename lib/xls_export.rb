@@ -230,7 +230,7 @@ module Redmine
 							when :project
 								last_prj = issue.send(c.name)
 								last_prj
-							when :start_date, :due_date
+							when :start_date, :due_date, :updated_on, :created_on
 								fmt.number_format = "dd.mm.yyyy"
 								c.value(issue)
 						else							
