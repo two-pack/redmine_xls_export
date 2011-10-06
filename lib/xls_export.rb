@@ -67,6 +67,7 @@ module Redmine
       show_hist = options[:history]
 			query_columns_only = options[:query_columns_only]
 			show_attachment = options[:attachments]
+      date_format = options[:date_format]
 			group_by_query = query.grouped? ? options[:group] : false
 	
 			book = Spreadsheet::Workbook.new
@@ -158,7 +159,7 @@ module Redmine
 								end
 							when "date"
 								begin
-									fmt.number_format = "dd.mm.yyyy"
+									fmt.number_format = date_format
 									Date.parse(issue.custom_value_for(c.custom_field).to_s)
 								rescue
 									show_value(issue.custom_value_for(c.custom_field))
@@ -229,7 +230,7 @@ module Redmine
 								last_prj = issue.send(c.name)
 								last_prj
 							when :start_date, :due_date, :updated_on, :created_on
-								fmt.number_format = "dd.mm.yyyy"
+								fmt.number_format = date_format
 								c.value(issue)
 						else							
 					 		issue.respond_to?(c.name) ? issue.send(c.name) : c.value(issue)

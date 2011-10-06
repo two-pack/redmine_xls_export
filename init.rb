@@ -35,7 +35,8 @@ unless Redmine::Plugin.registered_plugins.keys.include?(:redmine_xls_export)
                'group' => '0',
                'generate_name' => '1',
                'issues_limit' => '0',
-               'export_name' => 'issues_export'
+               'export_name' => 'issues_export',
+               'date_format' => 'dd.mm.yyyy'
              })
 
     requires_redmine :version_or_higher => '1.0.1'

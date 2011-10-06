@@ -24,5 +24,7 @@ en:
   label_plugin_xlse_export_format_detailed: "Detailed"
   label_plugin_xlse_export_format_detailed_tooltip: "Choose options before export"
   
+  label_plugin_xlse_date_format: "Date format"
+  
   field_history: "History"
 

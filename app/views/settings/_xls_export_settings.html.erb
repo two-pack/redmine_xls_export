@@ -13,6 +13,11 @@
 
 <div class="box tabular">
 <p>
+  <%= label_tag('settings[date_format]', l(:label_plugin_xlse_date_format) ) %>
+	<%= text_field_tag 'settings[date_format]', @settings['date_format'], {:size => 20, :maxlength => 20 } %>
+</p>
+
+<p> 
   <%= label_tag('settings[issues_limit]', "#{l(:label_plugin_xlse_issues_limit)}<br>#{l(:label_plugin_xlse_issues_limit_help)}" ) %>
 	<%= text_field_tag 'settings[issues_limit]', @settings['issues_limit'], {:size => 6, :maxlength => 10 } %>
 </p>

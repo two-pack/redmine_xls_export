@@ -24,5 +24,7 @@ ja:
   label_plugin_xlse_export_format_detailed: "オプション"
   label_plugin_xlse_export_format_detailed_tooltip: "オプションを指定して出力する"
   
+  label_plugin_xlse_date_format: "日付の形式"
+  
   field_history: "履歴"
 
