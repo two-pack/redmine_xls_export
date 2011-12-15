@@ -58,7 +58,7 @@ module Redmine
 		def issues_to_xls2(issues, project, query, options = {}, sort_parent = false)
 	
 			Spreadsheet.client_encoding = 'UTF-8'
-			
+			options[:date_format] ||= 'dd.mm.yyyy'
 			options.default=false
 			show_relations = options[:relations]
 			show_watchers = options[:watchers] 
