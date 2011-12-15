@@ -2,7 +2,7 @@ bg:
   label_plugin_xlse_relations: "Експорт на връзките"
   label_plugin_xlse_watchers: "Експорт на наблюдателите"
   label_plugin_xlse_description: "Експорт на описанията"
-  label_plugin_xlse_history: "износ история"
+  label_plugin_xlse_history: "Експорт на историята"
   label_plugin_xlse_time: "Експорт на употребеното време"
   label_plugin_xlse_attachments: "Списък на прикачените файлове"
   label_plugin_xlse_query_columns_only: "Експорт само на избраните колони"
