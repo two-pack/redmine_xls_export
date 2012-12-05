@@ -1,0 +1,30 @@
+it:
+  label_plugin_xlse_relations: "Esporta relazioni"
+  label_plugin_xlse_watchers: "Esporta osservatori"
+  label_plugin_xlse_description: "Esporta descrizione"
+  label_plugin_xlse_history: "Esporta storia"
+  label_plugin_xlse_time: "Esporta tempo impiegato"
+  label_plugin_xlse_attachments: "Lista allegati"
+  label_plugin_xlse_query_columns_only: "Esporta solo colonne selezionate"
+  label_plugin_xlse_group: "Dividi per criterio di raggruppamento"
+  label_plugin_xlse_generate_name: "Suggerisci nome di esportazione"
+  label_plugin_xlse_issues_limit: "Limite segnalazioni da esportare"
+  label_plugin_xlse_issues_limit_help: "0 - usa predefinito"
+  label_plugin_xlse_export_name: "Suffisso nome del file di esportazione"
+  
+  label_plugin_xlse_settings_title: "Dettagli esportazione"
+  label_plugin_xlse_button_export: "Esporta"
+  label_plugin_xlse_button_back: "Torna alle segnalazioni"
+  
+  label_plugin_xlse_field_attachment: "Allegati"
+  
+  label_plugin_xlse_export_format: "Esporta XLS:"
+  label_plugin_xlse_export_format_quick: "Rapido"
+  label_plugin_xlse_export_format_quick_tooltip: "Esporta usando le impostazioni standard"
+  label_plugin_xlse_export_format_detailed: "Dettagliato"
+  label_plugin_xlse_export_format_detailed_tooltip: "Scegli le opzioni prima di esportare"
+
+  label_plugin_xlse_date_format: "Formato date"
+  
+  field_history: "Storia"
+

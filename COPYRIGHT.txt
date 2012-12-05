@@ -2,7 +2,7 @@ XLS export is a Redmine plugin that allows to
 export list of issues to XLS file using
 Microsoft Excel 2003 format.
 
-Copyright (C) 2010-2011 Vitaly Klimov
+Copyright (C) 2010,2011,2012 Vitaly Klimov
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License

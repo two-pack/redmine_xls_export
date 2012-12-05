@@ -47,7 +47,7 @@ module Redmine
 	
 			Spreadsheet.client_encoding = 'UTF-8'
 			
-			options.default=false
+			#options.default=false
 			show_relations = options[:relations]
 			show_watchers = options[:watchers] 
 			show_time = options[:time]

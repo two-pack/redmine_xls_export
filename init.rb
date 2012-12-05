@@ -19,9 +19,9 @@ unless Redmine::Plugin.registered_plugins.keys.include?(:redmine_xls_export)
   Redmine::Plugin.register :redmine_xls_export do
     name 'Issues XLS export'
     author 'Vitaly Klimov'
-    author_url 'mailto:vvk@snowball.ru'
-    description 'This plugin requires spreadsheet gem. This build compatible with version of Redmine 1.0.1 or higher'
-    version '0.1.3'
+    author_url 'mailto:vitaly.klimov@snowbirdgames.com'
+    description 'This plugin requires spreadsheet gem.'
+    version '0.1.4'
 
     settings(:partial => 'settings/xls_export_settings',
              :default => {
@@ -37,7 +37,7 @@ unless Redmine::Plugin.registered_plugins.keys.include?(:redmine_xls_export)
                'export_name' => 'issues_export'
              })
 
-    requires_redmine :version_or_higher => '1.0.1'
+    requires_redmine :version_or_higher => '1.3.0'
 
   end
 

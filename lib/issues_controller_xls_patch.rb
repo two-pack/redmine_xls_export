@@ -35,7 +35,7 @@ module IssuesControllerXLSPatch
 				send_data(issues_to_xls2(@issues, @project, @query, @settings), :type => :xls, :filename => export_name)
 			else
 	      # Send html if the query is not valid
-	      render(:template => 'issues/index.rhtml', :layout => !request.xhr?)
+	      render(:template => 'issues/index', :layout => !request.xhr?)
 			end
 	  end
 	  
@@ -101,10 +101,11 @@ private
 		end
 		
 		def get_xls_export_name
-			return "export.xls" unless !@settings['export_name'].blank?
+			return "export.xls" if @settings['export_name'].blank?
 			return "#{@settings['export_name']}.xls" unless @settings['generate_name'] == '1'
-			
+
 			fnm = ''
+      fnm << Date.today.strftime("%y%m%d") << '_'
 			fnm << (@project ? @project.to_s : l(:label_project_plural)).gsub(' ','_') << '_' << @settings['export_name'] << '.xls'
 			
 			return fnm

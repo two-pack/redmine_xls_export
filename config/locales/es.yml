@@ -1,0 +1,25 @@
+es:
+  label_plugin_xlse_relations: "Exportar relaciones"
+  label_plugin_xlse_watchers: "Exportar seguidores"
+  label_plugin_xlse_description: "Exportar descripciones"
+  label_plugin_xlse_time: "Exportar tiempo dedicado"
+  label_plugin_xlse_attachments: "Exportar listado de adjuntos"
+  label_plugin_xlse_query_columns_only: "Exportar solamente las columnas seleccionadas"
+  label_plugin_xlse_group: "Separar por criterio de grupo"
+  label_plugin_xlse_generate_name: "Nombre sugerido"
+  label_plugin_xlse_issues_limit: "Cantidad de tareas a exportar"
+  label_plugin_xlse_issues_limit_help: "0 - usar predeterminado"
+  label_plugin_xlse_export_name: "Guardar como..."
+  
+  label_plugin_xlse_settings_title: "Exportar detalles"
+  label_plugin_xlse_button_export: "Exportar"
+  label_plugin_xlse_button_back: "Volver a Tareas"
+  
+  label_plugin_xlse_field_attachment: "Adjuntos"
+
+  label_plugin_xlse_export_format: "Exportar a Excel:"
+  label_plugin_xlse_export_format_quick: "Rapida"
+  label_plugin_xlse_export_format_quick_tooltip: "Exportar usando valores predeterminados"
+  label_plugin_xlse_export_format_detailed: "Detallada"
+  label_plugin_xlse_export_format_detailed_tooltip: "Elegir opciones antes de exportar"
+
