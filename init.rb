@@ -21,7 +21,7 @@ unless Redmine::Plugin.registered_plugins.keys.include?(:redmine_xls_export)
     author 'Vitaly Klimov'
     author_url 'mailto:vvk@snowball.ru'
     description 'This plugin requires spreadsheet gem. This build compatible with version of Redmine 1.0.1 or higher'
-    version '0.1.2'
+    version '0.1.3'
 
     settings(:partial => 'settings/xls_export_settings',
              :default => {

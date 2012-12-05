@@ -1,0 +1,25 @@
+ja:
+  label_plugin_xlse_relations: "関連を出力"
+  label_plugin_xlse_watchers: "ウォッチャーを出力"
+  label_plugin_xlse_description: "説明を出力"
+  label_plugin_xlse_time: "作業時間を出力"
+  label_plugin_xlse_attachments: "添付ファイルのリストを出力"
+  label_plugin_xlse_query_columns_only: "選択した列だけを出力"
+  label_plugin_xlse_group: "グループの基準で分ける"
+  label_plugin_xlse_generate_name: "出力ファイル名を設定する"
+  label_plugin_xlse_issues_limit: "出力の最大数"
+  label_plugin_xlse_issues_limit_help: "0 - デフォルトを使う"
+  label_plugin_xlse_export_name: "出力ファイル名の接頭辞"
+  
+  label_plugin_xlse_settings_title: "詳細を出力する"
+  label_plugin_xlse_button_export: "出力"
+  label_plugin_xlse_button_back: "チケットの一覧に戻る"
+  
+  label_plugin_xlse_field_attachment: "添付ファイル"
+
+  label_plugin_xlse_export_format: "XLS 出力:"
+  label_plugin_xlse_export_format_quick: "標準"
+  label_plugin_xlse_export_format_quick_tooltip: "標準の設定で出力する"
+  label_plugin_xlse_export_format_detailed: "オプション"
+  label_plugin_xlse_export_format_detailed_tooltip: "オプションを指定して出力する"
+
