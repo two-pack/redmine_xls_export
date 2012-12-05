@@ -1,0 +1,15 @@
+<h2><%= l(:label_plugin_xlse_settings_title) %></h2>
+
+<% params[:query_id]=session[:query][:id] if !session[:query].nil? && !session[:query][:id].blank? %>
+<% params[:sort]=session['issues_index_sort'] unless session['issues_index_sort'].blank? %>
+
+<div id="settings">
+  <% form_tag({:controller => 'xls_export', :action => 'index', :project_id => params[:project_id]}) do %>
+
+    <%= render :partial => 'settings/xls_export_settings.html', :locals => {:settings => @settings, :export => true}%>
+
+    <%= submit_tag l(:label_plugin_xlse_button_export) %>
+
+    <%= link_to l(:label_plugin_xlse_button_back), {:controller => 'issues', :action => 'index', :project_id => @project, :query_id => params[:query_id], :sort => params[:sort] } %>
+  <% end %>
+</div>

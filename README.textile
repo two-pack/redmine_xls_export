@@ -1,0 +1,53 @@
+h2. XLS export plugin
+
+With the help of this plugin you can export issues list with all information to XLS file. Also it is possible to export issues with attachments as a ZIP archive.
+
+h3. Requirements
+
+Plugin requires Redmine version 1.3.0 or higher.
+
+Plugin relies on *spreadsheet* gem for XLS based operations. Please install this gem before running plugin. Also if you want to use attachments export you should install *rubyzip* gem.
+
+h3. Features
+
+* Export active or all columns
+* Export issue descriptions
+* Export journal entries - both inline or as separate file per each issue
+* Export relations information
+* Export spent time data
+* List attachments information
+* Export attachments
+* Export watchers
+* Split information by sheets based on grouping criteria
+* Correct formatting and width of worksheet cells
+
+h3. Details
+
+Plugin adds following links with 'XLS export:' prefix at the bottom of the page under 'Also available in' bar:
+
+* *Quick*
+ One click export to XLS using default export settings from plugin configuration screen
+* *Detailed*
+ Brings up dialog where user can choose export options before export
+
+h3. Installation and Setup
+
+# Install *spreadsheet* gem ('gem install spreadsheet')
+# Install *rubyzip* gem if you want to use export attachments feature
+# Install plugin "Plugin views with revisions":http://www.redmine.org/plugins/redmine_plugin_views_revisions if you do not have it installed
+# Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins
+# Run rake task
+ *rake redmine:plugins:process_version_change RAILS_ENV=production*
+# Login and configure the plugin (Administration > Plugins > Configure)
+
+h3. History
+
+0.2.0
+
+* Plugin depends on "Plugin views with revisions":http://www.redmine.org/plugins/redmine_plugin_views_revisions for further Redmine compatibility
+* Rails 3 (Redmine 2.x.x) compatibility added
+* Controller completely rewritten - no more IssuesController monkey-patch
+* Journal entries could be exported as well
+* Ability to export journal entries in separate files, one per each issue
+* Ability to export attachments in ZIP file
+* Ability to set start offset for export

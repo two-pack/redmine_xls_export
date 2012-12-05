@@ -1,21 +1,34 @@
 en:
+  label_plugin_xlse_legend_0: "Columns options"
+  label_plugin_xlse_legend_1: "Export options"
+  label_plugin_xlse_legend_2: "Extra options"
+  label_plugin_xlse_legend_2_disabled: "Extra options (install rubyzip gem to access them)"
+
   label_plugin_xlse_relations: "Export relations"
   label_plugin_xlse_watchers: "Export watchers"
   label_plugin_xlse_description: "Export description"
+  label_plugin_xlse_journal: "Export journal entries"
   label_plugin_xlse_time: "Export spent time"
   label_plugin_xlse_attachments: "List attachments"
+
   label_plugin_xlse_query_columns_only: "Export selected columns only"
   label_plugin_xlse_group: "Split by grouping criteria"
   label_plugin_xlse_generate_name: "Suggest export name"
+
+  label_plugin_xlse_export_attached: "Export attachments"
+  label_plugin_xlse_separate_journals: "Issues journals as separate files"
+
   label_plugin_xlse_issues_limit: "Override export limit"
   label_plugin_xlse_issues_limit_help: "0 - use default"
+  label_plugin_xlse_issues_offset: "Export issues starting from"
   label_plugin_xlse_export_name: "Export name suffix"
-  
+
   label_plugin_xlse_settings_title: "Export details"
   label_plugin_xlse_button_export: "Export"
   label_plugin_xlse_button_back: "Back to issues"
-  
+
   label_plugin_xlse_field_attachment: "Attachments"
+  label_plugin_xlse_field_journal: "Journal"
 
   label_plugin_xlse_export_format: "XLS export:"
   label_plugin_xlse_export_format_quick: "Quick"
