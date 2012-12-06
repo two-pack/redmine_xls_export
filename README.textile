@@ -42,6 +42,11 @@ h3. Installation and Setup
 
 h3. History
 
+0.2.1
+
+* Journal export compatibility fixes
+* Japanese & China translations updated
+
 0.2.0
 
 * Plugin depends on "Plugin views with revisions":http://www.redmine.org/plugins/redmine_plugin_views_revisions for further Redmine compatibility

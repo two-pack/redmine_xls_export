@@ -67,6 +67,7 @@ class XLS_AttachmentQueryColumn < XLS_QueryColumn
 end
 
 class XLS_JournalQueryColumn < XLS_QueryColumn
+  include CustomFieldsHelper
   include IssuesHelper
 
   def caption
