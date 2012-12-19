@@ -1,0 +1,39 @@
+# Translation by Ki Won Kim (http://xyz37.blog.me, xyz37@naver.com)
+ko:
+  label_plugin_xlse_legend_0: "컬럼 옵션"
+  label_plugin_xlse_legend_1: "내보내기 옵션"
+  label_plugin_xlse_legend_2: "기타 옵션"
+  label_plugin_xlse_legend_2_disabled: "기타 옵션 (rubyzip gem 설치시 사용할 수 있습니다.)"
+
+  label_plugin_xlse_relations: "연결된 일감 내보내기"
+  label_plugin_xlse_watchers: "일감지킴이 내보내기"
+  label_plugin_xlse_description: "설명 내보내기"
+  label_plugin_xlse_time: "소요 시간 내보내기"
+  label_plugin_xlse_journal: "댓글 목록 내보내기"
+  label_plugin_xlse_attachments: "첨부 파일 목록"
+
+  label_plugin_xlse_query_columns_only: "선택된 컬럼만 내보내기"
+  label_plugin_xlse_group: "그룹 기준에 의해 분리"
+  label_plugin_xlse_generate_name: "내보내기 이름 제시하기"
+
+  label_plugin_xlse_export_attached: "첨부파일 내보내기"
+  label_plugin_xlse_separate_journals: "일감의 댓글을 파일로 분리"
+
+  label_plugin_xlse_issues_limit: "내보내기 일감 수 제한"
+  label_plugin_xlse_issues_limit_help: "0 - 모든 일감 내보내기"
+  label_plugin_xlse_issues_offset: "특정 일감부터 내보내기"
+  label_plugin_xlse_export_name: "내보내기 파일 접미사"
+
+  label_plugin_xlse_settings_title: "내보내기 세부 항목"
+  label_plugin_xlse_button_export: "내보내기"
+  label_plugin_xlse_button_back: "일감으로 돌아가기"
+
+  label_plugin_xlse_field_attachment: "첨부 파일"
+  label_plugin_xlse_field_journal: "댓글"
+
+  label_plugin_xlse_export_format: "XLS:"
+  label_plugin_xlse_export_format_quick: "내보내기"
+  label_plugin_xlse_export_format_quick_tooltip: "기본 설정으로 내보내기"
+  label_plugin_xlse_export_format_detailed: "자세히 내보내기"
+  label_plugin_xlse_export_format_detailed_tooltip: "옵션 선택하여 내보내기"
+
