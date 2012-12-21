@@ -44,10 +44,10 @@ Plugin adds following links with 'XLS export:' prefix at the bottom of the page 
 
 h3. Installation and Setup
 
-# Install *spreadsheet* gem ('gem install spreadsheet')
-# Install *rubyzip* gem if you want to use export attachments feature
 # Install plugin "Plugin views with revisions":http://www.redmine.org/plugins/redmine_plugin_views_revisions if you do not have it installed
 # Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins
+# Run bundler
+ *bundle install*
 # Run rake task
  *rake redmine:plugins:process_version_change RAILS_ENV=production*
 # Login and configure the plugin (Administration > Plugins > Configure)
