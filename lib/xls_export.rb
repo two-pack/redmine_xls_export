@@ -116,6 +116,12 @@ module Redmine
         book = Spreadsheet::Workbook.new
         issue_columns = []
 
+        date_formats = {
+          :created_on => options[:created_format],
+          :updated_on => options[:updated_format],
+          :start_date => options[:start_date_format],
+          :due_date => options[:due_date_format]}
+
         (options[:query_columns_only] == '1' ? query.columns : query.available_columns).each do |c|
           case c.name
             when :formatted_relations
@@ -145,13 +151,13 @@ module Redmine
               group = new_group
               update_sheet_formatting(sheet1,columns_width) if sheet1
               sheet1 = book.create_worksheet(:name => (group.blank? ? l(:label_none) : pretty_xls_tab_name(group.to_s)))
-              columns_width=init_header_columns(sheet1,issue_columns)
+              columns_width=init_header_columns(sheet1,issue_columns,date_formats)
               idx = 0
             end
           else
             if sheet1 == nil
               sheet1 = book.create_worksheet(:name => l(:label_issue_plural))
-              columns_width=init_header_columns(sheet1,issue_columns)
+              columns_width=init_header_columns(sheet1,issue_columns,date_formats)
             end
           end
 
@@ -319,7 +325,7 @@ module Redmine
         return false
       end
 
-      def init_header_columns(sheet1,columns)
+      def init_header_columns(sheet1,columns,date_formats)
 
         columns_width = [1]
         sheet1.row(0).replace ["#"]
@@ -349,6 +355,8 @@ module Redmine
                 opt[:number_format] = '0%'
               when :estimated_hours, :spent_time
                 opt[:number_format] = "0.0"
+              when :created_on, :updated_on, :start_date, :due_date
+                opt[:number_format] = date_formats[c.name]
             end
           end
 

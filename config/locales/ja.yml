@@ -1,6 +1,7 @@
 ja:
   label_plugin_xlse_legend_0: "カラム"
   label_plugin_xlse_legend_1: "出力"
+  label_plugin_xlse_legend_1a: "日付の形式"
   label_plugin_xlse_legend_2: "オプション"
   label_plugin_xlse_legend_2_disabled: "オプション (使用するにはrubyzip gemのインストールが必要です)"
 
@@ -35,4 +36,9 @@ ja:
   label_plugin_xlse_export_format_quick_tooltip: "標準の設定で出力する"
   label_plugin_xlse_export_format_detailed: "オプション"
   label_plugin_xlse_export_format_detailed_tooltip: "オプションを指定して出力する"
+
+  label_plugin_xlse_date_created: "作成日"
+  label_plugin_xlse_date_updated: "更新日"
+  label_plugin_xlse_date_start: "開始日"
+  label_plugin_xlse_date_due: "期日"
 

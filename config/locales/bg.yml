@@ -1,4 +1,10 @@
 bg:
+  label_plugin_xlse_legend_0: "Columns options"
+  label_plugin_xlse_legend_1: "Export options"
+  label_plugin_xlse_legend_1a: "Формат на датите"
+  label_plugin_xlse_legend_2: "Extra options"
+  label_plugin_xlse_legend_2_disabled: "Extra options (install rubyzip gem to access them)"
+
   label_plugin_xlse_relations: "Експорт на връзките"
   label_plugin_xlse_watchers: "Експорт на наблюдателите"
   label_plugin_xlse_description: "Експорт на описанията"
@@ -22,3 +28,8 @@ bg:
   label_plugin_xlse_export_format_quick_tooltip: "Експортиране с опции по подразбиране"
   label_plugin_xlse_export_format_detailed: "Подробно"
   label_plugin_xlse_export_format_detailed_tooltip: "Избор на опции преди експортиране"
+
+  label_plugin_xlse_date_created: "От дата"
+  label_plugin_xlse_date_updated: "Обновена"
+  label_plugin_xlse_date_start: "Начална дата"
+  label_plugin_xlse_date_due: "Крайна дата"

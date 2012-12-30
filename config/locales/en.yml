@@ -1,6 +1,7 @@
 en:
   label_plugin_xlse_legend_0: "Columns options"
   label_plugin_xlse_legend_1: "Export options"
+  label_plugin_xlse_legend_1a: "Date format options"
   label_plugin_xlse_legend_2: "Extra options"
   label_plugin_xlse_legend_2_disabled: "Extra options (install rubyzip gem to access them)"
 
@@ -35,4 +36,9 @@ en:
   label_plugin_xlse_export_format_quick_tooltip: "Export using default settings"
   label_plugin_xlse_export_format_detailed: "Detailed"
   label_plugin_xlse_export_format_detailed_tooltip: "Choose options before export"
+
+  label_plugin_xlse_date_created: "Created"
+  label_plugin_xlse_date_updated: "Updated"
+  label_plugin_xlse_date_start: "Start date"
+  label_plugin_xlse_date_due: "Due date"
 

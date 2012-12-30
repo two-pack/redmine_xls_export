@@ -18,7 +18,27 @@
 <% end %>
 
 <fieldset class="box tabular">
-  <p>
+  <legend><%= l(:label_plugin_xlse_legend_1a) %></legend>
+  <label class="floating">
+    <%= l(:label_plugin_xlse_date_created) %>
+    <%= text_field_tag 'settings[created_format]', @settings['created_format'], {:size => 25, :maxlength => 20 } %>
+  </label>
+  <label class="floating">
+    <%= l(:label_plugin_xlse_date_updated) %>
+    <%= text_field_tag 'settings[updated_format]', @settings['updated_format'], {:size => 25, :maxlength => 20 } %>
+  </label>
+  <label class="floating">
+    <%= l(:label_plugin_xlse_date_start) %>
+    <%= text_field_tag 'settings[start_date_format]', @settings['start_date_format'], {:size => 12, :maxlength => 20 } %>
+  </label>
+  <label class="floating">
+    <%= l(:label_plugin_xlse_date_due) %>
+    <%= text_field_tag 'settings[due_date_format]', @settings['due_date_format'], {:size => 12, :maxlength => 20 } %>
+  </label>
+</fieldset>
+
+<fieldset class="box tabular">
+  <p> 
     <%= label_tag('settings[issues_limit]', "#{l(:label_plugin_xlse_issues_limit)}<br/>#{l(:label_plugin_xlse_issues_limit_help)}".html_safe ) %>
     <%= text_field_tag 'settings[issues_limit]', @settings['issues_limit'], {:size => 6, :maxlength => 10 } %>
   </p>

@@ -1,4 +1,10 @@
 de:
+  label_plugin_xlse_legend_0: "Columns options"
+  label_plugin_xlse_legend_1: "Export options"
+  label_plugin_xlse_legend_1a: "Datumsformat"
+  label_plugin_xlse_legend_2: "Extra options"
+  label_plugin_xlse_legend_2_disabled: "Extra options (install rubyzip gem to access them)"
+
   label_plugin_xlse_relations: "Ticket-Beziehnungen exportieren"
   label_plugin_xlse_watchers: "Beobachter exportieren"
   label_plugin_xlse_description: "Beschreibungen exportieren"
@@ -22,3 +28,8 @@ de:
   label_plugin_xlse_export_format_quick_tooltip: "Exportiere mit Standard Einstellungen"
   label_plugin_xlse_export_format_detailed: "Detailierter Export"
   label_plugin_xlse_export_format_detailed_tooltip: "Wähle Export Optionen"
+
+  label_plugin_xlse_date_created: "Angelegt"
+  label_plugin_xlse_date_updated: "Aktualisiert"
+  label_plugin_xlse_date_start: "Beginn"
+  label_plugin_xlse_date_due: "Abgabedatum"
