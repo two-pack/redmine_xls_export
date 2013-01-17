@@ -5,9 +5,10 @@ See following urls.
 http://www.redmine.org/plugins/redmine_xls_export
 http://www.redmine.org/boards/3/topics/11986
 
-'official' branch has original source.
-'features' branch has something added to original.
-
+And some features and translations, which are almost from above forum, are added on following github:
+https://github.com/two-pack/redmine_xls_export
+* 'official' branch has original source.
+* 'features' branch has something added to original.
 
 
 h2. XLS export plugin
@@ -52,6 +53,17 @@ h3. Installation and Setup
 # Login and configure the plugin (Administration > Plugins > Configure)
 
 h3. History
+
+
+0.2.1.t1 (additional features & translations on github)
+
+* Adds Gemfile for bundle setup.
+* Ability to set cell format for date & time.
+* Some translations added from above forum.
+** Korean
+** Polish
+** Portuguese(Brazil)
+** Traditional chinese
 
 0.2.1
 
