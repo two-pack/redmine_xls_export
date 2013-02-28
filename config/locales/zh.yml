@@ -35,3 +35,12 @@ zh:
   label_plugin_xlse_export_format_quick_tooltip: "使用默认设置导出"
   label_plugin_xlse_export_format_detailed: "详情"
   label_plugin_xlse_export_format_detailed_tooltip: "导出之前选择配置"
+
+  label_plugin_xlse_date_created: "Created"
+  label_plugin_xlse_date_updated: "Updated"
+  label_plugin_xlse_date_start: "Start date"
+  label_plugin_xlse_date_due: "Due date"
+  default_created_format: "dd.mm.yyyy hh:mm:ss"
+  default_updated_format: "dd.mm.yyyy hh:mm:ss"
+  default_start_date_format: "dd.mm.yyyy"
+  default_due_date_format: "dd.mm.yyyy"

@@ -22,3 +22,12 @@ ru:
   label_plugin_xlse_export_format_quick_tooltip: "Сохранить в XLSб используя значения по умолчанию"
   label_plugin_xlse_export_format_detailed: "Подробный"
   label_plugin_xlse_export_format_detailed_tooltip: "Выбрать опции перед сохранением в XLS"
+
+  label_plugin_xlse_date_created: "Created"
+  label_plugin_xlse_date_updated: "Updated"
+  label_plugin_xlse_date_start: "Start date"
+  label_plugin_xlse_date_due: "Due date"
+  default_created_format: "dd.mm.yyyy hh:mm:ss"
+  default_updated_format: "dd.mm.yyyy hh:mm:ss"
+  default_start_date_format: "dd.mm.yyyy"
+  default_due_date_format: "dd.mm.yyyy"

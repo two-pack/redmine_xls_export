@@ -17,3 +17,12 @@ cs:
   
   label_plugin_xlse_field_attachment: "Přílohy"
   
+  label_plugin_xlse_date_created: "Created"
+  label_plugin_xlse_date_updated: "Updated"
+  label_plugin_xlse_date_start: "Start date"
+  label_plugin_xlse_date_due: "Due date"
+  default_created_format: "dd.mm.yyyy hh:mm:ss"
+  default_updated_format: "dd.mm.yyyy hh:mm:ss"
+  default_start_date_format: "dd.mm.yyyy"
+  default_due_date_format: "dd.mm.yyyy"
+  

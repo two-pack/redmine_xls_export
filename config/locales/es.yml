@@ -22,4 +22,7 @@ es:
   label_plugin_xlse_export_format_quick_tooltip: "Exportar usando valores predeterminados"
   label_plugin_xlse_export_format_detailed: "Detallada"
   label_plugin_xlse_export_format_detailed_tooltip: "Elegir opciones antes de exportar"
-
+  default_created_format: "dd.mm.yyyy hh:mm:ss"
+  default_updated_format: "dd.mm.yyyy hh:mm:ss"
+  default_start_date_format: "dd.mm.yyyy"
+  default_due_date_format: "dd.mm.yyyy"

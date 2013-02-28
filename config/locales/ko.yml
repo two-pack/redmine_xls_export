@@ -36,4 +36,8 @@ ko:
   label_plugin_xlse_export_format_quick_tooltip: "기본 설정으로 내보내기"
   label_plugin_xlse_export_format_detailed: "자세히 내보내기"
   label_plugin_xlse_export_format_detailed_tooltip: "옵션 선택하여 내보내기"
+  default_created_format: "dd.mm.yyyy hh:mm:ss"
+  default_updated_format: "dd.mm.yyyy hh:mm:ss"
+  default_start_date_format: "dd.mm.yyyy"
+  default_due_date_format: "dd.mm.yyyy"
 

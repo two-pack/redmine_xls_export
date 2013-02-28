@@ -99,6 +99,20 @@ module Redmine
     module XLS
       unloadable
 
+def add_date_format(date_formats, tag, format, default)
+  date_formats[tag] = (format == nil) ? default : format
+end
+
+def init_date_formats(options)
+  date_formats = {}
+  add_date_format(date_formats, :created_on, options[:created_format], l("default_created_format"))
+  add_date_format(date_formats, :updated_on, options[:updated_format], l("default_updated_format"))
+  add_date_format(date_formats, :start_date, options[:start_date_format],l("default_start_date_format"))
+  add_date_format(date_formats, :due_date, options[:due_date_format], l("default_due_date_format"))
+  
+  date_formats
+end
+
 # options are
 # :relations - export relations
 # :watchers - export watchers
@@ -116,12 +130,8 @@ module Redmine
         book = Spreadsheet::Workbook.new
         issue_columns = []
 
-        date_formats = {
-          :created_on => options[:created_format],
-          :updated_on => options[:updated_format],
-          :start_date => options[:start_date_format],
-          :due_date => options[:due_date_format]}
-
+        date_formats = init_date_formats(options);
+        
         (options[:query_columns_only] == '1' ? query.columns : query.available_columns).each do |c|
           case c.name
             when :formatted_relations
