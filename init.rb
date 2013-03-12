@@ -1,6 +1,11 @@
 require 'redmine'
 require 'dispatcher' unless Rails::VERSION::MAJOR >= 3
 require 'xlse_asset_helpers'
+begin
+  require 'zip/zip'
+rescue LoadError
+  ActionController::Base::logger.info 'XLS export controller: rubyzip gem not available'
+end
 
 unless Redmine::Plugin.registered_plugins.keys.include?(XLSE_AssetHelpers::PLUGIN_NAME)
   Redmine::Plugin.register XLSE_AssetHelpers::PLUGIN_NAME do
