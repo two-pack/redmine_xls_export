@@ -54,6 +54,12 @@ h3. Installation and Setup
 
 h3. History
 
+0.2.1.t2 (on github)
+
+* Supports Redmine 2.3.0.
+* Adds and fixes some translations for German.
+* Fixes invalid ruby zip message on admin plugin settings when open this page with first action.
+* Fixes that Internal Server Error is occurred with QUICK export when date formats are empty.
 
 0.2.1.t1 (additional features & translations on github)
 
