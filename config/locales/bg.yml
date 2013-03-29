@@ -1,20 +1,27 @@
 bg:
-  label_plugin_xlse_legend_0: "Columns options"
-  label_plugin_xlse_legend_1: "Export options"
+  label_plugin_xlse_legend_0: "Опции за колоните"
+  label_plugin_xlse_legend_1: "Опции"
   label_plugin_xlse_legend_1a: "Формат на датите"
-  label_plugin_xlse_legend_2: "Extra options"
-  label_plugin_xlse_legend_2_disabled: "Extra options (install rubyzip gem to access them)"
+  label_plugin_xlse_legend_2: "Допълнителни опции"
+  label_plugin_xlse_legend_2_disabled: "Допълнителни опции (инсталирайте rubyzip gem за достъп до тях)"
 
   label_plugin_xlse_relations: "Експорт на връзките"
   label_plugin_xlse_watchers: "Експорт на наблюдателите"
   label_plugin_xlse_description: "Експорт на описанията"
+  label_plugin_xlse_journal: "Експорт на събитията в задачите (журнал)"
   label_plugin_xlse_time: "Експорт на употребеното време"
   label_plugin_xlse_attachments: "Списък на прикачените файлове"
+
   label_plugin_xlse_query_columns_only: "Експорт само на избраните колони"
   label_plugin_xlse_group: "Разделяне по критерий за групиране"
   label_plugin_xlse_generate_name: "Предполагане на името на експортния файл"
+
+  label_plugin_xlse_export_attached: "Експорт на прикачените файлове"
+  label_plugin_xlse_separate_journals: "Журналите като отделни файлове"
+
   label_plugin_xlse_issues_limit: "Пренебрегване на максималния брой задачи за експорт"
   label_plugin_xlse_issues_limit_help: "0 — по подразбиране"
+  label_plugin_xlse_issues_offset: "Експорт на задачи, стартирайки от"
   label_plugin_xlse_export_name: "Разширение (суфикс) на експортния файл"
   
   label_plugin_xlse_settings_title: "Опции на експорта"
@@ -22,6 +29,7 @@ bg:
   label_plugin_xlse_button_back: "Назад към задачите"
   
   label_plugin_xlse_field_attachment: "Прикачени файлове"
+  label_plugin_xlse_field_journal: "Журнал"
   
   label_plugin_xlse_export_format: "Експорт в XLS:"
   label_plugin_xlse_export_format_quick: "Бързо"
