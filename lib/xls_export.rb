@@ -113,6 +113,10 @@ def init_date_formats(options)
   date_formats
 end
 
+def show_multiple_values(issue, custom_field)
+  format_value(issue.custom_field_value(custom_field), custom_field.field_format)
+end
+
 # options are
 # :relations - export relations
 # :watchers - export watchers
@@ -200,6 +204,8 @@ end
                   rescue
                     show_value(issue.custom_value_for(c.custom_field))
                   end
+                when "list", "version", "user"
+                  show_multiple_values(issue, c.custom_field)
               else
                 show_value(issue.custom_value_for(c.custom_field))
               end
