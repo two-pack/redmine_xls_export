@@ -113,10 +113,6 @@ module Redmine
         date_formats
       end
 
-      def show_multiple_values(issue, custom_field)
-        format_value(issue.custom_field_value(custom_field), custom_field.field_format)
-      end
-
 # options are
 # :relations - export relations
 # :watchers - export watchers
@@ -185,30 +181,8 @@ module Redmine
 
           issue_columns.each_with_index do |c, j|
             v = if c.is_a?(QueryCustomFieldColumn)
-              case c.custom_field.field_format
-                when "int"
-                  begin
-                    Integer(issue.custom_value_for(c.custom_field).to_s)
-                  rescue
-                    show_value(issue.custom_value_for(c.custom_field))
-                  end
-                when "float"
-                  begin
-                    Float(issue.custom_value_for(c.custom_field).to_s)
-                  rescue
-                    show_value(issue.custom_value_for(c.custom_field))
-                  end
-                when "date"
-                  begin
-                    Date.parse(issue.custom_value_for(c.custom_field).to_s)
-                  rescue
-                    show_value(issue.custom_value_for(c.custom_field))
-                  end
-                when "list", "version", "user"
-                  show_multiple_values(issue, c.custom_field)
-              else
-                show_value(issue.custom_value_for(c.custom_field))
-              end
+              value = issue.custom_field_values.detect {|v| v.custom_field == c.custom_field}
+              show_value(value) unless value.nil?
             else
               case c.name
                 when :done_ratio
