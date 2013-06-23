@@ -99,23 +99,23 @@ module Redmine
     module XLS
       unloadable
 
-def add_date_format(date_formats, tag, format, default)
-  date_formats[tag] = (format == nil) ? default : format
-end
+      def add_date_format(date_formats, tag, format, default)
+        date_formats[tag] = (format == nil) ? default : format
+      end
 
-def init_date_formats(options)
-  date_formats = {}
-  add_date_format(date_formats, :created_on, options[:created_format], l("default_created_format"))
-  add_date_format(date_formats, :updated_on, options[:updated_format], l("default_updated_format"))
-  add_date_format(date_formats, :start_date, options[:start_date_format],l("default_start_date_format"))
-  add_date_format(date_formats, :due_date, options[:due_date_format], l("default_due_date_format"))
-  
-  date_formats
-end
+      def init_date_formats(options)
+        date_formats = {}
+        add_date_format(date_formats, :created_on, options[:created_format], l("default_created_format"))
+        add_date_format(date_formats, :updated_on, options[:updated_format], l("default_updated_format"))
+        add_date_format(date_formats, :start_date, options[:start_date_format],l("default_start_date_format"))
+        add_date_format(date_formats, :due_date, options[:due_date_format], l("default_due_date_format"))
 
-def show_multiple_values(issue, custom_field)
-  format_value(issue.custom_field_value(custom_field), custom_field.field_format)
-end
+        date_formats
+      end
+
+      def show_multiple_values(issue, custom_field)
+        format_value(issue.custom_field_value(custom_field), custom_field.field_format)
+      end
 
 # options are
 # :relations - export relations
