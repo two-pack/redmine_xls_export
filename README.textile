@@ -54,6 +54,12 @@ h3. Installation and Setup
 
 h3. History
 
+0.2.1.t3 (on github)
+
+* Fixed invalid export result when issue has multiple values of custom fields.
+* Fixed a source in the Gemfile.
+* Added Bulgarian translations of several labels.
+
 0.2.1.t2 (on github)
 
 * Supports Redmine 2.3.0.
