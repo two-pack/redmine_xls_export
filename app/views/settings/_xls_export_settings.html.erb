@@ -19,22 +19,26 @@
 
 <fieldset class="box tabular">
   <legend><%= l(:label_plugin_xlse_legend_1a) %></legend>
-  <label class="floating">
-    <%= l(:label_plugin_xlse_date_created) %>
+  <p>
+    <%= label_tag :label_plugin_xlse_date_created, l(:label_plugin_xlse_date_created) %>
     <%= text_field_tag 'settings[created_format]', @settings['created_format'], {:size => 25, :maxlength => 20 } %>
-  </label>
-  <label class="floating">
-    <%= l(:label_plugin_xlse_date_updated) %>
+    (<%= l :label_default %>: <%= l :default_created_format %>)
+  </p>
+  <p>
+    <%= label_tag :label_plugin_xlse_date_updated, l(:label_plugin_xlse_date_updated) %>
     <%= text_field_tag 'settings[updated_format]', @settings['updated_format'], {:size => 25, :maxlength => 20 } %>
-  </label>
-  <label class="floating">
-    <%= l(:label_plugin_xlse_date_start) %>
+    (<%= l :label_default %>: <%= l :default_updated_format %>)
+  </p>
+  <p>
+    <%= label_tag :label_plugin_xlse_date_start, l(:label_plugin_xlse_date_start) %>
     <%= text_field_tag 'settings[start_date_format]', @settings['start_date_format'], {:size => 12, :maxlength => 20 } %>
-  </label>
-  <label class="floating">
-    <%= l(:label_plugin_xlse_date_due) %>
+    (<%= l :label_default %>: <%= l :default_start_date_format %>)
+  </p>
+  <p>
+    <%= label_tag :label_plugin_xlse_date_due, l(:label_plugin_xlse_date_due) %>
     <%= text_field_tag 'settings[due_date_format]', @settings['due_date_format'], {:size => 12, :maxlength => 20 } %>
-  </label>
+    (<%= l :label_default %>: <%= l :default_due_date_format %>)
+  </p>
 </fieldset>
 
 <fieldset class="box tabular">
