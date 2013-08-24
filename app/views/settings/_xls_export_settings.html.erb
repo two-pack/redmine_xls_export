@@ -51,8 +51,11 @@
 
 <fieldset class="box tabular">
   <p> 
-    <%= label_tag('settings[issues_limit]', "#{l(:label_plugin_xlse_issues_limit)}<br/>#{l(:label_plugin_xlse_issues_limit_help)}".html_safe ) %>
+    <%= label_tag('settings[issues_limit]', l(:label_plugin_xlse_issues_limit)) %>
     <%= text_field_tag 'settings[issues_limit]', @settings['issues_limit'], {:size => 6, :maxlength => 10 } %>
+    <em class="info">
+      <%= l(:label_plugin_xlse_issues_limit_help) %>
+    </em>
   </p>
 
   <% unless defined?(export).nil? %>
