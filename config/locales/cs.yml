@@ -1,26 +1,46 @@
-cs:
-  label_plugin_xlse_relations: "Exportovat vazby"
-  label_plugin_xlse_watchers: "Exportovat sledování"
-  label_plugin_xlse_description: "Exportovat popis"
-  label_plugin_xlse_time: "Exportovat strávený čas"
-  label_plugin_xlse_attachments: "Vypsat přílohy"
-  label_plugin_xlse_query_columns_only: "Exportovat pouze zvolené sloupce"
-  label_plugin_xlse_group: "Rozdělit podle seskupení"
-  label_plugin_xlse_generate_name: "Generovat název exportu"
-  label_plugin_xlse_issues_limit: "Změnit horní mez exportu"
-  label_plugin_xlse_issues_limit_help: "0 - použít výchozí"
-  label_plugin_xlse_export_name: "Postfix názvu exportního souboru"
-  
-  label_plugin_xlse_settings_title: "Detaily exportu"
-  label_plugin_xlse_button_export: "Export"
-  label_plugin_xlse_button_back: "Zpět na úkoly"
-  
-  label_plugin_xlse_field_attachment: "Přílohy"
-  
-  label_plugin_xlse_date_created: "Created"
-  label_plugin_xlse_date_updated: "Updated"
-  label_plugin_xlse_date_start: "Start date"
-  label_plugin_xlse_date_due: "Due date"
+cs:    
+  label_plugin_xlse_legend_0: Volby sloupců
+  label_plugin_xlse_legend_1: Volby exportu
+  label_plugin_xlse_legend_1a: Nastavení formátu datumu
+  label_plugin_xlse_legend_2: Další volby
+  label_plugin_xlse_legend_2_disabled: Další volby (pro přístup nainstaluj rubyzip gem)
+
+  label_plugin_xlse_relations: Exportovat vazby
+  label_plugin_xlse_watchers: Exportovat sledování
+  label_plugin_xlse_description: Exportovat popis
+  label_plugin_xlse_journal: Exportovat historii
+  label_plugin_xlse_time: Exportovat strávený čas
+  label_plugin_xlse_attachments: Vypsat přílohy
+
+  label_plugin_xlse_query_columns_only: Exportovat pouze zvolené sloupce
+  label_plugin_xlse_group: Rozdělit podle seskupení
+  label_plugin_xlse_generate_name: Generovat název exportu
+
+  label_plugin_xlse_export_attached: Exportovat přílohy
+  label_plugin_xlse_separate_journals: Historie úkolů jako extra soubory
+
+  label_plugin_xlse_issues_limit: Změnit horní mez exportu
+  label_plugin_xlse_issues_limit_help: 0 - použít výchozí
+  label_plugin_xlse_issues_offset: Exportovat úkoly začínající od
+  label_plugin_xlse_export_name: Koncovka názvu exportního souboru
+
+  label_plugin_xlse_settings_title: Detaily exportu
+  label_plugin_xlse_button_export: Export
+  label_plugin_xlse_button_back: Zpět na úkoly
+
+  label_plugin_xlse_field_attachment: Přílohy
+  label_plugin_xlse_field_journal: Historie
+
+  label_plugin_xlse_export_format: "XLS export:"
+  label_plugin_xlse_export_format_quick: Rychlý
+  label_plugin_xlse_export_format_quick_tooltip: Export podle výchozího nastavení
+  label_plugin_xlse_export_format_detailed: Detailní
+  label_plugin_xlse_export_format_detailed_tooltip: Nastavení voleb před exportem
+
+  label_plugin_xlse_date_created: Vytvořeno
+  label_plugin_xlse_date_updated: Aktualizováno
+  label_plugin_xlse_date_start: Začátek
+  label_plugin_xlse_date_due: Uzavřít do
   default_created_format: "dd.mm.yyyy hh:mm:ss"
   default_updated_format: "dd.mm.yyyy hh:mm:ss"
   default_start_date_format: "dd.mm.yyyy"
