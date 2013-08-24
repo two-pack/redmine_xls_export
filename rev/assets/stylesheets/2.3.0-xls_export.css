@@ -29,3 +29,8 @@ a.xlse {
   margin-left: -180px;
   width: 175px;
 }
+
+.tabular.box p em.info {
+    display: inline;
+}
+

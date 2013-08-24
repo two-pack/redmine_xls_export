@@ -15,3 +15,7 @@ a.xlse {
   width: 270px;
   color: #aaa;
 }
+
+.tabular.box p em.info {
+    display: inline;
+}
