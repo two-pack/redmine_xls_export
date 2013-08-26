@@ -113,6 +113,42 @@ module Redmine
         date_formats
       end
 
+      def has_description?(query)
+        query.available_columns.each do |c|
+           return true if c.name == :description
+        end
+        return false
+      end
+
+      def use_export_description_setting?(query, options)
+        if has_description?(query) == false && options[:description] == '1'
+          return true
+        end
+        return false
+      end
+
+      def create_issue_columns(project, query, options)
+        issue_columns = []
+
+        (options[:query_columns_only] == '1' ? query.columns : query.available_columns).each do |c|
+          case c.name
+            when :formatted_relations
+              issue_columns << c if options[:relations] == '1'
+            when :estimated_hours
+              issue_columns << XLS_SpentTimeQueryColumn.new(:spent_time) if options[:time] == '1'
+              issue_columns << c if column_exists_for_project?(c, project)
+            else
+              issue_columns << c if column_exists_for_project?(c, project)
+          end
+        end
+
+        issue_columns << QueryColumn.new(:watcher) if options[:watchers] == '1'
+        issue_columns << XLS_AttachmentQueryColumn.new(:attachments) if options[:attachments] == '1'
+        issue_columns << XLS_JournalQueryColumn.new(:journal) if options[:journal] == '1'
+        issue_columns << QueryColumn.new(:description) if use_export_description_setting?(query, options)
+        issue_columns
+      end
+
 # options are
 # :relations - export relations
 # :watchers - export watchers
@@ -126,28 +162,11 @@ module Redmine
 
         Spreadsheet.client_encoding = 'UTF-8'
 
+        date_formats = init_date_formats(options);
+
         group_by_query=query.grouped? ? options[:group] : false
         book = Spreadsheet::Workbook.new
-        issue_columns = []
-
-        date_formats = init_date_formats(options);
-        
-        (options[:query_columns_only] == '1' ? query.columns : query.available_columns).each do |c|
-          case c.name
-            when :formatted_relations
-              issue_columns << c if options[:relations] == '1'
-            when :estimated_hours
-              issue_columns << XLS_SpentTimeQueryColumn.new(:spent_time) if options[:time] == '1'
-              issue_columns << c if column_exists_for_project?(c,project)
-          else
-            issue_columns << c if column_exists_for_project?(c,project)
-          end
-        end
-
-        issue_columns << QueryColumn.new(:watcher) if options[:watchers] == '1'
-        issue_columns << XLS_AttachmentQueryColumn.new(:attachments) if options[:attachments] == '1'
-        issue_columns << XLS_JournalQueryColumn.new(:journal) if options[:journal] == '1'
-        issue_columns << QueryColumn.new(:description) if options[:description] == '1'
+        issue_columns = create_issue_columns(project, query, options)
 
         sheet1 = nil
         group = false

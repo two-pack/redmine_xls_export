@@ -1,0 +1,72 @@
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag :xls_export, :plugin => 'redmine_xls_export'  %>
+<% end %>
+
+<% fields_all = [%w(relations watchers description journal time attachments), %w(query_columns_only group generate_name), %w(export_attached separate_journals)] %>
+<% fields_all.each_with_index do |c,idx|%>
+  <fieldset class="box tabular">
+    <% group_disabled= (idx != (fields_all.size-1) || defined?(Zip::ZipOutputStream::write_buffer)) ? false : true %>
+    <legend><%= l(group_disabled ? "label_plugin_xlse_legend_#{idx}_disabled" : "label_plugin_xlse_legend_#{idx}")  %></legend>
+    <% group_disabled=false if defined?(export).nil? %>
+    <% c.each do |fnm| -%>
+      <label class="<%= group_disabled ? "floating-disabled" : "floating" %>">
+        <%= check_box_tag "settings[#{fnm}]", 1, @settings[fnm] == '1'? true : false, group_disabled ? {:disabled => true} : {} %>
+        <%= l("label_plugin_xlse_#{fnm}") %>
+      </label>
+    <% end %>
+  </fieldset>
+<% end %>
+
+<fieldset class="box tabular">
+  <legend><%= l(:label_plugin_xlse_legend_1a) %></legend>
+  <p>
+    <%= label_tag(:label_plugin_xlse_date_created, l(:label_plugin_xlse_date_created)) %>
+    <%= text_field_tag 'settings[created_format]', @settings['created_format'], {:size => 25, :maxlength => 20 } %>
+    <em class="info">
+      <%= l(:label_example) %>: <%= l(:default_created_format) %>
+    </em>
+  </p>
+  <p>
+    <%= label_tag(:label_plugin_xlse_date_updated, l(:label_plugin_xlse_date_updated)) %>
+    <%= text_field_tag 'settings[updated_format]', @settings['updated_format'], {:size => 25, :maxlength => 20 } %>
+    <em class="info">
+      <%= l(:label_example) %>: <%= l(:default_updated_format) %>
+    </em>
+  </p>
+  <p>
+    <%= label_tag(:label_plugin_xlse_date_start, l(:label_plugin_xlse_date_start)) %>
+    <%= text_field_tag 'settings[start_date_format]', @settings['start_date_format'], {:size => 12, :maxlength => 20 } %>
+    <em class="info">
+      <%= l(:label_example) %>: <%= l(:default_start_date_format) %>
+    </em>
+  </p>
+  <p>
+    <%= label_tag(:label_plugin_xlse_date_due, l(:label_plugin_xlse_date_due)) %>
+    <%= text_field_tag 'settings[due_date_format]', @settings['due_date_format'], {:size => 12, :maxlength => 20 } %>
+    <em class="info">
+      <%= l(:label_example) %>: <%= l(:default_due_date_format) %>
+    </em>
+  </p>
+</fieldset>
+
+<fieldset class="box tabular">
+  <p> 
+    <%= label_tag('settings[issues_limit]', l(:label_plugin_xlse_issues_limit)) %>
+    <%= text_field_tag 'settings[issues_limit]', @settings['issues_limit'], {:size => 6, :maxlength => 10 } %>
+    <em class="info">
+      <%= l(:label_plugin_xlse_issues_limit_help) %>
+    </em>
+  </p>
+
+  <% unless defined?(export).nil? %>
+    <p>
+      <%= label_tag('issues_export_offset', "#{l(:label_plugin_xlse_issues_offset)}".html_safe ) %>
+      <%= text_field_tag 'issues_export_offset', @issues_export_offset.to_s, {:size => 6, :maxlength => 10 } %>
+    </p>
+  <% end %>
+
+  <p>
+    <%= label_tag('settings[export_name]', l(:label_plugin_xlse_export_name) ) %>
+    <%= text_field_tag 'settings[export_name]', @settings['export_name'], {:size => 40, :maxlength => 80 } %>
+  </p>
+</fieldset>
