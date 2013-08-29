@@ -113,11 +113,19 @@ module Redmine
         date_formats
       end
 
-      def has_description?(query)
+      def has_in_query?(query, name)
         query.available_columns.each do |c|
-           return true if c.name == :description
+          return true if c.name == name
         end
         return false
+      end
+
+      def has_id?(query)
+        has_in_query?(query, :id)
+      end
+
+      def has_description?(query)
+        has_in_query?(query, :description)
       end
 
       def use_export_description_setting?(query, options)
@@ -125,6 +133,14 @@ module Redmine
           return true
         end
         return false
+      end
+
+      def init_row(row, query, first)
+        if has_id?(query)
+          row.replace []
+        else
+          row.replace [first]
+        end
       end
 
       def create_issue_columns(project, query, options)
@@ -180,18 +196,18 @@ module Redmine
               group = new_group
               update_sheet_formatting(sheet1,columns_width) if sheet1
               sheet1 = book.create_worksheet(:name => (group.blank? ? l(:label_none) : pretty_xls_tab_name(group.to_s)))
-              columns_width=init_header_columns(sheet1,issue_columns,date_formats)
+              columns_width=init_header_columns(query, sheet1,issue_columns,date_formats)
               idx = 0
             end
           else
             if sheet1 == nil
               sheet1 = book.create_worksheet(:name => l(:label_issue_plural))
-              columns_width=init_header_columns(sheet1,issue_columns,date_formats)
+              columns_width=init_header_columns(query, sheet1,issue_columns,date_formats)
             end
           end
 
           row = sheet1.row(idx+1)
-          row.replace [issue.id]
+          init_row(row, query, issue.id)
 
           lf_pos = get_value_width(issue.id)
           columns_width[0] = lf_pos unless columns_width[0] >= lf_pos
@@ -255,7 +271,8 @@ module Redmine
             value = %w(Time Date Fixnum Float Integer String).include?(v.class.name) ? v : v.to_s
 
             lf_pos = get_value_width(value)
-            columns_width[j+1] = lf_pos unless columns_width[j+1] >= lf_pos
+            index = has_id?(query) ? j : j + 1
+            columns_width[index] = lf_pos unless columns_width[index] >= lf_pos
             row << value
           end
 
@@ -334,10 +351,10 @@ module Redmine
         return false
       end
 
-      def init_header_columns(sheet1,columns,date_formats)
+      def init_header_columns(query, sheet1,columns,date_formats)
 
-        columns_width = [1]
-        sheet1.row(0).replace ["#"]
+        columns_width = has_id?(query) ? [] : [1]
+        init_row(sheet1.row(0), query, "#")
 
         columns.each do |c|
           sheet1.row(0) << c.caption
@@ -369,8 +386,8 @@ module Redmine
             end
           end
 
-          sheet1.column(idx+1).default_format = Spreadsheet::Format.new(opt) unless opt.empty?
-          columns_width[idx+1] = width unless columns_width[idx+1] >= width
+          sheet1.column(idx).default_format = Spreadsheet::Format.new(opt) unless opt.empty?
+          columns_width[idx] = width unless columns_width[idx] >= width
         end
 
         return columns_width
