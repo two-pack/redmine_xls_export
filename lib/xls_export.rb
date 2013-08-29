@@ -128,8 +128,19 @@ module Redmine
         has_in_query?(query, :description)
       end
 
+      def has_spent_time?(query)
+        has_in_query?(query, :description)
+      end
+
       def use_export_description_setting?(query, options)
         if has_description?(query) == false && options[:description] == '1'
+          return true
+        end
+        return false
+      end
+
+      def use_export_spent_time?(query, options)
+        if has_spent_time?(query) == false && options[:time] == '1'
           return true
         end
         return false
@@ -151,7 +162,7 @@ module Redmine
             when :formatted_relations
               issue_columns << c if options[:relations] == '1'
             when :estimated_hours
-              issue_columns << XLS_SpentTimeQueryColumn.new(:spent_time) if options[:time] == '1'
+              issue_columns << XLS_SpentTimeQueryColumn.new(:spent_time) if use_export_spent_time?(query, options)
               issue_columns << c if column_exists_for_project?(c, project)
             else
               issue_columns << c if column_exists_for_project?(c, project)
