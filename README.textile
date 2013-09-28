@@ -17,9 +17,19 @@ With the help of this plugin you can export issues list with all information to 
 
 h3. Requirements
 
-Plugin requires Redmine version 1.3.0 or higher.
+* Redmine version 1.3.0 or higher.
+* "Plugin views with revisions":http://www.redmine.org/plugins/redmine_plugin_views_revisions
 
-Plugin relies on *spreadsheet* gem for XLS based operations. Please install this gem before running plugin. Also if you want to use attachments export you should install *rubyzip* gem.
+
+h3. Installation and Setup
+
+# Run bundler ('bundle install') or with option ('bundle install --without export_attachments') if you want to use export attachments feature
+# Install plugin "Plugin views with revisions":http://www.redmine.org/plugins/redmine_plugin_views_revisions if you do not have it installed
+# Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins
+# Run rake task
+ *rake redmine:plugins:process_version_change RAILS_ENV=production*
+# Login and configure the plugin (Administration > Plugins > Configure)
+
 
 h3. Features
 
@@ -42,15 +52,6 @@ Plugin adds following links with 'XLS export:' prefix at the bottom of the page 
  One click export to XLS using default export settings from plugin configuration screen
 * *Detailed*
  Brings up dialog where user can choose export options before export
-
-h3. Installation and Setup
-
-# Run bundler ('bundle install') or with option ('bundle install --without export_attachments') if you want to use export attachments feature
-# Install plugin "Plugin views with revisions":http://www.redmine.org/plugins/redmine_plugin_views_revisions if you do not have it installed
-# Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins
-# Run rake task
- *rake redmine:plugins:process_version_change RAILS_ENV=production*
-# Login and configure the plugin (Administration > Plugins > Configure)
 
 h3. History
 
