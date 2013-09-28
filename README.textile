@@ -55,6 +55,11 @@ Plugin adds following links with 'XLS export:' prefix at the bottom of the page 
 
 h3. History
 
+0.2.1.t4 (on github)
+* Re-formatted a settings view of date format. 
+* Fixed Czech localisation.
+* Fixed description column duplicated.
+
 0.2.1.t3 (on github)
 
 * Fixed invalid export result when issue has multiple values of custom fields.
