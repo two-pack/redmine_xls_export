@@ -1,0 +1,38 @@
+tr:
+  label_plugin_xlse_legend_0: "Kolon seçenekleri"
+  label_plugin_xlse_legend_1: "Dışa aktarma seçenekleri"
+  label_plugin_xlse_legend_2: "Ek seçenekler"
+  label_plugin_xlse_legend_2_disabled: "Ek seçenekler (erişmek için rubyzip kurun)"
+
+  label_plugin_xlse_relations: "İlişkileri dışa aktar"
+  label_plugin_xlse_watchers: "Takipçileri dışa aktar"
+  label_plugin_xlse_description: "Açıklamayı dışa aktar"
+  label_plugin_xlse_journal: "Günlük kayıtlarını dışa aktar"
+  label_plugin_xlse_time: "Harcanan zamanı dışa aktar"
+  label_plugin_xlse_attachments: "Ekleri listele"
+
+  label_plugin_xlse_query_columns_only: "Sadece seçili kolonları dışa aktar"
+  label_plugin_xlse_group: "Gruplama kriterine göre bölümle"
+  label_plugin_xlse_generate_name: "Dışa aktarma ismi öner"
+
+  label_plugin_xlse_export_attached: "Ekleri dışa aktar"
+  label_plugin_xlse_separate_journals: "İş günlük girdileri ayrı dosya olarak"
+
+  label_plugin_xlse_issues_limit: "Dışa aktarma sınırını aş"
+  label_plugin_xlse_issues_limit_help: "0 - öntanımlı kullan"
+  label_plugin_xlse_issues_offset: "itibaren başlayarak dışa aktar"
+  label_plugin_xlse_export_name: "Dışa aktarma ismi eki"
+
+  label_plugin_xlse_settings_title: "Detayları dışa aktar"
+  label_plugin_xlse_button_export: "Dışa aktar"
+  label_plugin_xlse_button_back: "İşlere dön"
+
+  label_plugin_xlse_field_attachment: "Attachments"
+  label_plugin_xlse_field_journal: "Journal"
+
+  label_plugin_xlse_export_format: "XLS dışa aktar:"
+  label_plugin_xlse_export_format_quick: "Hızlı"
+  label_plugin_xlse_export_format_quick_tooltip: "Öntanımlı ayarlar ile dışa aktar"
+  label_plugin_xlse_export_format_detailed: "Detaylı"
+  label_plugin_xlse_export_format_detailed_tooltip: "Dışa aktarmadan önce seçenekleri ayarla"
+
