@@ -78,16 +78,18 @@ class XLS_JournalQueryColumn < XLS_QueryColumn
     hist_str = ''
     issue_updates = issue.journals.all(:include => [:user, :details], :order => "#{Journal.table_name}.created_on ASC")
     issue_updates.each do |journal|
-      hist_str << "#{format_time(journal.created_on)} - #{journal.user.name}\n"
-      journal.details.each do |detail|
-        hist_str <<  " - #{show_detail(detail, true)}"
-        hist_str << "\n" unless detail == journal.details.last
+      if !journal.private_notes? or User.current.allowed_to?(:view_private_notes, journal.project)
+        hist_str << "#{format_time(journal.created_on)} - #{journal.user.name}\n"
+        journal.details.each do |detail|
+          hist_str <<  " - #{show_detail(detail, true)}"
+          hist_str << "\n" unless detail == journal.details.last
+        end
+        if journal.notes?
+            hist_str << "\n" unless journal.details.empty?
+            hist_str << journal.notes.to_s
+        end
+        hist_str << "\n" unless journal == issue_updates.last
       end
-      if journal.notes?
-        hist_str << "\n" unless journal.details.empty?
-        hist_str << journal.notes.to_s
-      end
-      hist_str << "\n" unless journal == issue_updates.last
     end
     hist_str
   end
@@ -322,23 +324,25 @@ module Redmine
 
         idx=0
         issue_updates.each do |journal|
-          row = sheet1.row(idx+1)
-          row.replace []
+          if !journal.private_notes? or User.current.allowed_to?(:view_private_notes, journal.project)
+            row = sheet1.row(idx+1)
+            row.replace []
 
-          details=''
-          journal.details.each do |detail|
-            details <<  "#{show_detail(detail, true)}"
-            details << "\n" unless detail == journal.details.last
+            details=''
+            journal.details.each do |detail|
+              details <<  "#{show_detail(detail, true)}"
+              details << "\n" unless detail == journal.details.last
+            end
+            notes=(journal.notes? ? journal.notes.to_s : '')
+
+            [idx+1,journal.created_on,journal.user.name,details,notes].each_with_index do |e,e_idx|
+              lf_pos = get_value_width(e)
+              columns_width[e_idx] = lf_pos unless columns_width[e_idx] >= lf_pos
+              row << e
+            end
+
+            idx=idx+1
           end
-          notes=(journal.notes? ? journal.notes.to_s : '')
-
-          [idx+1,journal.created_on,journal.user.name,details,notes].each_with_index do |e,e_idx|
-            lf_pos = get_value_width(e)
-            columns_width[e_idx] = lf_pos unless columns_width[e_idx] >= lf_pos
-            row << e
-          end
-
-          idx=idx+1
         end
 
         update_sheet_formatting(sheet1,columns_width)
