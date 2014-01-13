@@ -35,7 +35,7 @@ class XlsExportController < ApplicationController
       @issues_export_offset=params[:issues_export_offset].to_i || 0
       if retrieve_xls_export_data(@settings)
         export_name = get_xls_export_name(@settings)
-        send_data(export_to_string(export_name), :type => export_name[1].to_sym, :filename => export_name.join("."))
+        send_data(export_to_string(export_name), :type => export_name[1].to_sym, :filename => filename_for_content_disposition(export_name.join(".")))
       else
         redirect_to :controller => 'issues', :action => 'index', :project_id => @project
       end
@@ -47,7 +47,7 @@ class XlsExportController < ApplicationController
     @issues_export_offset=params[:issues_export_offset].to_i || 0
     if retrieve_xls_export_data
       export_name = get_xls_export_name
-      send_data(export_to_string(export_name), :type => export_name[1].to_sym, :filename => export_name.join("."))
+      send_data(export_to_string(export_name), :type => export_name[1].to_sym, :filename => filename_for_content_disposition(export_name.join(".")))
     else
       # Send html if the query is not valid
       render(:template => 'issues/index', :layout => !request.xhr?)
