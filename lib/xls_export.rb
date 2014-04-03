@@ -101,6 +101,14 @@ module Redmine
     module XLS
       unloadable
 
+      def show_value_for_xls(value)
+        if CustomFieldsHelper.instance_method(:show_value).arity == 1
+          show_value(value)
+        else
+          show_value(value, false)
+        end
+      end
+
       def add_date_format(date_formats, tag, format, default)
         date_formats[tag] = (format == nil) ? default : format
       end
@@ -230,7 +238,7 @@ module Redmine
           issue_columns.each_with_index do |c, j|
             v = if c.is_a?(QueryCustomFieldColumn)
               value = issue.custom_field_values.detect {|v| v.custom_field == c.custom_field}
-              show_value(value) unless value.nil?
+              show_value_for_xls(value) unless value.nil?
             else
               case c.name
                 when :done_ratio

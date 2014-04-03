@@ -9,7 +9,10 @@ class XlsExportTest < ActionController::IntegrationTest
            :members,
            :enabled_modules,
            :workflows,
-           :custom_fields, :custom_fields_trackers, :custom_fields_projects, :custom_values
+           :custom_values
+
+  ActiveRecord::Fixtures.create_fixtures(File.dirname(__FILE__) + '/../fixtures/',
+                         [:custom_fields, :custom_fields_projects, :custom_fields_trackers])
 
   def assert_export_filename(suffix)
     assert_match /attachment; filename=".+_#{suffix}.xls"/, @response.header['Content-Disposition']
@@ -27,6 +30,14 @@ class XlsExportTest < ActionController::IntegrationTest
     assert_select 'div#settings'
 
     post '/projects/ecookbook/issues_xls_export'
+    assert_response :success
+    assert_export_filename('issues_export')
+  end
+
+  def test_export_with_cf_which_is_selectable_multi_items
+    log_user('jsmith', 'jsmith')
+
+    get '/projects/onlinestore/issues_xls_export_current'
     assert_response :success
     assert_export_filename('issues_export')
   end
