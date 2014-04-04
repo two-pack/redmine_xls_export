@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem "spreadsheet"
 
 group :export_attachments do
-  gem "rubyzip"
-  # gem "zip-zip" # is enable if Redmine is 2.4.x or later.
+  # If you use Redmine 2.3.x or older, remove rubyzip version and zip-zip.
+  gem "rubyzip", "1.0.0"
+  gem "zip-zip", "0.2"
 end
 
