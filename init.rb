@@ -2,7 +2,7 @@ require 'redmine'
 require 'dispatcher' unless Rails::VERSION::MAJOR >= 3
 require 'xlse_asset_helpers'
 begin
-  require 'zip/zip'
+  require 'zip-zip'
 rescue LoadError
   ActionController::Base::logger.info 'XLS export controller: rubyzip gem not available'
 end
