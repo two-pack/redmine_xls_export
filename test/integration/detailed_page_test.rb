@@ -36,7 +36,7 @@ class DetailedPageTest < ActionController::IntegrationTest
 
   def setup
     login_with_user
-    visit 'projects/ecookbook/issues_xls_export'
+    visit '/projects/ecookbook/issues_xls_export'
     assert_not_nil page
   end
 

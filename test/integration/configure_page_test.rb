@@ -38,6 +38,10 @@ class ConfigurePageTest < ActionController::IntegrationTest
     assert_not_nil page
   end
 
+  def show_detailed_page
+    visit '/projects/ecookbook/issues_xls_export'
+    assert_not_nil page
+  end
 
   def setup
     login_with_admin
@@ -61,6 +65,13 @@ class ConfigurePageTest < ActionController::IntegrationTest
     click_button 'Apply'
 
     show_configure_page
+    assert_changed_columns_options
+
+    show_detailed_page
+    assert_changed_columns_options
+  end
+
+  def assert_changed_columns_options
     assert_equal page.has_checked_field?('settings_relations'), false
     assert_equal page.has_checked_field?('settings_watchers'), false
     assert_equal page.has_checked_field?('settings_journal'), true
@@ -74,6 +85,13 @@ class ConfigurePageTest < ActionController::IntegrationTest
     click_button 'Apply'
 
     show_configure_page
+    assert_changed_export_options
+
+    show_detailed_page
+    assert_changed_export_options
+  end
+
+  def assert_changed_export_options
     assert_equal page.has_checked_field?('settings_query_columns_only'), true
     assert_equal page.has_checked_field?('settings_group'), true
     assert_equal page.has_checked_field?('settings_generate_name'), false
@@ -85,6 +103,13 @@ class ConfigurePageTest < ActionController::IntegrationTest
     click_button 'Apply'
 
     show_configure_page
+    assert_changed_extra_options
+
+    show_detailed_page
+    assert_changed_extra_options
+  end
+
+  def assert_changed_extra_options
     assert_equal page.has_checked_field?('settings_export_attached'), true
     assert_equal page.has_checked_field?('settings_separate_journals'), true
   end
@@ -97,6 +122,13 @@ class ConfigurePageTest < ActionController::IntegrationTest
     click_button 'Apply'
 
     show_configure_page
+    assert_changed_date_format_options
+
+    show_detailed_page
+    assert_changed_date_format_options
+  end
+
+  def assert_changed_date_format_options
     assert page.has_field?('settings_created_format', :with => 'aaaaa')
     assert page.has_field?('settings_updated_format', :with => 'bbbbb')
     assert page.has_field?('settings_start_date_format', :with => 'ccccc')
@@ -109,6 +141,13 @@ class ConfigurePageTest < ActionController::IntegrationTest
     click_button 'Apply'
 
     show_configure_page
+    assert_changed_other_options
+
+    show_detailed_page
+    assert_changed_other_options
+  end
+
+  def assert_changed_other_options
     assert page.has_field?('settings_issues_limit', :with => '100')
     assert page.has_field?('settings_export_name', :with => 'test_suffix')
   end
