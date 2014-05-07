@@ -74,6 +74,10 @@ class ConfigurePageTest < ActionController::IntegrationTest
     assert page.has_field?('settings_export_name', :with => 'issues_export')
   end
 
+  def test_not_to_show_issue_export_offset_setting
+    assert page.has_no_selector?('input#issues_export_offset')
+  end
+
   def teardown
     logout
   end
