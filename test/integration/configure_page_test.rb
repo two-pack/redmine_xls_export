@@ -33,49 +33,84 @@ class ConfigurePageTest < ActionController::IntegrationTest
     assert page.has_link?("Sign in")
   end
 
+  def show_configure_page
+    visit '/settings/plugin/redmine_xls_export'
+    assert_not_nil page
+  end
+
 
   def setup
     login_with_admin
-    visit '/settings/plugin/redmine_xls_export'
-    assert_not_nil page
+    show_configure_page
   end
 
   def test_to_show_configure_page_by_administrator
     assert page.has_css?('h2', text: ' » Issues XLS export')
   end
 
-  def test_to_set_default_values_of_columns_options
-    assert_equal page.has_checked_field?('settings_relations'), true
-    assert_equal page.has_checked_field?('settings_watchers'), true
-    assert_equal page.has_checked_field?('settings_journal'), false
-    assert_equal page.has_checked_field?('settings_attachments'), false
-  end
-
-  def test_to_set_default_values_of_export_options
-    assert_equal page.has_checked_field?('settings_query_columns_only'), false
-    assert_equal page.has_checked_field?('settings_group'), false
-    assert_equal page.has_checked_field?('settings_generate_name'), true
-  end
-
-  def test_to_set_default_values_of_extra_options
-    assert_equal page.has_checked_field?('settings_export_attached'), false
-    assert_equal page.has_checked_field?('settings_separate_journals'), false
-  end
-
-  def test_to_set_default_values_of_date_format_options
-    assert page.has_field?('settings_created_format', :with => 'dd.mm.yyyy hh:mm:ss')
-    assert page.has_field?('settings_updated_format', :with => 'dd.mm.yyyy hh:mm:ss')
-    assert page.has_field?('settings_start_date_format', :with => 'dd.mm.yyyy')
-    assert page.has_field?('settings_due_date_format', :with => 'dd.mm.yyyy')
-  end
-
-  def test_to_set_default_values_of_other_options
-    assert page.has_field?('settings_issues_limit', :with => '0')
-    assert page.has_field?('settings_export_name', :with => 'issues_export')
-  end
-
   def test_not_to_show_issue_export_offset_setting
     assert page.has_no_selector?('input#issues_export_offset')
+  end
+
+
+  def test_to_change_values_of_columns_options
+    uncheck 'settings_relations'
+    uncheck 'settings_watchers'
+    check 'settings_journal'
+    check 'settings_attachments'
+    click_button 'Apply'
+
+    show_configure_page
+    assert_equal page.has_checked_field?('settings_relations'), false
+    assert_equal page.has_checked_field?('settings_watchers'), false
+    assert_equal page.has_checked_field?('settings_journal'), true
+    assert_equal page.has_checked_field?('settings_attachments'), true
+  end
+
+  def test_to_change_values_of_export_options
+    check 'settings_query_columns_only'
+    check 'settings_group'
+    uncheck 'settings_generate_name'
+    click_button 'Apply'
+
+    show_configure_page
+    assert_equal page.has_checked_field?('settings_query_columns_only'), true
+    assert_equal page.has_checked_field?('settings_group'), true
+    assert_equal page.has_checked_field?('settings_generate_name'), false
+  end
+
+  def test_to_change_values_of_extra_options
+    check 'settings_export_attached'
+    check 'settings_separate_journals'
+    click_button 'Apply'
+
+    show_configure_page
+    assert_equal page.has_checked_field?('settings_export_attached'), true
+    assert_equal page.has_checked_field?('settings_separate_journals'), true
+  end
+
+  def test_to_change_values_of_date_format_options
+    fill_in 'settings_created_format', :with => 'aaaaa'
+    fill_in 'settings_updated_format', :with => 'bbbbb'
+    fill_in 'settings_start_date_format', :with => 'ccccc'
+    fill_in 'settings_due_date_format', :with => 'ddddd'
+    click_button 'Apply'
+
+    show_configure_page
+    assert page.has_field?('settings_created_format', :with => 'aaaaa')
+    assert page.has_field?('settings_updated_format', :with => 'bbbbb')
+    assert page.has_field?('settings_start_date_format', :with => 'ccccc')
+    assert page.has_field?('settings_due_date_format', :with => 'ddddd')
+  end
+
+  def test_to_change_values_of_other_options
+    fill_in 'settings_issues_limit', :with => '100'
+    fill_in 'settings_export_name', :with => 'test_suffix'
+    click_button 'Apply'
+
+    show_configure_page
+    assert page.has_field?('settings_issues_limit', :with => '100')
+    assert page.has_field?('settings_export_name', :with => 'test_suffix')
   end
 
   def teardown
