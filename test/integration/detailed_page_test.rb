@@ -16,24 +16,6 @@ class DetailedPageTest < ActionController::IntegrationTest
   ActiveRecord::Fixtures.create_fixtures(File.dirname(__FILE__) + '/../fixtures/',
                                          [:custom_fields, :custom_fields_projects, :custom_fields_trackers])
 
-  def login_with_user
-    visit '/'
-    click_link 'Sign in'
-    assert page.has_link?("Lost password")
-
-    fill_in 'username', with: 'jsmith'
-    fill_in 'password', with: 'jsmith'
-    click_button 'Login'
-    assert page.has_link?("Sign out")
-  end
-
-  def logout
-    visit '/'
-    click_link 'Sign out'
-    assert page.has_link?("Sign in")
-  end
-
-
   def setup
     login_with_user
     visit '/projects/ecookbook/issues_xls_export'
