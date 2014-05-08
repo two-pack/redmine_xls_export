@@ -35,7 +35,7 @@ class ConfigurePageTest < ActionController::IntegrationTest
     uncheck 'settings_watchers'
     check 'settings_journal'
     check 'settings_attachments'
-    click_button 'Apply'
+    click_button_and_wait 'Apply'
 
     show_configure_page
     assert_changed_columns_options
@@ -55,7 +55,7 @@ class ConfigurePageTest < ActionController::IntegrationTest
     check 'settings_query_columns_only'
     check 'settings_group'
     uncheck 'settings_generate_name'
-    click_button 'Apply'
+    click_button_and_wait 'Apply'
 
     show_configure_page
     assert_changed_export_options
@@ -73,7 +73,7 @@ class ConfigurePageTest < ActionController::IntegrationTest
   def test_to_change_values_of_extra_options
     check 'settings_export_attached'
     check 'settings_separate_journals'
-    click_button 'Apply'
+    click_button_and_wait 'Apply'
 
     show_configure_page
     assert_changed_extra_options
@@ -92,7 +92,7 @@ class ConfigurePageTest < ActionController::IntegrationTest
     fill_in 'settings_updated_format', :with => 'bbbbb'
     fill_in 'settings_start_date_format', :with => 'ccccc'
     fill_in 'settings_due_date_format', :with => 'ddddd'
-    click_button 'Apply'
+    click_button_and_wait 'Apply'
 
     show_configure_page
     assert_changed_date_format_options
@@ -111,7 +111,7 @@ class ConfigurePageTest < ActionController::IntegrationTest
   def test_to_change_values_of_other_options
     fill_in 'settings_issues_limit', :with => '100'
     fill_in 'settings_export_name', :with => 'test_suffix'
-    click_button 'Apply'
+    click_button_and_wait 'Apply'
 
     show_configure_page
     assert_changed_other_options

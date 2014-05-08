@@ -28,7 +28,7 @@ class QuickExportTest < ActionController::IntegrationTest
           fill_in key, :with => value
       end
     end
-    click_button 'Apply'
+    click_button_and_wait 'Apply'
 
     logout
   end

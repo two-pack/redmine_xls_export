@@ -5,6 +5,11 @@ class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests
   include Capybara::DSL
 
+  def click_button_and_wait(name)
+    click_button name
+    sleep(0.5)
+  end
+
   def login(user, password)
     visit '/'
     click_link 'Sign in'
