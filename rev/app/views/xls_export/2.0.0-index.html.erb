@@ -6,7 +6,8 @@
 <div id="settings">
   <%= form_tag({:controller => 'xls_export', :action => 'index', :project_id => params[:project_id]}) do %>
 
-    <%= render :partial => 'settings/xls_export_settings.html', :locals => {:settings => @settings, :export => true}%>
+    <%= render :partial => 'settings/xls_export_settings', :format => [:html],
+               :locals => {:settings => @settings, :export => true}%>
 
     <%= submit_tag l(:label_plugin_xlse_button_export) %>
 
