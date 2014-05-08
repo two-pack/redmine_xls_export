@@ -1,6 +1,16 @@
+require 'simplecov'
+SimpleCov.start do
+  add_group "Controllers", "plugins/redmine_xls_export/app/controllers"
+  add_group "Views", "plugins/redmine_xls_export/app/views"
+  add_group "Config", "plugins/redmine_xls_export/config"
+  add_group "Library", "plugins/redmine_xls_export/lib"
+  add_group "Test", "plugins/redmine_xls_export/test"
+end
+
 require File.expand_path(File.dirname(__FILE__) + '/../../../test/test_helper')
 
 require 'capybara/rails'
+
 class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests
   include Capybara::DSL
