@@ -22,6 +22,12 @@ class DetailedPageTest < ActionController::IntegrationTest
     assert_not_nil page
   end
 
+  def test_detailed_link_is_in_issues_page
+    visit '/projects/ecookbook/issues'
+    assert_not_nil page
+    assert has_link?('Detailed')
+  end
+
   def test_to_show_issue_export_offset_setting
     assert page.has_selector?('input#issues_export_offset')
   end

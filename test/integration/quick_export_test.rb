@@ -38,15 +38,7 @@ class QuickExportTest < ActionController::IntegrationTest
     assert_not_nil page
 
     click_link 'Quick'
-    assert_equal 200, page.status_code
-    assert_equal 'binary', page.response_headers['Content-Transfer-Encoding']
-    if generated
-      assert_match /attachment; filename=".{6}_eCookbook_#{filename}\.#{ext}"/,
-                 page.response_headers['Content-Disposition']
-    else
-      assert_match /attachment; filename="#{filename}\.#{ext}"/,
-                   page.response_headers['Content-Disposition']
-    end
+    assert_to_export filename, ext, generated
   end
 
 

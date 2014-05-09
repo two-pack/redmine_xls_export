@@ -5,8 +5,8 @@ require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 class DetailedExportTest < ActionController::IntegrationTest
   fixtures :projects, :trackers, :issue_statuses, :issues,
            :enumerations, :users, :issue_categories, :queries,
-           :projects_trackers,
-           :roles,
+           :projects_trackers, :issue_relations, :watchers,
+           :roles, :journals, :journal_details, :attachments,
            :member_roles,
            :members,
            :enabled_modules,
@@ -16,16 +16,52 @@ class DetailedExportTest < ActionController::IntegrationTest
   ActiveRecord::Fixtures.create_fixtures(File.dirname(__FILE__) + '/../fixtures/',
                                          [:custom_fields, :custom_fields_projects, :custom_fields_trackers])
 
+  def uncheck_all_options
+    uncheck 'settings_relations'
+    uncheck 'settings_watchers'
+    uncheck 'settings_journal'
+    uncheck 'settings_attachments'
+    uncheck 'settings_query_columns_only'
+    uncheck 'settings_group'
+    uncheck 'settings_generate_name'
+    uncheck 'settings_export_attached'
+    uncheck 'settings_separate_journals'
+    fill_in 'settings_export_name', :with => 'issues_export'
+  end
+
   def setup
+    login_with_admin
+    show_detailed_page
+    uncheck_all_options
   end
 
   def teardown
+    logout
   end
 
-  def test_detailed_link_is_in_issues_page
-    visit '/projects/ecookbook/issues'
-    assert_not_nil page
-    assert has_link?('Detailed')
+  def assert_columns_options(option)
+    show_detailed_page
+    uncheck_all_options
+
+    check option
+    click_button_and_wait 'Export'
+    assert_to_export 'issues_export', 'xls', false
+  end
+
+  def test_to_export_with_relations
+    assert_columns_options 'settings_relations'
+  end
+
+  def test_to_export_with_watchers
+    assert_columns_options 'settings_watchers'
+  end
+
+  def test_to_export_with_journals
+    assert_columns_options 'settings_journal'
+  end
+
+  def test_to_export_with_list_attachments
+    assert_columns_options 'settings_attachments'
   end
 
 end

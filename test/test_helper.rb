@@ -55,4 +55,28 @@ class ActionDispatch::IntegrationTest
     assert_not_nil page
   end
 
+  def save_exported_xls(name)
+    save_exported_file(name, 'xls')
+  end
+
+  def save_exported_zip(name)
+    save_exported_file(name, 'zip')
+  end
+
+  def save_exported_file(name, ext)
+    open(name + '.' + ext, 'wb') { |f| f.write page.body }
+  end
+
+  def assert_to_export(filename, ext, generated)
+    assert_equal 200, page.status_code
+    assert_equal 'binary', page.response_headers['Content-Transfer-Encoding']
+    if generated
+      assert_match /attachment; filename=".{6}_eCookbook_#{filename}\.#{ext}"/,
+                   page.response_headers['Content-Disposition']
+    else
+      assert_match /attachment; filename="#{filename}\.#{ext}"/,
+                   page.response_headers['Content-Disposition']
+    end
+  end
+
 end
