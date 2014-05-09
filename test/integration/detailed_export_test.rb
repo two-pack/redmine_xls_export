@@ -40,9 +40,6 @@ class DetailedExportTest < ActionController::IntegrationTest
   end
 
   def assert_columns_options(option)
-    show_detailed_page
-    uncheck_all_options
-
     check option
     click_button_and_wait 'Export'
     assert_to_export 'issues_export', 'xls', false
@@ -84,8 +81,7 @@ class DetailedExportTest < ActionController::IntegrationTest
     fill_in 'settings_start_date_format', :with => 'yyyy/mm/dd'
     fill_in 'settings_due_date_format', :with => 'yyyy.mm.dd'
     click_button_and_wait 'Export'
-
     assert_to_export 'issues_export', 'xls', false
-    save_exported_xls(__method__.to_s)
   end
+
 end
