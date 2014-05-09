@@ -64,4 +64,18 @@ class DetailedExportTest < ActionController::IntegrationTest
     assert_columns_options 'settings_attachments'
   end
 
+  def assert_extra_options(option)
+    check option
+    click_button_and_wait 'Export'
+    assert_to_export 'issues_export', 'zip', false
+  end
+
+  def test_to_export_with_attachments
+    assert_extra_options 'settings_export_attached'
+  end
+
+  def test_to_export_with_separated_journals
+    assert_extra_options 'settings_separate_journals'
+  end
+
 end
