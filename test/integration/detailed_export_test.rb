@@ -27,6 +27,9 @@ class DetailedExportTest < ActionController::IntegrationTest
     uncheck 'settings_export_attached'
     uncheck 'settings_separate_journals'
     fill_in 'settings_export_name', :with => 'issues_export'
+    fill_in 'settings_issues_limit', :with => '0'
+    fill_in 'issues_export_offset', :with => '0'
+    fill_in 'settings_export_name', :with => 'issues_export'
   end
 
   def setup
@@ -84,4 +87,35 @@ class DetailedExportTest < ActionController::IntegrationTest
     assert_to_export 'issues_export', 'xls', false
   end
 
+  def test_to_export_with_overlimit_default
+    fill_in 'settings_issues_limit', :with => '0'
+    click_button_and_wait 'Export'
+    assert_to_export 'issues_export', 'xls', false
+  end
+
+  def test_to_export_with_overlimit_5
+    fill_in 'settings_issues_limit', :with => '5'
+    click_button_and_wait 'Export'
+    assert_to_export 'issues_export', 'xls', false
+  end
+
+  def test_to_export_with_offset_5
+    fill_in 'issues_export_offset', :with => '5'
+    click_button_and_wait 'Export'
+    assert_to_export 'issues_export', 'xls', false
+  end
+
+  def test_to_export_with_nongenerated_name
+    uncheck 'settings_generate_name'
+    fill_in 'settings_export_name', :with => 'test'
+    click_button_and_wait 'Export'
+    assert_to_export 'test', 'xls', false
+  end
+
+  def test_to_export_with_generated_name
+    check 'settings_generate_name'
+    fill_in 'settings_export_name', :with => 'test'
+    click_button_and_wait 'Export'
+    assert_to_export 'test', 'xls', true
+  end
 end
