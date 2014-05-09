@@ -118,4 +118,26 @@ class DetailedExportTest < ActionController::IntegrationTest
     click_button_and_wait 'Export'
     assert_to_export 'test', 'xls', true
   end
+
+  def assert_export_options(option, generated = false)
+    check option
+    click_button_and_wait 'Export'
+    assert_to_export 'issues_export', 'xls', generated
+  end
+
+  def test_to_export_selected_columns_only
+    assert_export_options 'settings_query_columns_only'
+  end
+
+  def test_to_export_with_splitting_by_grouping_criteria
+    visit '/projects/ecookbook/issues?group_by=tracker'
+    click_link_and_wait('Detailed')
+    uncheck_all_options
+    assert_export_options 'settings_group'
+  end
+
+  def test_to_export_with_suggested_name
+    assert_export_options 'settings_generate_name', true
+  end
+
 end

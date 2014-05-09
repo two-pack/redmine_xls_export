@@ -20,6 +20,11 @@ class ActionDispatch::IntegrationTest
     sleep(0.5)
   end
 
+  def click_link_and_wait(name)
+    click_link name
+    sleep(0.5)
+  end
+
   def login(user, password)
     visit '/'
     click_link 'Sign in'
