@@ -26,6 +26,19 @@ class DetailedPageTest < ActionController::IntegrationTest
     assert page.has_selector?('input#issues_export_offset')
   end
 
+  def test_to_back_issues_page
+    visit '/projects/ecookbook/issues'
+    assert_not_nil page
+    click_link 'Tracker'
+    assert has_selector?('th a.sort', :text => 'Tracker')
+
+    show_detailed_page
+    assert has_link?('Back')
+
+    click_link 'Back'
+    assert has_selector?('th a.sort', :text => 'Tracker')
+  end
+
   def teardown
     logout
   end
