@@ -78,4 +78,14 @@ class DetailedExportTest < ActionController::IntegrationTest
     assert_extra_options 'settings_separate_journals'
   end
 
+  def test_to_exoprt_with_date_format_options
+    fill_in 'settings_created_format', :with => 'yyyy/mm/dd hh:mm:ss'
+    fill_in 'settings_updated_format', :with => 'yyyy.mm.dd hh:mm:ss'
+    fill_in 'settings_start_date_format', :with => 'yyyy/mm/dd'
+    fill_in 'settings_due_date_format', :with => 'yyyy.mm.dd'
+    click_button_and_wait 'Export'
+
+    assert_to_export 'issues_export', 'xls', false
+    save_exported_xls(__method__.to_s)
+  end
 end
