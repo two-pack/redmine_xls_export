@@ -22,7 +22,7 @@ class ConfigurePageTest < ActionController::IntegrationTest
   end
 
   def test_to_show_configure_page_by_administrator
-    assert page.has_css?('h2', text: ' » Issues XLS export')
+    assert page.has_css?('h2', text: 'Issues XLS export')
   end
 
   def test_not_to_show_issue_export_offset_setting
