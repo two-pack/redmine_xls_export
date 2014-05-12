@@ -434,6 +434,7 @@ module Redmine
             fmt.pattern=1
             fmt.pattern_bg_color=:gray
             fmt.pattern_fg_color=:gray
+            fmt.font.color = :white
             sheet1.row(0).set_format(idx,fmt)
         end
 
