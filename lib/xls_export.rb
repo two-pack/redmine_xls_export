@@ -1,4 +1,5 @@
 require_dependency 'spreadsheet'
+require 'uri'
 
 # taken from 'query'
 class XLS_QueryColumn
@@ -164,6 +165,13 @@ module Redmine
         end
       end
 
+      def insert_issue_id(row, issue)
+        issue_url = Setting.protocol + '://' + Setting.host_name + issue_path(issue)
+        row << Spreadsheet::Link.new(URI.escape(issue_url), issue.id.to_s)
+        format_link = Spreadsheet::Format.new :color => :blue, :underline => :single
+        row.set_format(row.size - 1, format_link)
+      end
+
       def create_issue_columns(project, query, options)
         issue_columns = []
 
@@ -294,7 +302,11 @@ module Redmine
             lf_pos = get_value_width(value)
             index = has_id?(query) ? j : j + 1
             columns_width[index] = lf_pos unless columns_width[index] >= lf_pos
-            row << value
+            if c.name == :id
+              insert_issue_id(row, issue)
+            else
+              row << value
+            end
           end
 
           idx = idx + 1
