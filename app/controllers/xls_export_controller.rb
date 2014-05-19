@@ -100,8 +100,14 @@ protected
     render_404
   end
 
+  def zip_export_file?(settings)
+    settings['export_attached'] == '1' ||
+    settings['separate_journals'] == '1' ||
+    settings['export_status_histories'] == '1'
+  end
+
   def get_xls_export_name(settings = @settings)
-    ext=(settings['export_attached'] == '1' || settings['separate_journals'] == '1') ? 'zip' : 'xls'
+    ext= zip_export_file?(settings) ? 'zip' : 'xls'
     return ["export",ext] if @settings['export_name'].blank?
     return ["#{@settings['export_name']}",ext] unless @settings['generate_name'] == '1'
 
@@ -142,6 +148,14 @@ protected
             zip_stream.put_next_entry("#{JOURNALS_FOLDER}/%05i_journal_details.xls" % [issue.id],nil,nil,Zip::ZipEntry::DEFLATED,Zlib::BEST_COMPRESSION)
             zip_stream.write(journal_xls)
           end
+        end
+      end
+
+      if @settings['export_status_histories'] == '1'
+        status_histories_xls = status_histories_to_xls(@issues, @settings)
+        if status_histories_xls
+          zip_stream.put_next_entry("status_histories.xls",nil,nil,Zip::ZipEntry::DEFLATED,Zlib::BEST_COMPRESSION)
+          zip_stream.write(status_histories_xls)
         end
       end
     end

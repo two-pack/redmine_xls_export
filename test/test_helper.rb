@@ -84,4 +84,19 @@ class ActionDispatch::IntegrationTest
     end
   end
 
+  def uncheck_all_detailed_options
+    uncheck 'settings_relations'
+    uncheck 'settings_watchers'
+    uncheck 'settings_journal'
+    uncheck 'settings_attachments'
+    uncheck 'settings_query_columns_only'
+    uncheck 'settings_group'
+    uncheck 'settings_generate_name'
+    uncheck 'settings_export_attached'
+    uncheck 'settings_separate_journals'
+    fill_in 'settings_export_name', :with => 'issues_export'
+    fill_in 'settings_issues_limit', :with => '0'
+    fill_in 'issues_export_offset', :with => '0'
+    fill_in 'settings_export_name', :with => 'issues_export'
+  end
 end

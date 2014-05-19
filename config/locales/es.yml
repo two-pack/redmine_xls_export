@@ -7,6 +7,9 @@ es:
   label_plugin_xlse_query_columns_only: "Exportar solamente las columnas seleccionadas"
   label_plugin_xlse_group: "Separar por criterio de grupo"
   label_plugin_xlse_generate_name: "Nombre sugerido"
+
+  label_plugin_xlse_export_status_histories: "Export status histories"
+
   label_plugin_xlse_issues_limit: "Cantidad de tareas a exportar"
   label_plugin_xlse_issues_limit_help: "0 - usar predeterminado"
   label_plugin_xlse_export_name: "Guardar como..."
@@ -26,3 +29,5 @@ es:
   default_updated_format: "dd.mm.yyyy hh:mm:ss"
   default_start_date_format: "dd.mm.yyyy"
   default_due_date_format: "dd.mm.yyyy"
+
+  plugin_xlse_field_status_updated_created_on: "Updated(Created) on"

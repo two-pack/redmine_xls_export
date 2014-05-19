@@ -7,6 +7,9 @@ ru:
   label_plugin_xlse_query_columns_only: "Экспортировать только выделенные поля"
   label_plugin_xlse_group: "Разбить по критерию группировки"
   label_plugin_xlse_generate_name: "Угадать имя экспорта"
+
+  label_plugin_xlse_export_status_histories: "Export status histories"
+
   label_plugin_xlse_issues_limit: "Переопределить ограничение экспорта"
   label_plugin_xlse_issues_limit_help: "0 — по умолчанию"
   label_plugin_xlse_export_name: "Суффикс имени экспорта"
@@ -31,3 +34,5 @@ ru:
   default_updated_format: "dd.mm.yyyy hh:mm:ss"
   default_start_date_format: "dd.mm.yyyy"
   default_due_date_format: "dd.mm.yyyy"
+
+  plugin_xlse_field_status_updated_created_on: "Updated(Created) on"

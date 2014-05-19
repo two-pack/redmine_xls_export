@@ -30,6 +30,7 @@ de:
 
   label_plugin_xlse_field_attachment: "Anhänge"
   label_plugin_xlse_field_journal: "Journal"
+  label_plugin_xlse_export_status_histories: "Export status histories"
 
   label_plugin_xlse_export_format: "XLS Export:"
   label_plugin_xlse_export_format_quick: "Express Export"
@@ -45,3 +46,5 @@ de:
   default_updated_format: "dd.mm.yyyy hh:mm:ss"
   default_start_date_format: "dd.mm.yyyy"
   default_due_date_format: "dd.mm.yyyy"
+
+  plugin_xlse_field_status_updated_created_on: "Updated(Created) on"

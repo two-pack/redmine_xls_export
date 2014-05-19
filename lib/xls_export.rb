@@ -499,6 +499,77 @@ module Redmine
         return org_name.gsub(/[\\\/\[\]\?\*:"']/, '_')
       end
 
+
+      def init_status_histories_book()
+        Spreadsheet.client_encoding = 'UTF-8'
+        book = Spreadsheet::Workbook.new
+        sheet = book.create_worksheet(:name => "Status histories")
+        return book, sheet
+      end
+
+      def add_columns_header_for_status_histories(sheet)
+        columns_width = []
+        sheet.row(0).replace []
+        ['#', l(:field_project), l(:plugin_xlse_field_status_updated_created_on), l(:field_status)].each do |c|
+          sheet.row(0) << c
+          columns_width << (get_value_width(c) * 1.1)
+        end
+
+        return columns_width
+      end
+
+      def set_columns_default_format(sheet, options)
+        date_formats = init_date_formats(options);
+
+        number_formats = ['0', nil, date_formats[:updated_on], nil]
+        format = Hash.new
+        number_formats.each_with_index do |number_format, idx|
+          format.clear
+          format[:number_format] = number_format unless number_format.nil?
+          sheet.column(idx).default_format = Spreadsheet::Format.new(format) unless format.empty?
+        end
+      end
+
+      def extract_status_histories(sheet, columns_width, issues)
+        issue_statuses = IssueStatus.all
+
+        idx = 0
+        issues.each do |issue|
+          issue_updates = issue.journals.all(:include => [:user, :details], :order => "#{Journal.table_name}.created_on ASC")
+          next if issue_updates.size == 0
+
+          issue_updates.each do |journal|
+            journal.details.each do |detail|
+              if detail.prop_key =="status_id"
+                row = sheet.row(idx+1)
+                row.replace []
+                [issue.id, issue.send(:project).name, journal.created_on, issue_statuses[detail.value.to_i-1].name].each_with_index do |e, e_idx|
+                  lf_pos = get_value_width(e)
+                  columns_width[e_idx] = lf_pos unless columns_width[e_idx] >= lf_pos
+                  row << e
+                end
+                idx = idx+1
+              end
+            end
+          end
+        end
+
+        return columns_width
+      end
+
+      def status_histories_to_xls(issues, options = {})
+        book, sheet = init_status_histories_book()
+        columns_width = add_columns_header_for_status_histories(sheet)
+        set_columns_default_format(sheet, options)
+        columns_width = extract_status_histories(sheet, columns_width, issues)
+
+        update_sheet_formatting(sheet, columns_width)
+
+        xls_stream = StringIO.new('')
+        book.write(xls_stream)
+        xls_stream.string
+      end
+
     end
   end
 end

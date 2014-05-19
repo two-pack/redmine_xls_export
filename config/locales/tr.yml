@@ -17,6 +17,7 @@ tr:
 
   label_plugin_xlse_export_attached: "Ekleri dışa aktar"
   label_plugin_xlse_separate_journals: "İş günlük girdileri ayrı dosya olarak"
+  label_plugin_xlse_export_status_histories: "Export status histories"
 
   label_plugin_xlse_issues_limit: "Dışa aktarma sınırını aş"
   label_plugin_xlse_issues_limit_help: "0 - öntanımlı kullan"
@@ -36,3 +37,4 @@ tr:
   label_plugin_xlse_export_format_detailed: "Detaylı"
   label_plugin_xlse_export_format_detailed_tooltip: "Dışa aktarmadan önce seçenekleri ayarla"
 
+  plugin_xlse_field_status_updated_created_on: "Updated(Created) on"

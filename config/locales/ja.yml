@@ -18,6 +18,7 @@ ja:
 
   label_plugin_xlse_export_attached: "添付ファイルを出力"
   label_plugin_xlse_separate_journals: "履歴を別ファイルにする"
+  label_plugin_xlse_export_status_histories: "ステータスの履歴を出力"
 
   label_plugin_xlse_issues_limit: "出力の最大数"
   label_plugin_xlse_issues_limit_help: "0 - デフォルトを使う"
@@ -45,3 +46,5 @@ ja:
   default_updated_format: "yyyy/mm/dd hh:mm:ss"
   default_start_date_format: "yyyy/mm/dd"
   default_due_date_format: "yyyy/mm/dd"
+
+  plugin_xlse_field_status_updated_created_on: "更新日(作成日)"

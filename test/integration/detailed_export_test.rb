@@ -16,26 +16,10 @@ class DetailedExportTest < ActionController::IntegrationTest
   ActiveRecord::Fixtures.create_fixtures(File.dirname(__FILE__) + '/../fixtures/',
                                          [:custom_fields, :custom_fields_projects, :custom_fields_trackers])
 
-  def uncheck_all_options
-    uncheck 'settings_relations'
-    uncheck 'settings_watchers'
-    uncheck 'settings_journal'
-    uncheck 'settings_attachments'
-    uncheck 'settings_query_columns_only'
-    uncheck 'settings_group'
-    uncheck 'settings_generate_name'
-    uncheck 'settings_export_attached'
-    uncheck 'settings_separate_journals'
-    fill_in 'settings_export_name', :with => 'issues_export'
-    fill_in 'settings_issues_limit', :with => '0'
-    fill_in 'issues_export_offset', :with => '0'
-    fill_in 'settings_export_name', :with => 'issues_export'
-  end
-
   def setup
     login_with_admin
     show_detailed_page
-    uncheck_all_options
+    uncheck_all_detailed_options
   end
 
   def teardown
@@ -132,7 +116,7 @@ class DetailedExportTest < ActionController::IntegrationTest
   def test_to_export_with_splitting_by_grouping_criteria
     visit '/projects/ecookbook/issues?group_by=tracker'
     click_link_and_wait('Detailed')
-    uncheck_all_options
+    uncheck_all_detailed_options
     assert_export_options 'settings_group'
   end
 

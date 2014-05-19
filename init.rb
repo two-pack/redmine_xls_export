@@ -28,6 +28,7 @@ unless Redmine::Plugin.registered_plugins.keys.include?(XLSE_AssetHelpers::PLUGI
                'generate_name' => '1',
                'export_attached' => '0',
                'separate_journals' => '0',
+               'export_status_histories' => '0',
                'issues_limit' => '0',
                'export_name' => 'issues_export',
                'created_format' => "dd.mm.yyyy hh:mm:ss",

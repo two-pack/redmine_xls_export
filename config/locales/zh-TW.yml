@@ -7,6 +7,9 @@ zh-TW:
   label_plugin_xlse_query_columns_only: "僅導出選中"
   label_plugin_xlse_group: "依據分組條件分隔"
   label_plugin_xlse_generate_name: "建議導出檔案名"
+
+  label_plugin_xlse_export_status_histories: "Export status histories"
+
   label_plugin_xlse_issues_limit: "忽略導出大小限制"
   label_plugin_xlse_issues_limit_help: "0 - 使用預設值"
   label_plugin_xlse_export_name: "導出檔案名尾碼"
@@ -30,3 +33,5 @@ zh-TW:
   default_updated_format: "dd.mm.yyyy hh:mm:ss"
   default_start_date_format: "dd.mm.yyyy"
   default_due_date_format: "dd.mm.yyyy"
+
+  plugin_xlse_field_status_updated_created_on: "Updated(Created) on"

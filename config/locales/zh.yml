@@ -17,6 +17,7 @@ zh:
 
   label_plugin_xlse_export_attached: "导出附件"
   label_plugin_xlse_separate_journals: "将问题的历史日志作为单独文件导出"
+  label_plugin_xlse_export_status_histories: "Export status histories"
 
   label_plugin_xlse_issues_limit: "忽略导出大小限制"
   label_plugin_xlse_issues_limit_help: "0 - 使用默认值"
@@ -44,3 +45,5 @@ zh:
   default_updated_format: "dd.mm.yyyy hh:mm:ss"
   default_start_date_format: "dd.mm.yyyy"
   default_due_date_format: "dd.mm.yyyy"
+
+  plugin_xlse_field_status_updated_created_on: "Updated(Created) on"
