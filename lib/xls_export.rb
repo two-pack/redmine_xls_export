@@ -530,8 +530,17 @@ module Redmine
         end
       end
 
+      def hash_issue_statuses
+        array = IssueStatus.all
+        hash = Hash.new
+        array.each do |item|
+          hash.store(item.id.to_s, item.name)
+        end
+        return hash
+      end
+
       def extract_status_histories(sheet, columns_width, issues)
-        issue_statuses = IssueStatus.all
+        issue_statuses = hash_issue_statuses()
 
         idx = 0
         issues.each do |issue|
@@ -540,10 +549,14 @@ module Redmine
 
           issue_updates.each do |journal|
             journal.details.each do |detail|
-              if detail.prop_key =="status_id"
+              if detail.prop_key == "status_id"
                 row = sheet.row(idx+1)
                 row.replace []
-                [issue.id, issue.send(:project).name, journal.created_on, issue_statuses[detail.value.to_i-1].name].each_with_index do |e, e_idx|
+
+                project = issue.respond_to?(:project) ? issue.send(:project).name : issue.project_id.to_s
+                status_id = detail.value
+                status = issue_statuses.has_key?(status_id) ? issue_statuses[status_id] : status_id
+                [issue.id, project, journal.created_on, status].each_with_index do |e, e_idx|
                   lf_pos = get_value_width(e)
                   columns_width[e_idx] = lf_pos unless columns_width[e_idx] >= lf_pos
                   row << e
