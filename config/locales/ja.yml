@@ -47,4 +47,6 @@ ja:
   default_start_date_format: "yyyy/mm/dd"
   default_due_date_format: "yyyy/mm/dd"
 
-  plugin_xlse_field_status_updated_created_on: "更新日(作成日)"
+  plugin_xlse_field_issue_created_on: "チケットの作成日"
+  plugin_xlse_field_status_from: "変更前のステータス"
+  plugin_xlse_field_status_to: "変更後のステータス"

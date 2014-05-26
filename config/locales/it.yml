@@ -44,4 +44,6 @@ it:
   default_start_date_format: "dd.mm.yyyy"
   default_due_date_format: "dd.mm.yyyy"
 
-  plugin_xlse_field_status_updated_created_on: "Updated(Created) on"
+  plugin_xlse_field_issue_created_on: "Issue created"
+  plugin_xlse_field_status_from: "Status from"
+  plugin_xlse_field_status_to: "Status to"

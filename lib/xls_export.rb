@@ -510,7 +510,8 @@ module Redmine
       def add_columns_header_for_status_histories(sheet)
         columns_width = []
         sheet.row(0).replace []
-        ['#', l(:field_project), l(:plugin_xlse_field_status_updated_created_on), l(:field_status)].each do |c|
+        ['#', l(:field_project), l(:plugin_xlse_field_issue_created_on),  l(:field_updated_on),
+         l(:plugin_xlse_field_status_from), l(:plugin_xlse_field_status_to)].each do |c|
           sheet.row(0) << c
           columns_width << (get_value_width(c) * 1.1)
         end
@@ -521,7 +522,7 @@ module Redmine
       def set_columns_default_format(sheet, options)
         date_formats = init_date_formats(options);
 
-        number_formats = ['0', nil, date_formats[:updated_on], nil]
+        number_formats = ['0', nil, date_formats[:created_on], date_formats[:updated_on], nil, nil]
         format = Hash.new
         number_formats.each_with_index do |number_format, idx|
           format.clear
@@ -539,6 +540,10 @@ module Redmine
         return hash
       end
 
+      def get_issue_status(id, issue_statuses)
+        issue_statuses.has_key?(id) ? issue_statuses[id] : id
+      end
+
       def extract_status_histories(sheet, columns_width, issues)
         issue_statuses = hash_issue_statuses()
 
@@ -554,9 +559,9 @@ module Redmine
                 row.replace []
 
                 project = issue.respond_to?(:project) ? issue.send(:project).name : issue.project_id.to_s
-                status_id = detail.value
-                status = issue_statuses.has_key?(status_id) ? issue_statuses[status_id] : status_id
-                [issue.id, project, journal.created_on, status].each_with_index do |e, e_idx|
+                status_from = get_issue_status(detail.old_value, issue_statuses)
+                status_to = get_issue_status(detail.value, issue_statuses)
+                [issue.id, project, issue.created_on, journal.created_on, status_from, status_to].each_with_index do |e, e_idx|
                   lf_pos = get_value_width(e)
                   columns_width[e_idx] = lf_pos unless columns_width[e_idx] >= lf_pos
                   row << e

@@ -29,7 +29,8 @@ class StatusHistoriesToXlsTest < ActiveSupport::TestCase
     book, sheet = init_status_histories_book()
     columns_width = add_columns_header_for_status_histories(sheet)
 
-    header = ['#', l(:field_project), l(:plugin_xlse_field_status_updated_created_on), l(:field_status)]
+    header = ['#', l(:field_project), l(:plugin_xlse_field_issue_created_on), l(:field_updated_on),
+              l(:plugin_xlse_field_status_from), l(:plugin_xlse_field_status_to)]
     row = sheet.row(0)
     i = 0
     header.each do |h|
@@ -47,7 +48,9 @@ class StatusHistoriesToXlsTest < ActiveSupport::TestCase
     assert_equal '0', sheet.column(0).default_format.number_format
     assert_equal 'GENERAL', sheet.column(1).default_format.number_format
     assert_equal 'dd.mm.yyyy hh:mm:ss', sheet.column(2).default_format.number_format
+    assert_equal 'dd.mm.yyyy hh:mm:ss', sheet.column(3).default_format.number_format
     assert_equal 'GENERAL', sheet.column(4).default_format.number_format
+    assert_equal 'GENERAL', sheet.column(5).default_format.number_format
   end
 
   def test_to_export_status_histories
@@ -60,11 +63,26 @@ class StatusHistoriesToXlsTest < ActiveSupport::TestCase
     # row 1
     assert_equal 1, sheet.row(1)[0]
     assert_equal 'eCookbook', sheet.row(1)[1]
-    assert_equal Journal.find(1).created_on, sheet.row(1)[2]
-    assert_equal 'Assigned', sheet.row(1)[3]
+    assert_equal Issue.find(1).created_on, sheet.row(1)[2]
+    assert_equal Journal.find(1).created_on, sheet.row(1)[3]
+    assert_equal 'New', sheet.row(1)[4]
+    assert_equal 'Assigned', sheet.row(1)[5]
 
     columns_width.each do |width|
       assert width > 0
     end
+  end
+
+  def test_to_get_issue_status_from_hash
+    hash = hash_issue_statuses
+
+    assert_equal 'New', get_issue_status('1', hash)
+    assert_equal 'Rejected', get_issue_status('6', hash)
+  end
+
+  def test_to_get_id_number_if_issue_status_is_deleted
+    hash = hash_issue_statuses
+
+    assert_equal '7', get_issue_status('7', hash)
   end
 end
