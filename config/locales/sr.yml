@@ -1,0 +1,38 @@
+sr:
+  label_plugin_xlse_legend_0: "Podešavanje kolona"
+  label_plugin_xlse_legend_1: "Podešavanje eksporta"
+  label_plugin_xlse_legend_2: "Dodatne opcije"
+  label_plugin_xlse_legend_2_disabled: "Dodatne opcije (instaliraj rubyzip gem da bi ih dobio)"
+
+  label_plugin_xlse_relations: "Eksportuj relacije"
+  label_plugin_xlse_watchers: "Eksportuj posmatrače"
+  label_plugin_xlse_description: "Eksportuj opise"
+  label_plugin_xlse_journal: "Eksportuj žurnal"
+  label_plugin_xlse_time: "Eksportuj utrošeno vreme"
+  label_plugin_xlse_attachments: "Lista attachment-a"
+
+  label_plugin_xlse_query_columns_only: "Eksportuj samo odabrane kolone"
+  label_plugin_xlse_group: "Grupiši u odnosu na zadati kriterijum"
+  label_plugin_xlse_generate_name: "Sugeriraj ime generisanog dokumenta"
+
+  label_plugin_xlse_export_attached: "Eksportuj attachment-e"
+  label_plugin_xlse_separate_journals: "Žurnali problema kao posebni fajlovi"
+
+  label_plugin_xlse_issues_limit: "Premosti eksport limit"
+  label_plugin_xlse_issues_limit_help: "0 - koristi standardan"
+  label_plugin_xlse_issues_offset: "Eksportuj probleme počev od"
+  label_plugin_xlse_export_name: "Sufiks imena eksporta"
+
+  label_plugin_xlse_settings_title: "Detalji eksporta"
+  label_plugin_xlse_button_export: "Eksport"
+  label_plugin_xlse_button_back: "Nazad na probleme"
+
+  label_plugin_xlse_field_attachment: "Attachment-i"
+  label_plugin_xlse_field_journal: "Žurnal"
+
+  label_plugin_xlse_export_format: "XLS eksport:"
+  label_plugin_xlse_export_format_quick: "Brzo"
+  label_plugin_xlse_export_format_quick_tooltip: "Eksportuj koristeći standardna podešavanja"
+  label_plugin_xlse_export_format_detailed: "Detaljno"
+  label_plugin_xlse_export_format_detailed_tooltip: "Odaberi opcije pre eksporta"
+
