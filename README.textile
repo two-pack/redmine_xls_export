@@ -25,11 +25,14 @@ h3. Installation and Setup
 
 # Run bundler ('bundle install') or with option ('bundle install --without export_attachments') if you want to use export attachments feature
  *NOTE: Remove specified version for 'rubyzip' and 'zip-zip' in Gemfile if you use Redmine 2.3.x or older before ‘bundle install’.*
-# Install plugin "Plugin views with revisions":http://www.redmine.org/plugins/redmine_plugin_views_revisions if you do not have it installed
 # Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins
+# Login and configure the plugin (Administration > Plugins > Configure)
+
+If you use Redmine 2.2.x or older, Do following steps.
+
+# Install plugin "Plugin views with revisions":http://www.redmine.org/plugins/redmine_plugin_views_revisions if you do not have it installed
 # Run rake task
  *rake redmine:plugins:process_version_change RAILS_ENV=production*
-# Login and configure the plugin (Administration > Plugins > Configure)
 
 
 h3. Features
