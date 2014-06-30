@@ -40,6 +40,7 @@ h3. Features
 * Export active or all columns
 * Export issue descriptions
 * Export journal entries - both inline or as separate file per each issue
+* Export status histories
 * Export relations information
 * Export spent time data
 * List attachments information
@@ -58,6 +59,17 @@ Plugin adds following links with 'XLS export:' prefix at the bottom of the page 
  Brings up dialog where user can choose export options before export
 
 h3. History
+
+0.2.1.t6 (on github)
+* Supported Redmine 2.5.x.
+* Ability to export status histories.
+* Added default templates and stylesheet.
+* Added hyperlink on issue ID.
+* Changed color of columns header.
+* Fixed some bugs.
+* Added Serbian localisation.
+* Improved some localisations.
+* Added smoke testing.
 
 0.2.1.t5 (on github)
 * Fixed to export invisible private note.
