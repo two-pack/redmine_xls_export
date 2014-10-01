@@ -37,6 +37,20 @@ class XLS_QueryColumn
   def css_classes
     name
   end
+
+  # for redmine_category_tree plugin
+  def h(s)
+    s
+  end
+
+  # for redmine_category_tree plugin
+  def content_tag(name, content_or_options_with_block = nil, options = nil, escape = true)
+    if options[:class] == "parent"
+      content_or_options_with_block + " > "
+    else
+      content_or_options_with_block
+    end
+  end
 end
 
 class XLS_SpentTimeQueryColumn < XLS_QueryColumn
