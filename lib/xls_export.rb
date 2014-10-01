@@ -259,8 +259,29 @@ module Redmine
 
           issue_columns.each_with_index do |c, j|
             v = if c.is_a?(QueryCustomFieldColumn)
-              value = issue.custom_field_values.detect {|v| v.custom_field == c.custom_field}
-              show_value_for_xls(value) unless value.nil?
+              case c.custom_field.field_format
+                when "int"
+                  begin
+                    Integer(issue.custom_value_for(c.custom_field).to_s)
+                  rescue
+                    show_value_for_xls(issue.custom_value_for(c.custom_field))
+                  end
+                when "float"
+                  begin
+                    Float(issue.custom_value_for(c.custom_field).to_s)
+                  rescue
+                    show_value_for_xls(issue.custom_value_for(c.custom_field))
+                  end
+                when "date"
+                  begin
+                    Date.parse(issue.custom_value_for(c.custom_field).to_s)
+                  rescue
+                    show_value_for_xls(issue.custom_value_for(c.custom_field))
+                  end
+                else
+                  value = issue.custom_field_values.detect {|v| v.custom_field == c.custom_field}
+                  show_value_for_xls(value) unless value.nil?
+              end
             else
               case c.name
                 when :done_ratio
