@@ -1,9 +1,9 @@
 if Rails::VERSION::MAJOR >= 3
   RedmineApp::Application.routes.draw do
-    match 'issues_xls_export', :to => 'xls_export#index'
-    match 'issues_xls_export_current', :to => 'xls_export#export_current'
-    match 'projects/:project_id/issues_xls_export', :to => 'xls_export#index'
-    match 'projects/:project_id/issues_xls_export_current', :to => 'xls_export#export_current'
+    get 'issues_xls_export', :to => 'xls_export#index'
+    get 'issues_xls_export_current', :to => 'xls_export#export_current'
+    match 'projects/:project_id/issues_xls_export', :to => 'xls_export#index', :via => [:get, :post]
+    get 'projects/:project_id/issues_xls_export_current', :to => 'xls_export#export_current'
   end
 else
   ActionController::Routing::Routes.draw do |map|
