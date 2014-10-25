@@ -1,40 +1,52 @@
 ru:
+  label_plugin_xlse_legend_0: "Настройки колонок"
+  label_plugin_xlse_legend_1: "Настройки экспорта"
+  label_plugin_xlse_legend_1a: "Настройки отображения даты"
+  label_plugin_xlse_legend_2: "Дополнительные настройки"
+  label_plugin_xlse_legend_2_disabled: "Дополнительные настройки (установите rubyzip гем, чтобы разблокировать их)"
+
   label_plugin_xlse_relations: "Экспортировать отношения"
   label_plugin_xlse_watchers: "Экспортировать наблюдатeлей"
   label_plugin_xlse_description: "Экспортировать описания"
+  label_plugin_xlse_journal: "Экспортировать журнальные записи"
   label_plugin_xlse_time: "Экспортировать затраченное время"
   label_plugin_xlse_attachments: "Список вложений"
+
   label_plugin_xlse_query_columns_only: "Экспортировать только выделенные поля"
   label_plugin_xlse_group: "Разбить по критерию группировки"
   label_plugin_xlse_generate_name: "Угадать имя экспорта"
 
-  label_plugin_xlse_export_status_histories: "Export status histories"
+  label_plugin_xlse_export_attached: "Экспортировать вложения"
+  label_plugin_xlse_separate_journals: "Журналы задач как отдельные файлы"
+  label_plugin_xlse_export_status_histories: "Экспортировать историю изменения статусов"
 
   label_plugin_xlse_issues_limit: "Переопределить ограничение экспорта"
   label_plugin_xlse_issues_limit_help: "0 — по умолчанию"
+  label_plugin_xlse_issues_offset: "Экспортировать задачи, начиная с"
   label_plugin_xlse_export_name: "Суффикс имени экспорта"
-  
+
   label_plugin_xlse_settings_title: "Параметры экспорта"
   label_plugin_xlse_button_export: "Экспортировать"
   label_plugin_xlse_button_back: "Вернуться к задачам"
-  
+
   label_plugin_xlse_field_attachment: "Вложения"
-  
+  label_plugin_xlse_field_journal: "Журнал"
+
   label_plugin_xlse_export_format: "Экспорт в XLS:"
   label_plugin_xlse_export_format_quick: "Быстрый"
   label_plugin_xlse_export_format_quick_tooltip: "Сохранить в XLS, используя значения по умолчанию"
   label_plugin_xlse_export_format_detailed: "Подробный"
   label_plugin_xlse_export_format_detailed_tooltip: "Выбрать опции перед сохранением в XLS"
 
-  label_plugin_xlse_date_created: "Created"
-  label_plugin_xlse_date_updated: "Updated"
-  label_plugin_xlse_date_start: "Start date"
-  label_plugin_xlse_date_due: "Due date"
-  default_created_format: "dd.mm.yyyy hh:mm:ss"
-  default_updated_format: "dd.mm.yyyy hh:mm:ss"
-  default_start_date_format: "dd.mm.yyyy"
-  default_due_date_format: "dd.mm.yyyy"
+  label_plugin_xlse_date_created: "Создано"
+  label_plugin_xlse_date_updated: "Обновлено"
+  label_plugin_xlse_date_start: "Дата начала"
+  label_plugin_xlse_date_due: "Дата выполнения"
+  default_created_format: "дд.мм.гггг чч:мм:сс"
+  default_updated_format: "дд.мм.гггг чч:мм:сс"
+  default_start_date_format: "дд.мм.гггг"
+  default_due_date_format: "дд.мм.гггг"
 
-  plugin_xlse_field_issue_created_on: "Issue created"
-  plugin_xlse_field_status_from: "Status from"
-  plugin_xlse_field_status_to: "Status to"
+  plugin_xlse_field_issue_created_on: "Задача создана"
+  plugin_xlse_field_status_from: "Статус был"
+  plugin_xlse_field_status_to: "Статус стал"
