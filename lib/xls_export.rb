@@ -295,7 +295,7 @@ module Redmine
                     end
                   end
                   descr_str
-                when :formatted_relations
+                when :relations
                   rel_str = ''
                   relations = issue.relations.select {|r| r.other_issue(issue).visible?}
                   relations.each do |relation|
