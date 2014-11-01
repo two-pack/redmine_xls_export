@@ -209,6 +209,12 @@ module Redmine
         issue_columns
       end
 
+      def localtime(datetime)
+        if datetime
+          User.current.time_zone ? datetime.in_time_zone(User.current.time_zone) : datetime.localtime
+        end
+      end
+
 # options are
 # :relations - export relations
 # :watchers - export watchers
@@ -328,6 +334,9 @@ module Redmine
                 when :project
                   last_prj = issue.send(c.name)
                   last_prj
+                when :created_on, :updated_on, :closed_on
+                  datetime = issue.respond_to?(c.name) ? issue.send(c.name) : c.value(issue)
+                  localtime(datetime)
               else
                 issue.respond_to?(c.name) ? issue.send(c.name) : c.value(issue)
               end
@@ -391,7 +400,7 @@ module Redmine
             end
             notes=(journal.notes? ? journal.notes.to_s : '')
 
-            [idx+1,journal.created_on,journal.user.name,details,notes].each_with_index do |e,e_idx|
+            [idx+1,localtime(journal.created_on),journal.user.name,details,notes].each_with_index do |e,e_idx|
               lf_pos = get_value_width(e)
               columns_width[e_idx] = lf_pos unless columns_width[e_idx] >= lf_pos
               row << e
@@ -597,7 +606,7 @@ module Redmine
                 project = issue.respond_to?(:project) ? issue.send(:project).name : issue.project_id.to_s
                 status_from = get_issue_status(detail.old_value, issue_statuses)
                 status_to = get_issue_status(detail.value, issue_statuses)
-                [issue.id, project, issue.created_on, journal.created_on, status_from, status_to].each_with_index do |e, e_idx|
+                [issue.id, project, localtime(issue.created_on), localtime(journal.created_on), status_from, status_to].each_with_index do |e, e_idx|
                   lf_pos = get_value_width(e)
                   columns_width[e_idx] = lf_pos unless columns_width[e_idx] >= lf_pos
                   row << e
