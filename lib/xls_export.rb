@@ -191,7 +191,7 @@ module Redmine
 
         (options[:query_columns_only] == '1' ? query.columns : query.available_columns).each do |c|
           case c.name
-            when :formatted_relations
+            when :relations
               issue_columns << c if options[:relations] == '1'
             when :estimated_hours
               issue_columns << XLS_SpentTimeQueryColumn.new(:spent_time) if use_export_spent_time?(query, options)
