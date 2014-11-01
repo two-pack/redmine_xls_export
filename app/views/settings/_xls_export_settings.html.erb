@@ -47,6 +47,13 @@
       <%= l(:label_example) %>: <%= l(:default_due_date_format) %>
     </em>
   </p>
+  <p>
+    <%= label_tag(:label_plugin_xlse_date_closed, l(:label_plugin_xlse_date_closed)) %>
+    <%= text_field_tag 'settings[closed_date_format]', @settings['closed_date_format'], {:size => 12, :maxlength => 20 } %>
+    <em class="info">
+      <%= l(:label_example) %>: <%= l(:default_closed_date_format) %>
+    </em>
+  </p>
 </fieldset>
 
 <fieldset class="box tabular">

@@ -42,10 +42,12 @@ en:
   label_plugin_xlse_date_updated: "Updated"
   label_plugin_xlse_date_start: "Start date"
   label_plugin_xlse_date_due: "Due date"
+  label_plugin_xlse_date_closed: "Closed"
   default_created_format: "dd.mm.yyyy hh:mm:ss"
   default_updated_format: "dd.mm.yyyy hh:mm:ss"
   default_start_date_format: "dd.mm.yyyy"
   default_due_date_format: "dd.mm.yyyy"
+  default_closed_date_format: "dd.mm.yyyy hh:mm:ss"
 
   plugin_xlse_field_issue_created_on: "Issue created"
   plugin_xlse_field_status_from: "Status from"

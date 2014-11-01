@@ -67,6 +67,7 @@ class DetailedExportTest < ActionController::IntegrationTest
     fill_in 'settings_updated_format', :with => 'yyyy.mm.dd hh:mm:ss'
     fill_in 'settings_start_date_format', :with => 'yyyy/mm/dd'
     fill_in 'settings_due_date_format', :with => 'yyyy.mm.dd'
+    fill_in 'settings_closed_date_format', :with => 'yyyy-mm-dd'
     click_button_and_wait 'Export'
     assert_to_export 'issues_export', 'xls', false
   end

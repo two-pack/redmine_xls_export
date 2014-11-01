@@ -42,10 +42,12 @@ ja:
   label_plugin_xlse_date_updated: "更新日"
   label_plugin_xlse_date_start: "開始日"
   label_plugin_xlse_date_due: "期日"
+  label_plugin_xlse_date_closed: "終了日"
   default_created_format: "yyyy/mm/dd hh:mm:ss"
   default_updated_format: "yyyy/mm/dd hh:mm:ss"
   default_start_date_format: "yyyy/mm/dd"
   default_due_date_format: "yyyy/mm/dd"
+  default_closed_date_format: "yyyy/mm/dd hh:mm:ss"
 
   plugin_xlse_field_issue_created_on: "チケットの作成日"
   plugin_xlse_field_status_from: "変更前のステータス"

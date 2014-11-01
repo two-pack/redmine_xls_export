@@ -92,6 +92,7 @@ class ConfigurePageTest < ActionController::IntegrationTest
     fill_in 'settings_updated_format', :with => 'bbbbb'
     fill_in 'settings_start_date_format', :with => 'ccccc'
     fill_in 'settings_due_date_format', :with => 'ddddd'
+    fill_in 'settings_closed_date_format', :with => 'eeeee'
     click_button_and_wait 'Apply'
 
     show_configure_page
@@ -106,6 +107,7 @@ class ConfigurePageTest < ActionController::IntegrationTest
     assert page.has_field?('settings_updated_format', :with => 'bbbbb')
     assert page.has_field?('settings_start_date_format', :with => 'ccccc')
     assert page.has_field?('settings_due_date_format', :with => 'ddddd')
+    assert page.has_field?('settings_closed_date_format', :with => 'eeeee')
   end
 
   def test_to_change_values_of_other_options

@@ -134,6 +134,7 @@ module Redmine
         add_date_format(date_formats, :updated_on, options[:updated_format], l("default_updated_format"))
         add_date_format(date_formats, :start_date, options[:start_date_format],l("default_start_date_format"))
         add_date_format(date_formats, :due_date, options[:due_date_format], l("default_due_date_format"))
+        add_date_format(date_formats, :closed_on, options[:closed_date_format], l("default_closed_date_format"))
 
         date_formats
       end
@@ -451,7 +452,7 @@ module Redmine
                 opt[:number_format] = '0%'
               when :estimated_hours, :spent_time
                 opt[:number_format] = "0.0"
-              when :created_on, :updated_on, :start_date, :due_date
+              when :created_on, :updated_on, :start_date, :due_date, :closed_on
                 opt[:number_format] = date_formats[c.name]
             end
           end

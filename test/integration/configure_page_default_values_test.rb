@@ -44,6 +44,7 @@ class ConfigurePageDefaultValuesTest < ActionController::IntegrationTest
     assert page.has_field?('settings_updated_format', :with => 'dd.mm.yyyy hh:mm:ss')
     assert page.has_field?('settings_start_date_format', :with => 'dd.mm.yyyy')
     assert page.has_field?('settings_due_date_format', :with => 'dd.mm.yyyy')
+    assert page.has_field?('settings_closed_date_format', :with => 'dd.mm.yyyy hh:mm:ss')
   end
 
   def test_to_set_default_values_of_other_options
