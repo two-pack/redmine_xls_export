@@ -65,6 +65,12 @@ Plugin adds following links with 'XLS export:' prefix at the bottom of the page 
 
 h3. History
 
+0.2.1.t7 (on github)
+* Added CI environment.
+* Fixed to use local timezone.
+* Added date format for "Closed".
+* Some bug fixes.
+
 0.2.1.t6 (on github)
 * Supported Redmine 2.5.x.
 * Ability to export status histories.
