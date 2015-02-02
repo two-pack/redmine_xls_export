@@ -1,0 +1,53 @@
+vi:
+  label_plugin_xlse_legend_0: "Tùy chọn các cột"
+  label_plugin_xlse_legend_1: "Xuất có tùy chọn"
+  label_plugin_xlse_legend_1a: "Tùy chọn định dạng ngày"
+  label_plugin_xlse_legend_2: "Tùy chọn mở rộng"
+  label_plugin_xlse_legend_2_disabled: "Tùy chọn mở rộng (cài đặt rubyzip gem để truy xuất chức năng này)"
+
+  label_plugin_xlse_relations: "Xuất mối quan hệ"
+  label_plugin_xlse_watchers: "Xuất người theo dõi"
+  label_plugin_xlse_description: "Xuất mô tả"
+  label_plugin_xlse_journal: "Xuất nhật ký"
+  label_plugin_xlse_time: "Xuất thời gian bỏ ra"
+  label_plugin_xlse_attachments: "Danh sách đính kèm"
+
+  label_plugin_xlse_query_columns_only: "Chỉ xuất cột lựa chọn"
+  label_plugin_xlse_group: "Chia theo nhóm tiêu chí"
+  label_plugin_xlse_generate_name: "Đề nghị tên xuất"
+
+  label_plugin_xlse_export_attached: "Xuất đính kèm"
+  label_plugin_xlse_separate_journals: "Tách nhật ký tác vụ thành các file"
+  label_plugin_xlse_export_status_histories: "Xuất lịch sử trạng thái"
+
+  label_plugin_xlse_issues_limit: "Ghi đề giới hạn xuất"
+  label_plugin_xlse_issues_limit_help: "0 - dùng mặc định"
+  label_plugin_xlse_issues_offset: "Xuất tác vụ bắt đầu từ"
+  label_plugin_xlse_export_name: "Xuất tên hậu tố"
+
+  label_plugin_xlse_settings_title: "Xuất chi tiết"
+  label_plugin_xlse_button_export: "Xuất"
+  label_plugin_xlse_button_back: "Quay trở lại Vấn đề"
+
+  label_plugin_xlse_field_attachment: "File đính kèm"
+  label_plugin_xlse_field_journal: "Nhật ký"
+
+  label_plugin_xlse_export_format: "XLS xuất file:"
+  label_plugin_xlse_export_format_quick: "Xuất nhanh"
+  label_plugin_xlse_export_format_quick_tooltip: "Xuất dùng cấu hình mặc định"
+  label_plugin_xlse_export_format_detailed: "Xuất chi tiết"
+  label_plugin_xlse_export_format_detailed_tooltip: "Tùy chọn trước khi xuất"
+
+  label_plugin_xlse_date_created: "Ngày tạo"
+  label_plugin_xlse_date_updated: "Cập nhật"
+  label_plugin_xlse_date_start: "Bắt đầu"
+  label_plugin_xlse_date_due: "Hết Hạn"
+  default_created_format: "dd.mm.yyyy hh:mm:ss"
+  default_updated_format: "dd.mm.yyyy hh:mm:ss"
+  default_start_date_format: "dd.mm.yyyy"
+  default_due_date_format: "dd.mm.yyyy"
+
+  plugin_xlse_field_issue_created_on: "Tác vụ được tạo"
+  plugin_xlse_field_status_from: "Trạng thái bắt đầu"
+  plugin_xlse_field_status_to: "Trạng thái kết thúc"
+
