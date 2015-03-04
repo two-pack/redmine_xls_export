@@ -10,5 +10,5 @@ end
 
 group :test do
   gem 'launchy'
-  gem 'simplecov', :require => false
+  gem 'simplecov', "~> 0.9.1", :require => false
 end
