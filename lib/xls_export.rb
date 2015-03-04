@@ -91,7 +91,7 @@ class XLS_JournalQueryColumn < XLS_QueryColumn
 
   def value(issue)
     hist_str = ''
-    issue_updates = issue.journals.all(:include => [:user, :details], :order => "#{Journal.table_name}.created_on ASC")
+    issue_updates = issue.journals.includes(:user, :details).order("#{Journal.table_name}.created_on ASC").to_a
     issue_updates.each do |journal|
       if !journal.private_notes? or User.current.allowed_to?(:view_private_notes, journal.project)
         hist_str << "#{format_time(journal.created_on)} - #{journal.user.name}\n"
@@ -372,7 +372,7 @@ module Redmine
       end
 
       def journal_details_to_xls(issue)
-        issue_updates = issue.journals.all(:include => [:user, :details], :order => "#{Journal.table_name}.created_on ASC")
+        issue_updates = issue.journals.includes(:user, :details).order("#{Journal.table_name}.created_on ASC").to_a
         return nil if issue_updates.size == 0
 
         Spreadsheet.client_encoding = 'UTF-8'
@@ -594,7 +594,7 @@ module Redmine
 
         idx = 0
         issues.each do |issue|
-          issue_updates = issue.journals.all(:include => [:user, :details], :order => "#{Journal.table_name}.created_on ASC")
+          issue_updates = issue.journals.includes(:user, :details).order("#{Journal.table_name}.created_on ASC").to_a
           next if issue_updates.size == 0
 
           issue_updates.each do |journal|

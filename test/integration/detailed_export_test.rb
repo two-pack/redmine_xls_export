@@ -2,7 +2,7 @@
 
 require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 
-class DetailedExportTest < ActionController::IntegrationTest
+class DetailedExportTest < ActionDispatch::IntegrationTest
   fixtures :projects, :trackers, :issue_statuses, :issues,
            :enumerations, :users, :issue_categories, :queries,
            :projects_trackers, :issue_relations, :watchers,

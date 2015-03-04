@@ -58,7 +58,7 @@ class StatusHistoriesToXlsTest < ActiveSupport::TestCase
     columns_width = add_columns_header_for_status_histories(sheet)
     set_columns_default_format(sheet, {:updated_format => 'dd.mm.yyyy hh:mm:ss'})
 
-    extract_status_histories(sheet, columns_width, Issue.find(:all))
+    extract_status_histories(sheet, columns_width, Issue.all.to_a)
 
     # row 1
     assert_equal 1, sheet.row(1)[0]
