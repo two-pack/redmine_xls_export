@@ -13,6 +13,7 @@ zh-TW:
   label_plugin_xlse_issues_limit: "忽略導出大小限制"
   label_plugin_xlse_issues_limit_help: "0 - 使用預設值"
   label_plugin_xlse_export_name: "導出檔案名尾碼"
+  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
   
   label_plugin_xlse_settings_title: "導出詳細"
   label_plugin_xlse_button_export: "導出"

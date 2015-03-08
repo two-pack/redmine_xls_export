@@ -14,6 +14,7 @@ zh:
   label_plugin_xlse_query_columns_only: "仅导出选中"
   label_plugin_xlse_group: "依据分组条件分隔"
   label_plugin_xlse_generate_name: "建议导出文件名"
+  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
 
   label_plugin_xlse_export_attached: "导出附件"
   label_plugin_xlse_separate_journals: "将问题的历史日志作为单独文件导出"

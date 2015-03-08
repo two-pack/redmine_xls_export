@@ -15,6 +15,7 @@ pl:
   label_plugin_xlse_issues_limit: "Limit eksportowanych pozycji"
   label_plugin_xlse_issues_limit_help: "0 - domyślna"
   label_plugin_xlse_export_name: "Przyrostek nazwy pliku"
+  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
   
   label_plugin_xlse_settings_title: "Szczegóły eksportu"
   label_plugin_xlse_button_export: "Eksportuj"

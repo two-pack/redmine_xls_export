@@ -14,6 +14,7 @@ sr-YU:
   label_plugin_xlse_query_columns_only: "Eksportuj samo odabrane kolone"
   label_plugin_xlse_group: "Grupiši u odnosu na zadati kriterijum"
   label_plugin_xlse_generate_name: "Sugeriraj ime generisanog dokumenta"
+  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
 
   label_plugin_xlse_export_attached: "Eksportuj attachment-e"
   label_plugin_xlse_separate_journals: "Žurnali problema kao posebni fajlovi"

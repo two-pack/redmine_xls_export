@@ -104,6 +104,13 @@ class DetailedExportTest < Redmine::IntegrationTest
     assert_to_export 'test', 'xls', true
   end
 
+  def test_to_export_with_strip_html_tags
+    uncheck 'settings_generate_name'
+    check 'settings_strip_html_tags'
+    click_button_and_wait 'Export'
+    assert_to_export 'issues_export', 'xls', false
+  end
+
   def assert_export_options(option, generated = false)
     check option
     click_button_and_wait 'Export'

@@ -15,6 +15,7 @@ de:
   label_plugin_xlse_query_columns_only: "Nur ausgewählte Spalten exportieren"
   label_plugin_xlse_group: "Unterteilung durch Gruppeneigenschaften"
   label_plugin_xlse_generate_name: "Exportnamen vorschlagen"
+  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
 
   label_plugin_xlse_export_attached: "Anhänge exportieren"
   label_plugin_xlse_separate_journals: "Ticketjournal je als eigene Datei exportieren"

@@ -89,4 +89,14 @@ class QuickExportTest < Redmine::IntegrationTest
           'settings_export_name' => 'issues_export' })
     assert_quick_export('issues_export', 'zip')
   end
+
+  def test_to_export_zip_file_with_strip_html_tags
+    prepare_export_configure_with_check(
+        { 'settings_export_attached' => false,
+          'settings_separate_journals' => true,
+          'settings_generate_name' => true,
+          'settings_strip_html_tags' => true,
+          'settings_export_name' => 'issues_export' })
+    assert_quick_export('issues_export', 'zip')
+  end
 end

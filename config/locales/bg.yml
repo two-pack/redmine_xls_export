@@ -15,6 +15,7 @@ bg:
   label_plugin_xlse_query_columns_only: "Експорт само на избраните колони"
   label_plugin_xlse_group: "Разделяне по критерий за групиране"
   label_plugin_xlse_generate_name: "Предполагане на името на експортния файл"
+  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
 
   label_plugin_xlse_export_attached: "Експорт на прикачените файлове"
   label_plugin_xlse_separate_journals: "Журналите като отделни файлове"

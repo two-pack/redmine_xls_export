@@ -15,6 +15,7 @@ en:
   label_plugin_xlse_query_columns_only: "Export selected columns only"
   label_plugin_xlse_group: "Split by grouping criteria"
   label_plugin_xlse_generate_name: "Suggest export name"
+  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
 
   label_plugin_xlse_export_attached: "Export attachments"
   label_plugin_xlse_separate_journals: "Issues journals as separate files"

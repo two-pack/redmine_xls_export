@@ -13,6 +13,7 @@ es:
   label_plugin_xlse_issues_limit: "Cantidad de tareas a exportar"
   label_plugin_xlse_issues_limit_help: "0 - usar predeterminado"
   label_plugin_xlse_export_name: "Guardar como..."
+  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
   
   label_plugin_xlse_settings_title: "Exportar detalles"
   label_plugin_xlse_button_export: "Exportar"

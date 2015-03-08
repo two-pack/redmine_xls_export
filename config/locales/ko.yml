@@ -15,6 +15,7 @@ ko:
   label_plugin_xlse_query_columns_only: "선택된 컬럼만 내보내기"
   label_plugin_xlse_group: "그룹 기준에 의해 분리"
   label_plugin_xlse_generate_name: "내보내기 이름 제시하기"
+  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
 
   label_plugin_xlse_export_attached: "첨부파일 내보내기"
   label_plugin_xlse_separate_journals: "일감의 댓글을 파일로 분리"

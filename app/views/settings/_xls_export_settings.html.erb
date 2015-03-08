@@ -2,7 +2,7 @@
     <%= stylesheet_link_tag :xls_export, :plugin => 'redmine_xls_export'  %>
 <% end %>
 
-<% fields_all = [%w(relations watchers journal attachments), %w(query_columns_only group generate_name), %w(export_attached separate_journals export_status_histories)] %>
+<% fields_all = [%w(relations watchers journal attachments), %w(query_columns_only group generate_name strip_html_tags), %w(export_attached separate_journals export_status_histories)] %>
 <% fields_all.each_with_index do |c,idx|%>
   <fieldset class="box tabular">
     <% group_disabled= (idx != (fields_all.size-1) || defined?(Zip::ZipOutputStream::write_buffer)) ? false : true %>

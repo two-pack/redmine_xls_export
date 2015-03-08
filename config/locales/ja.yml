@@ -15,6 +15,7 @@ ja:
   label_plugin_xlse_query_columns_only: "選択した列だけを出力"
   label_plugin_xlse_group: "グループの基準で分ける"
   label_plugin_xlse_generate_name: "出力ファイル名を設定する"
+  label_plugin_xlse_strip_html_tags: "HTMLタグを削除"
 
   label_plugin_xlse_export_attached: "添付ファイルを出力"
   label_plugin_xlse_separate_journals: "履歴を別ファイルにする"

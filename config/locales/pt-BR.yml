@@ -13,6 +13,7 @@ pt-BR:
   label_plugin_xlse_issues_limit: "Quantidade máxima de tarefas exportadas"
   label_plugin_xlse_issues_limit_help: "(0 - usar padrão)"
   label_plugin_xlse_export_name: "Sufixo do nome da exportação"
+  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
 
   label_plugin_xlse_settings_title: "Exportar detalhes"
   label_plugin_xlse_button_export: "Exportar"

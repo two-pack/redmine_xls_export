@@ -15,6 +15,7 @@ ru:
   label_plugin_xlse_query_columns_only: "Экспортировать только выделенные поля"
   label_plugin_xlse_group: "Разбить по критерию группировки"
   label_plugin_xlse_generate_name: "Угадать имя экспорта"
+  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
 
   label_plugin_xlse_export_attached: "Экспортировать вложения"
   label_plugin_xlse_separate_journals: "Журналы задач как отдельные файлы"

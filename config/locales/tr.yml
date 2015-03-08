@@ -14,6 +14,7 @@ tr:
   label_plugin_xlse_query_columns_only: "Sadece seçili kolonları dışa aktar"
   label_plugin_xlse_group: "Gruplama kriterine göre bölümle"
   label_plugin_xlse_generate_name: "Dışa aktarma ismi öner"
+  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
 
   label_plugin_xlse_export_attached: "Ekleri dışa aktar"
   label_plugin_xlse_separate_journals: "İş günlük girdileri ayrı dosya olarak"

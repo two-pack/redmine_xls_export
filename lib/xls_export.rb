@@ -1,5 +1,25 @@
 require_dependency 'spreadsheet'
 require 'uri'
+require 'rubygems'
+require 'nokogiri'
+
+module Redmine
+  module Export
+    module XLS
+      module StripHTML
+        def strip_html(str, options)
+          if options[:strip_html_tags] == '1'
+            document = Nokogiri::HTML.parse(str)
+            document.css("br").each { |node| node.replace("\n") }
+            document.text
+          else
+            str
+          end
+        end
+      end
+    end
+  end
+end
 
 # taken from 'query'
 class XLS_QueryColumn
@@ -84,12 +104,13 @@ end
 class XLS_JournalQueryColumn < XLS_QueryColumn
   include CustomFieldsHelper
   include IssuesHelper
+  include Redmine::Export::XLS::StripHTML
 
   def caption
     l(:label_plugin_xlse_field_journal)
   end
 
-  def value(issue)
+  def value(issue, options)
     hist_str = ''
     issue_updates = issue.journals.includes(:user, :details).order("#{Journal.table_name}.created_on ASC").to_a
     issue_updates.each do |journal|
@@ -106,7 +127,7 @@ class XLS_JournalQueryColumn < XLS_QueryColumn
         hist_str << "\n" unless journal == issue_updates.last
       end
     end
-    hist_str
+    strip_html(hist_str, options)
   end
 end
 
@@ -114,6 +135,7 @@ end
 module Redmine
   module Export
     module XLS
+      include Redmine::Export::XLS::StripHTML
       unloadable
 
       def show_value_for_xls(value)
@@ -295,7 +317,7 @@ module Redmine
                   (Float(issue.send(c.name)))/100
                 when :description
                   descr_str = ''
-                  issue.description.to_s.each_char do |c_a|
+                  strip_html(issue.description, options).to_s.each_char do |c_a|
                     if c_a != "\r"
                       descr_str << c_a
                     end
@@ -330,7 +352,7 @@ module Redmine
                 when :attachments
                   c.value(issue)
                 when :journal
-                  c.value(issue)
+                  c.value(issue, options)
                 when :project
                   last_prj = issue.send(c.name)
                   last_prj
@@ -371,7 +393,7 @@ module Redmine
         return xls_stream.string
       end
 
-      def journal_details_to_xls(issue)
+      def journal_details_to_xls(issue, options)
         issue_updates = issue.journals.includes(:user, :details).order("#{Journal.table_name}.created_on ASC").to_a
         return nil if issue_updates.size == 0
 
@@ -398,7 +420,8 @@ module Redmine
               details <<  "#{show_detail(detail, true)}"
               details << "\n" unless detail == journal.details.last
             end
-            notes=(journal.notes? ? journal.notes.to_s : '')
+            details = strip_html(details, options)
+            notes = strip_html(journal.notes? ? journal.notes.to_s : '', options)
 
             [idx+1,localtime(journal.created_on),journal.user.name,details,notes].each_with_index do |e,e_idx|
               lf_pos = get_value_width(e)

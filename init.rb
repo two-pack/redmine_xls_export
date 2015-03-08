@@ -26,6 +26,7 @@ unless Redmine::Plugin.registered_plugins.keys.include?(XLSE_AssetHelpers::PLUGI
                'query_columns_only' => '0',
                'group' => '0',
                'generate_name' => '1',
+               'strip_html_tags' => '0',
                'export_attached' => '0',
                'separate_journals' => '0',
                'export_status_histories' => '0',

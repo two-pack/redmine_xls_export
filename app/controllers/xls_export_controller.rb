@@ -143,7 +143,7 @@ protected
           end
         end
         if @settings['separate_journals'] == '1'
-          journal_xls=journal_details_to_xls(issue)
+          journal_xls=journal_details_to_xls(issue, @settings)
           if journal_xls
             zip_stream.put_next_entry("#{JOURNALS_FOLDER}/%05i_journal_details.xls" % [issue.id],nil,nil,Zip::ZipEntry::DEFLATED,Zlib::BEST_COMPRESSION)
             zip_stream.write(journal_xls)
