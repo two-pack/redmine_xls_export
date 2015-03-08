@@ -2,7 +2,7 @@
 
 require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 
-class ConfigurePageDefaultValuesTest < ActionDispatch::IntegrationTest
+class ConfigurePageDefaultValuesTest < Redmine::IntegrationTest
   fixtures :projects, :trackers, :issue_statuses, :issues,
            :enumerations, :users, :issue_categories, :queries,
            :projects_trackers,

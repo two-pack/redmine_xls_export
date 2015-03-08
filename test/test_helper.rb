@@ -100,3 +100,11 @@ class ActionDispatch::IntegrationTest
     fill_in 'settings_export_name', :with => 'issues_export'
   end
 end
+
+# for log_user method
+if Redmine::VERSION::MAJOR <= 2 then
+  module Redmine
+    class IntegrationTest < ActionDispatch::IntegrationTest
+    end
+  end
+end
