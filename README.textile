@@ -78,17 +78,17 @@ h3. History
 * Added hyperlink on issue ID.
 * Changed color of columns header.
 * Fixed some bugs.
-* Added Serbian localisation.
-* Improved some localisations.
+* Added Serbian localization.
+* Improved some localizations.
 * Added smoke testing.
 
 0.2.1.t5 (on github)
 * Fixed to export invisible private note.
-* Added Turkish localisation.
+* Added Turkish localization.
 
 0.2.1.t4 (on github)
 * Re-formatted a settings view of date format. 
-* Fixed Czech localisation.
+* Fixed Czech localization.
 * Fixed description column duplicated.
 
 0.2.1.t3 (on github)
