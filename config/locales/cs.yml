@@ -15,7 +15,7 @@ cs:
   label_plugin_xlse_query_columns_only: Exportovat pouze zvolené sloupce
   label_plugin_xlse_group: Rozdělit podle seskupení
   label_plugin_xlse_generate_name: Generovat název exportu
-  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
+  label_plugin_xlse_strip_html_tags: Odstranit HTML tagy
 
   label_plugin_xlse_export_attached: Exportovat přílohy
   label_plugin_xlse_separate_journals: Historie úkolů jako extra soubory
@@ -23,7 +23,7 @@ cs:
   label_plugin_xlse_issues_limit: Změnit horní mez exportu
   label_plugin_xlse_issues_limit_help: 0 - použít výchozí
   label_plugin_xlse_issues_offset: Exportovat úkoly začínající od
-  label_plugin_xlse_export_name: Koncovka názvu exportního souboru
+  label_plugin_xlse_export_name: Přípona exportovaného souboru
 
   label_plugin_xlse_settings_title: Detaily exportu
   label_plugin_xlse_button_export: Export
@@ -31,7 +31,7 @@ cs:
 
   label_plugin_xlse_field_attachment: Přílohy
   label_plugin_xlse_field_journal: Historie
-  label_plugin_xlse_export_status_histories: "Export status histories"
+  label_plugin_xlse_export_status_histories: Exportovat historii stavů
 
   label_plugin_xlse_export_format: "XLS export:"
   label_plugin_xlse_export_format_quick: Rychlý
@@ -48,6 +48,6 @@ cs:
   default_start_date_format: "dd.mm.yyyy"
   default_due_date_format: "dd.mm.yyyy"
 
-  plugin_xlse_field_issue_created_on: "Issue created"
-  plugin_xlse_field_status_from: "Status from"
-  plugin_xlse_field_status_to: "Status to"
+  plugin_xlse_field_issue_created_on: Vytvořeno
+  plugin_xlse_field_status_from: Původní stav
+  plugin_xlse_field_status_to: Nový stav
