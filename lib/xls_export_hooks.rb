@@ -7,22 +7,14 @@ class XLSExportHook < Redmine::Hook::ViewListener
       ret_str << stylesheet_link_tag("xls_export.css", :plugin => XLSE_AssetHelpers::PLUGIN_NAME, :media => "screen")
       ret_str << '<p class="other-formats">' << l(:label_plugin_xlse_export_format)
       ret_str << content_tag('span', link_to(l(:label_plugin_xlse_export_format_quick),
-                                            hook_url_for({ :controller => 'xls_export', :action => 'export_current', :project_id => context[:project] }),
+                                            { :controller => 'xls_export', :action => 'export_current', :project_id => context[:project] },
                                             { :class => 'xls', :rel => 'nofollow', :title => l(:label_plugin_xlse_export_format_quick_tooltip) }))
       ret_str << content_tag('span', link_to(l(:label_plugin_xlse_export_format_detailed),
-                                             hook_url_for({ :controller => 'xls_export', :action => 'index', :project_id => context[:project] }),
+                                            { :controller => 'xls_export', :action => 'index', :project_id => context[:project] },
                                             { :class => 'xlse', :title => l(:label_plugin_xlse_export_format_detailed_tooltip) }))
       ret_str << '</p>'
 
       return ret_str.html_safe
-    end
-  end
-
-  def hook_url_for(url)
-    if Rails::VERSION::MAJOR >= 3 && Redmine::Utils::relative_url_root != ''
-      "#{Redmine::Utils::relative_url_root}#{url_for(url)}"
-    else
-      url
     end
   end
 end
