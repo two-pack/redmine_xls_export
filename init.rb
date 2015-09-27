@@ -13,7 +13,7 @@ unless Redmine::Plugin.registered_plugins.keys.include?(XLSE_AssetHelpers::PLUGI
     author 'Vitaly Klimov'
     author_url 'mailto:vitaly.klimov@snowbirdgames.com'
     description 'Export issues to XLS files including journals, descriptions, etc. This plugin requires spreadsheet gem.'
-    version '0.2.1.t8'
+    version '0.2.1.t9'
 
     settings(:partial => 'settings/xls_export_settings',
              :default => {

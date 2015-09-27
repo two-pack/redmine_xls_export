@@ -65,6 +65,9 @@ Plugin adds following links with 'XLS export:' prefix at the bottom of the page 
 
 h3. History
 
+0.2.1.t9 (on github)
+* Fixed bugs.
+
 0.2.1.t8 (on github)
 * Supported Redmine 3.0.x and 2.6.x.
 * Added option to strip HTML tags.
