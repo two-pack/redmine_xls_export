@@ -10,6 +10,10 @@ env:
   - REDMINE_VERSION=2.6.10 VERBOSE=no
   - REDMINE_VERSION=2.5.3 VERBOSE=yes
   - REDMINE_VERSION=2.4.7 VERBOSE=yes
+matrix:
+  exclude:
+  - rvm: 1.9.3
+    env: REDMINE_VERSION=3.0.7 
 script:
   - export PLUGIN=redmine_xls_export
   - export WORKSPACE=$(pwd)/workspace
