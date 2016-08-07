@@ -13,7 +13,7 @@ env:
 matrix:
   exclude:
   - rvm: 1.9.3
-    env: REDMINE_VERSION=3.0.7 
+    env: REDMINE_VERSION=3.0.7 VERBOSE=yes
 script:
   - export PLUGIN=redmine_xls_export
   - export WORKSPACE=$(pwd)/workspace
