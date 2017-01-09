@@ -4,13 +4,13 @@ rvm:
   - 2.2
   - 2.1
 env:
-  - REDMINE_VERSION=3.3.1 VERBOSE=yes
-  - REDMINE_VERSION=3.2.4 VERBOSE=yes
+  - REDMINE_VERSION=3.3.2 VERBOSE=yes
+  - REDMINE_VERSION=3.2.5 VERBOSE=yes
   - REDMINE_VERSION=3.1.7 VERBOSE=yes
 matrix:
   exclude:
   - rvm: 2.3
-    env: REDMINE_VERSION=3.2.4 VERBOSE=yes
+    env: REDMINE_VERSION=3.2.5 VERBOSE=yes
   - rvm: 2.3
     env: REDMINE_VERSION=3.1.7 VERBOSE=yes
 script:
