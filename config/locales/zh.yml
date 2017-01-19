@@ -1,6 +1,7 @@
 zh:
   label_plugin_xlse_legend_0: "列选项"
   label_plugin_xlse_legend_1: "导出选项"
+  label_plugin_xlse_legend_1a: "日期格式选项"
   label_plugin_xlse_legend_2: "高级配置"
   label_plugin_xlse_legend_2_disabled: "高级配置（必须安装 rubyzip gem 方可使用）"
 
@@ -14,11 +15,11 @@ zh:
   label_plugin_xlse_query_columns_only: "仅导出选中"
   label_plugin_xlse_group: "依据分组条件分隔"
   label_plugin_xlse_generate_name: "建议导出文件名"
-  label_plugin_xlse_strip_html_tags: "Strip HTML tags"
+  label_plugin_xlse_strip_html_tags: "去除HTML标签"
 
   label_plugin_xlse_export_attached: "导出附件"
   label_plugin_xlse_separate_journals: "将问题的历史日志作为单独文件导出"
-  label_plugin_xlse_export_status_histories: "Export status histories"
+  label_plugin_xlse_export_status_histories: "导出状态变更历史"
 
   label_plugin_xlse_issues_limit: "忽略导出大小限制"
   label_plugin_xlse_issues_limit_help: "0 - 使用默认值"
@@ -38,15 +39,18 @@ zh:
   label_plugin_xlse_export_format_detailed: "详情"
   label_plugin_xlse_export_format_detailed_tooltip: "导出之前选择配置"
 
-  label_plugin_xlse_date_created: "Created"
-  label_plugin_xlse_date_updated: "Updated"
-  label_plugin_xlse_date_start: "Start date"
-  label_plugin_xlse_date_due: "Due date"
+  label_plugin_xlse_date_created: "已创建"
+  label_plugin_xlse_date_updated: "已更新"
+  label_plugin_xlse_date_start: "起始日期"
+  label_plugin_xlse_date_due: "计划结束日期"
+  label_plugin_xlse_date_closed: "已关闭"
   default_created_format: "dd.mm.yyyy hh:mm:ss"
   default_updated_format: "dd.mm.yyyy hh:mm:ss"
   default_start_date_format: "dd.mm.yyyy"
   default_due_date_format: "dd.mm.yyyy"
+  default_closed_date_format: "dd.mm.yyyy hh:mm:ss"
 
-  plugin_xlse_field_issue_created_on: "Issue created"
-  plugin_xlse_field_status_from: "Status from"
-  plugin_xlse_field_status_to: "Status to"
+  plugin_xlse_field_issue_created_on: "问题已创建。"
+  plugin_xlse_field_status_from: "初始状态"
+  plugin_xlse_field_status_to: "状态切换至"
+
