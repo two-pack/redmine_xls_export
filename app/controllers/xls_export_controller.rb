@@ -64,6 +64,14 @@ protected
     render_404
   end
 
+  def query_issues(export_offset, limit)
+    options = {:order => sort_clause, :offset => export_offset, :limit => limit}
+    if (Redmine::VERSION::MAJOR <= 3) && (Redmine::VERSION::MINOR <= 3) && (Redmine::VERSION::BRANCH != 'devel') then
+      options.merge!({:include => [:assigned_to, :tracker, :priority, :category, :fixed_version]})
+    end
+    @query.issues(options)
+  end
+
   def retrieve_xls_export_data(settings=nil)
     params[:query_id]=session[:query][:id] if !session[:query].nil? && !session[:query][:id].blank?
     if !params[:query_id].blank? && !session['issues_index_sort'].blank?
@@ -85,10 +93,7 @@ protected
         export_offset = @issues_export_offset >= @issue_count ? @issue_count-1 : @issues_export_offset
         limit = ( settings && settings[:issues_limit].to_i>0 ? settings[:issues_limit].to_i : Setting.issues_export_limit.to_i )
 #        @issue_pages = ActionController::Pagination::Paginator.new self, @issue_count, limit, params['page']
-        @issues = @query.issues(:include => [:assigned_to, :tracker, :priority, :category, :fixed_version],
-                                :order => sort_clause,
-                                :offset => export_offset,
-                                :limit => limit)
+        @issues = query_issues(export_offset, limit)
 #        @issue_count_by_group = @query.issue_count_by_group
 # end of original code
         @settings=XLSE_AssetHelpers::settings unless settings
