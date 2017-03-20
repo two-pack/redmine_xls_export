@@ -96,7 +96,19 @@ run_install() {
 
   # install gems
   mkdir -p vendor/bundle
-  bundle install --path vendor/bundle
+  RETRYCOUNT=0
+  STATUS=1
+  until [ ${RETRYCOUNT} -ge 5 ]
+  do
+    bundle install --path vendor/bundle && STATUS=0 && break
+    echo 'Try bundle again ...'
+    RETRYCOUNT=$[${RETRYCOUNT}+1]
+    sleep 1
+  done
+  if [ ${STATUS} -eq 1 ]; then
+    echo 'bundle install errors are happened 5 times...'
+    exit 1;
+  fi
 
   bundle exec rake db:migrate $TRACE
   bundle exec rake redmine:load_default_data REDMINE_LANG=en $TRACE
