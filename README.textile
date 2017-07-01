@@ -65,6 +65,9 @@ Plugin adds following links with 'XLS export:' prefix at the bottom of the page 
 
 h3. History
 
+0.2.1.t10 (on github)
+* Supported Redmine 3.4.x, 3.3.x, 3.2.x.
+
 0.2.1.t9 (on github)
 * Fixed bugs.
 
@@ -97,7 +100,7 @@ h3. History
 * Added Turkish localization.
 
 0.2.1.t4 (on github)
-* Re-formatted a settings view of date format. 
+* Re-formatted a settings view of date format.
 * Fixed Czech localization.
 * Fixed description column duplicated.
 
