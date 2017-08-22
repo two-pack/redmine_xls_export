@@ -13,7 +13,7 @@ class StatusHistoriesTest < Redmine::IntegrationTest
            :workflows,
            :custom_values
 
-  ActiveRecord::Fixtures.create_fixtures(File.dirname(__FILE__) + '/../fixtures/',
+  ActiveRecord::FixtureSet.create_fixtures(File.dirname(__FILE__) + '/../fixtures/',
                                          [:custom_fields, :custom_fields_projects, :custom_fields_trackers])
 
   def setup
