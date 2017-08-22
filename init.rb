@@ -45,14 +45,5 @@ unless Redmine::Plugin.registered_plugins.keys.include?(XLSE_AssetHelpers::PLUGI
   require 'xls_export_hooks'
 end
 
-if Rails::VERSION::MAJOR >= 3
-  ActionDispatch::Callbacks.to_prepare do
-    Mime::Type.register('application/vnd.ms-excel', :xls, %w(application/vnd.ms-excel)) unless defined?(Mime::XLS)
-    Mime::Type.register('application/zip', :zip, %w(application/zip)) unless defined?(Mime::ZIP)
-  end
-else
-  Dispatcher.to_prepare XLSE_AssetHelpers::PLUGIN_NAME do
-    Mime::Type.register('application/vnd.ms-excel', :xls, %w(application/vnd.ms-excel)) unless defined?(Mime::XLS)
-    Mime::Type.register('application/zip', :zip, %w(application/zip)) unless defined?(Mime::ZIP)
-  end
-end
+Mime::Type.register('application/vnd.ms-excel', :xls, %w(application/vnd.ms-excel)) unless defined?(Mime::XLS)
+Mime::Type.register('application/zip', :zip, %w(application/zip)) unless defined?(Mime::ZIP)
