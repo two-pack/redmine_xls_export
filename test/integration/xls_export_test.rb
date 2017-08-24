@@ -15,7 +15,7 @@ class XlsExportTest < Redmine::IntegrationTest
                          [:custom_fields, :custom_fields_projects, :custom_fields_trackers])
 
   def assert_export_filename
-    assert_match /attachment; filename=".*#{assigns('settings')['export_name']}\..{3}"/, @response.header['Content-Disposition']
+    assert_match /attachment; filename=".*#{@controller.view_assigns['settings']['export_name']}\..{3}"/, @response.header['Content-Disposition']
   end
 
   def test_quick_export_is_success
