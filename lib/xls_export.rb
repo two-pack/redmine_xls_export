@@ -399,7 +399,7 @@ module Redmine
 
         Spreadsheet.client_encoding = 'UTF-8'
         book = Spreadsheet::Workbook.new
-        sheet1 = book.create_worksheet(:name => "%05i - Journal" % [issue.id])
+        sheet1 = book.create_worksheet(:name => "%d - Journal" % [issue.id])
 
         columns_width = []
         sheet1.row(0).replace []
