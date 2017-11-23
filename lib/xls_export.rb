@@ -403,11 +403,12 @@ module Redmine
 
         columns_width = []
         sheet1.row(0).replace []
-        ['#',l(:field_updated_on),l(:field_user),l(:label_details),l(:field_notes)].each do |c|
+        [l(:plugin_xlse_field_issue_id), '#', l(:field_updated_on),l(:field_user),l(:label_details),l(:field_notes)].each do |c|
           sheet1.row(0) << c
           columns_width << (get_value_width(c)*1.1)
         end
         sheet1.column(0).default_format = Spreadsheet::Format.new(:number_format => "0")
+        sheet1.column(1).default_format = Spreadsheet::Format.new(:number_format => "0")
 
         idx=0
         issue_updates.each do |journal|
@@ -423,7 +424,7 @@ module Redmine
             details = strip_html(details, options)
             notes = strip_html(journal.notes? ? journal.notes.to_s : '', options)
 
-            [idx+1,localtime(journal.created_on),journal.user.name,details,notes].each_with_index do |e,e_idx|
+            [issue.id,idx+1,localtime(journal.created_on),journal.user.name,details,notes].each_with_index do |e,e_idx|
               lf_pos = get_value_width(e)
               columns_width[e_idx] = lf_pos unless columns_width[e_idx] >= lf_pos
               row << e
@@ -578,7 +579,7 @@ module Redmine
       def add_columns_header_for_status_histories(sheet)
         columns_width = []
         sheet.row(0).replace []
-        ['#', l(:field_project), l(:plugin_xlse_field_issue_created_on),  l(:field_updated_on),
+        ['#', l(:field_project), l(:plugin_xlse_field_issue_created_on), l(:field_updated_on),
          l(:plugin_xlse_field_status_from), l(:plugin_xlse_field_status_to)].each do |c|
           sheet.row(0) << c
           columns_width << (get_value_width(c) * 1.1)

@@ -48,6 +48,7 @@ vi:
   default_start_date_format: "dd.mm.yyyy"
   default_due_date_format: "dd.mm.yyyy"
 
+  plugin_xlse_field_issue_id: "Issue ID"
   plugin_xlse_field_issue_created_on: "Tác vụ được tạo"
   plugin_xlse_field_status_from: "Trạng thái bắt đầu"
   plugin_xlse_field_status_to: "Trạng thái kết thúc"
