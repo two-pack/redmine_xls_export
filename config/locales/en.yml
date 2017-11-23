@@ -50,6 +50,7 @@ en:
   default_due_date_format: "dd.mm.yyyy"
   default_closed_date_format: "dd.mm.yyyy hh:mm:ss"
 
+  plugin_xlse_field_issue_id: "Issue ID"
   plugin_xlse_field_issue_created_on: "Issue created"
   plugin_xlse_field_status_from: "Status from"
   plugin_xlse_field_status_to: "Status to"

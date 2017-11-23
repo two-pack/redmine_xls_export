@@ -48,6 +48,7 @@ ru:
   default_start_date_format: "дд.мм.гггг"
   default_due_date_format: "дд.мм.гггг"
 
+  plugin_xlse_field_issue_id: "Issue ID"
   plugin_xlse_field_issue_created_on: "Задача создана"
   plugin_xlse_field_status_from: "Статус был"
   plugin_xlse_field_status_to: "Статус стал"
