@@ -26,7 +26,11 @@ class XlsExportController < ApplicationController
   helper :custom_fields
   include CustomFieldsHelper
 
-  before_action :find_optional_project_xls
+  if respond_to? :before_action
+    before_action :find_optional_project_xls
+  else
+    before_filter :find_optional_project_xls
+  end
 
   def index
     @issues_export_offset=params[:issues_export_offset].to_i || 0
