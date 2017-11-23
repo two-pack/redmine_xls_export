@@ -374,7 +374,7 @@ module Redmine
           idx = idx + 1
 
           if options[:journal_worksheets]
-              journal_details_to_xls(issue, options, book)
+            journal_details_to_xls(issue, options, book)
           end
           
         end
@@ -398,7 +398,7 @@ module Redmine
 
         Spreadsheet.client_encoding = 'UTF-8'
         book = book_to_add ? book_to_add : Spreadsheet::Workbook.new
-        sheet1 = book.create_worksheet(:name => "%05i - Journal" % [issue.id])
+        sheet1 = book.create_worksheet(:name => "%d - Journal" % [issue.id])
 
         columns_width = []
         sheet1.row(0).replace []
@@ -439,9 +439,9 @@ module Redmine
         update_sheet_formatting(sheet1,columns_width)
 
         if book_to_add.nil?
-            xls_stream = StringIO.new('')
-            book.write(xls_stream)
-            xls_stream.string
+          xls_stream = StringIO.new('')
+          book.write(xls_stream)
+          xls_stream.string
         end
       end
 

@@ -143,7 +143,7 @@ protected
             rescue
               nil
             end
-            zip_stream.put_next_entry("#{file ? "#{ATTACHMENTS_FOLDER}/" : "#{NOT_FOUND_ATTACHMENTS_FOLDER}/"}%05i/#{create_zip_filename(attach)}" % [issue.id],nil,nil,Zip::ZipEntry::DEFLATED,Zlib::BEST_COMPRESSION)
+            zip_stream.put_next_entry("#{file ? "#{ATTACHMENTS_FOLDER}/" : "#{NOT_FOUND_ATTACHMENTS_FOLDER}/"}%d/#{create_zip_filename(attach)}" % [issue.id],nil,nil,Zip::ZipEntry::DEFLATED,Zlib::BEST_COMPRESSION)
             unless file
               file=StringIO.new('')
               file.write("\n")
@@ -155,7 +155,7 @@ protected
         if @settings['separate_journals'] == '1'
           journal_xls=journal_details_to_xls(issue, @settings)
           if journal_xls
-            zip_stream.put_next_entry("#{JOURNALS_FOLDER}/%05i_journal_details.xls" % [issue.id],nil,nil,Zip::ZipEntry::DEFLATED,Zlib::BEST_COMPRESSION)
+            zip_stream.put_next_entry("#{JOURNALS_FOLDER}/%d_journal_details.xls" % [issue.id],nil,nil,Zip::ZipEntry::DEFLATED,Zlib::BEST_COMPRESSION)
             zip_stream.write(journal_xls)
           end
         end
