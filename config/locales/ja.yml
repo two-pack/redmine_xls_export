@@ -51,6 +51,7 @@ ja:
   default_due_date_format: "yyyy/mm/dd"
   default_closed_date_format: "yyyy/mm/dd hh:mm:ss"
 
+  plugin_xlse_field_issue_id: "Issue ID"
   plugin_xlse_field_issue_created_on: "チケットの作成日"
   plugin_xlse_field_status_from: "変更前のステータス"
   plugin_xlse_field_status_to: "変更後のステータス"
