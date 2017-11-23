@@ -410,6 +410,9 @@ module Redmine
         sheet1.column(0).default_format = Spreadsheet::Format.new(:number_format => "0")
         sheet1.column(1).default_format = Spreadsheet::Format.new(:number_format => "0")
 
+        date_formats = init_date_formats(options);
+        sheet1.column(2).default_format = Spreadsheet::Format.new(:number_format => date_formats[:updated_on])
+
         idx=0
         issue_updates.each do |journal|
           if !journal.private_notes? or User.current.allowed_to?(:view_private_notes, journal.project)
