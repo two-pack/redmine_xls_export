@@ -592,7 +592,7 @@ module Redmine
         return columns_width
       end
 
-      def set_columns_default_format(sheet, options)
+      def status_histories_columns_format(sheet, options)
         date_formats = init_date_formats(options);
 
         number_formats = ['0', nil, date_formats[:created_on], date_formats[:updated_on], nil, nil]
@@ -651,7 +651,7 @@ module Redmine
       def status_histories_to_xls(issues, options = {})
         book, sheet = init_status_histories_book()
         columns_width = add_columns_header_for_status_histories(sheet)
-        set_columns_default_format(sheet, options)
+        status_histories_columns_format(sheet, options)
         columns_width = extract_status_histories(sheet, columns_width, issues)
 
         update_sheet_formatting(sheet, columns_width)
