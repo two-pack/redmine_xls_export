@@ -622,25 +622,29 @@ module Redmine
 
         idx = 0
         issues.each do |issue|
-          issue_updates = issue.journals.includes(:user, :details).order("#{Journal.table_name}.created_on ASC").to_a
+          issue_updates = issue.journals.
+            joins(:details).includes(:user).
+            where(journal_details: {prop_key: 'status_id'}).
+            order(:created_on).to_a
+
           next if issue_updates.size == 0
 
           issue_updates.each do |journal|
             journal.details.each do |detail|
-              if detail.prop_key == "status_id"
-                row = sheet.row(idx+1)
-                row.replace []
+              row = sheet.row(idx+1)
+              row.replace []
 
-                project = issue.respond_to?(:project) ? issue.send(:project).name : issue.project_id.to_s
-                status_from = get_issue_status(detail.old_value, issue_statuses)
-                status_to = get_issue_status(detail.value, issue_statuses)
-                [issue.id, project, localtime(issue.created_on), localtime(journal.created_on), status_from, status_to].each_with_index do |e, e_idx|
-                  lf_pos = get_value_width(e)
-                  columns_width[e_idx] = lf_pos unless columns_width[e_idx] >= lf_pos
-                  row << e
-                end
-                idx = idx+1
-              end
+              project = issue.respond_to?(:project) ? issue.send(:project).name : issue.project_id.to_s
+              status_from = get_issue_status(detail.old_value, issue_statuses)
+              status_to = get_issue_status(detail.value, issue_statuses)
+
+              [issue.id, project, localtime(issue.created_on), localtime(journal.created_on), status_from, status_to].each_with_index do |e, e_idx|
+
+                 lf_pos = get_value_width(e)
+                 columns_width[e_idx] = lf_pos unless columns_width[e_idx] >= lf_pos
+                 row << e
+               end
+               idx = idx+1
             end
           end
         end
