@@ -55,4 +55,5 @@ en:
   plugin_xlse_field_issue_created_on: "Issue created"
   plugin_xlse_field_status_from: "Status from"
   plugin_xlse_field_status_to: "Status to"
+  plugin_xlse_field_actor: "Actor"
 
