@@ -70,7 +70,7 @@ protected
 
   def query_issues(export_offset, limit)
     options = {:order => sort_clause, :offset => export_offset, :limit => limit}
-    if (Redmine::VERSION::MAJOR <= 3) && (Redmine::VERSION::MINOR <= 3) && (Redmine::VERSION::BRANCH != 'devel') then
+    if Redmine::VERSION.to_s.to_f < 3.3
       options.merge!({:include => [:assigned_to, :tracker, :priority, :category, :fixed_version]})
     end
     @query.issues(options)
