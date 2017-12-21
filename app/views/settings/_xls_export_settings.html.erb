@@ -2,7 +2,7 @@
     <%= stylesheet_link_tag :xls_export, :plugin => 'redmine_xls_export'  %>
 <% end %>
 
-<% fields_all = [%w(relations watchers journal journal_worksheets attachments), %w(query_columns_only group generate_name strip_html_tags), %w(export_attached separate_journals export_status_histories)] %>
+<% fields_all = [%w(relations watchers journal journal_worksheets attachments), %w(query_columns_only group generate_name strip_html_tags), %w(export_attached separate_journals export_status_histories description)] %>
 <% fields_all.each_with_index do |c,idx|%>
   <fieldset class="box tabular">
     <% group_disabled= (idx != (fields_all.size-1) || defined?(Zip::ZipOutputStream::write_buffer)) ? false : true %>
@@ -57,7 +57,7 @@
 </fieldset>
 
 <fieldset class="box tabular">
-  <p> 
+  <p>
     <%= label_tag('settings[issues_limit]', l(:label_plugin_xlse_issues_limit)) %>
     <%= text_field_tag 'settings[issues_limit]', @settings['issues_limit'], {:size => 6, :maxlength => 10 } %>
     <em class="info">

@@ -206,6 +206,8 @@ module Redmine
 
         (options[:query_columns_only] == '1' ? query.columns : query.available_columns).each do |c|
           case c.name
+            when :description
+              next unless use_export_description_setting?(query, options)
             when :relations
               issue_columns << c if options[:relations] == '1'
             when :estimated_hours
