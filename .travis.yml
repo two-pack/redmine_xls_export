@@ -5,17 +5,17 @@ rvm:
   - 2.2
 env:
   - REDMINE_VERSION=master VERBOSE=yes
-  - REDMINE_VERSION=3.4.0 VERBOSE=yes
-  - REDMINE_VERSION=3.3.4 VERBOSE=yes
-  - REDMINE_VERSION=3.2.7 VERBOSE=yes
+  - REDMINE_VERSION=3.4.4 VERBOSE=yes
+  - REDMINE_VERSION=3.3.6 VERBOSE=yes
+  - REDMINE_VERSION=3.2.9 VERBOSE=yes
 matrix:
   exclude:
   - rvm: 2.4
-    env: REDMINE_VERSION=3.3.4 VERBOSE=yes
+    env: REDMINE_VERSION=3.3.6 VERBOSE=yes
   - rvm: 2.4
-    env: REDMINE_VERSION=3.2.7 VERBOSE=yes
+    env: REDMINE_VERSION=3.2.9 VERBOSE=yes
   - rvm: 2.3
-    env: REDMINE_VERSION=3.2.7 VERBOSE=yes
+    env: REDMINE_VERSION=3.2.9 VERBOSE=yes
 script:
   - export PLUGIN=redmine_xls_export
   - export WORKSPACE=$(pwd)/workspace
