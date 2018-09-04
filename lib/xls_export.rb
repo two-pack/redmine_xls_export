@@ -242,6 +242,7 @@ module Redmine
 # :watchers - export watchers
 # :time - export time spent
 # :journal - export journal entries
+# :journal_worksheets - export journal entries to worksheets
 # :description - export descriptions
 # :attachments - export attachments info
 # :query_columns_only - export only columns from actual query
@@ -378,6 +379,10 @@ module Redmine
 
           idx = idx + 1
 
+          if options[:journal_worksheets]
+              journal_details_to_xls(issue, options, book)
+          end
+          
         end
 
         if sheet1
@@ -393,12 +398,17 @@ module Redmine
         return xls_stream.string
       end
 
-      def journal_details_to_xls(issue, options)
+      def journal_details_to_xls(issue, options, book = nil)
         issue_updates = issue.journals.includes(:user, :details).order("#{Journal.table_name}.created_on ASC").to_a
         return nil if issue_updates.size == 0
 
         Spreadsheet.client_encoding = 'UTF-8'
-        book = Spreadsheet::Workbook.new
+        
+        write = false
+        if book == nil
+            write = true
+            book = Spreadsheet::Workbook.new
+        end
         sheet1 = book.create_worksheet(:name => "%05i - Journal" % [issue.id])
 
         columns_width = []
@@ -435,9 +445,11 @@ module Redmine
 
         update_sheet_formatting(sheet1,columns_width)
 
-        xls_stream = StringIO.new('')
-        book.write(xls_stream)
-        xls_stream.string
+        if write
+            xls_stream = StringIO.new('')
+            book.write(xls_stream)
+            xls_stream.string
+        end
       end
 
       def column_exists_for_project?(column, project)

@@ -21,6 +21,7 @@ unless Redmine::Plugin.registered_plugins.keys.include?(XLSE_AssetHelpers::PLUGI
                'watchers' => '1',
                'description' => '1',
                'journal' => '0',
+               'journal_worksheets' => '0',
                'time' => '0',
                'attachments' => '0',
                'query_columns_only' => '0',
