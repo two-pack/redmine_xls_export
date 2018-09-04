@@ -19,7 +19,7 @@ en:
   label_plugin_xlse_strip_html_tags: "Strip HTML tags"
 
   label_plugin_xlse_export_attached: "Export attachments"
-  label_plugin_xlse_separate_journals: "Issues journals seperately"
+  label_plugin_xlse_separate_journals: "Issues journals as separate files"
   label_plugin_xlse_export_status_histories: "Export status histories"
 
   label_plugin_xlse_issues_limit: "Override export limit"
