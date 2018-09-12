@@ -398,17 +398,12 @@ module Redmine
         return xls_stream.string
       end
 
-      def journal_details_to_xls(issue, options, book = nil)
+      def journal_details_to_xls(issue, options, book_to_add = nil)
         issue_updates = issue.journals.includes(:user, :details).order("#{Journal.table_name}.created_on ASC").to_a
         return nil if issue_updates.size == 0
 
         Spreadsheet.client_encoding = 'UTF-8'
-        
-        write = false
-        if book == nil
-            write = true
-            book = Spreadsheet::Workbook.new
-        end
+        book = book_to_add ? book_to_add : Spreadsheet::Workbook.new
         sheet1 = book.create_worksheet(:name => "%05i - Journal" % [issue.id])
 
         columns_width = []
@@ -445,7 +440,7 @@ module Redmine
 
         update_sheet_formatting(sheet1,columns_width)
 
-        if write
+        if book_to_add.nil?
             xls_stream = StringIO.new('')
             book.write(xls_stream)
             xls_stream.string
