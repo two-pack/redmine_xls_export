@@ -9,6 +9,7 @@ ja:
   label_plugin_xlse_watchers: "ウォッチャーを出力"
   label_plugin_xlse_description: "説明を出力"
   label_plugin_xlse_journal: "履歴を出力"
+  label_plugin_xlse_journal_worksheets: "履歴をワークシートごとに出力"
   label_plugin_xlse_time: "作業時間を出力"
   label_plugin_xlse_attachments: "添付ファイルのリストを出力"
 
