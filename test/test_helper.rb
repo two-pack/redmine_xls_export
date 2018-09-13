@@ -88,6 +88,7 @@ class ActionDispatch::IntegrationTest
     uncheck 'settings_relations'
     uncheck 'settings_watchers'
     uncheck 'settings_journal'
+    uncheck 'settings_journal_worksheets'
     uncheck 'settings_attachments'
     uncheck 'settings_query_columns_only'
     uncheck 'settings_group'

@@ -9,6 +9,7 @@ en:
   label_plugin_xlse_watchers: "Export watchers"
   label_plugin_xlse_description: "Export description"
   label_plugin_xlse_journal: "Export journal entries"
+  label_plugin_xlse_journal_worksheets: "Export journal entries to worksheets"
   label_plugin_xlse_time: "Export spent time"
   label_plugin_xlse_attachments: "List attachments"
 

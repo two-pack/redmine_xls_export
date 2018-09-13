@@ -43,6 +43,10 @@ class DetailedExportTest < Redmine::IntegrationTest
   def test_to_export_with_journals
     assert_columns_options 'settings_journal'
   end
+  
+  def test_to_export_journal_worksheets
+	  assert_columns_options 'settings_journal_worksheets'
+  end
 
   def test_to_export_with_list_attachments
     assert_columns_options 'settings_attachments'
