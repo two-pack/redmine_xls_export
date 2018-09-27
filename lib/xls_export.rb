@@ -89,15 +89,7 @@ class XLS_AttachmentQueryColumn < XLS_QueryColumn
   end
 
   def value(issue)
-    return '' unless issue.attachments.any?
-
-    str = ''
-    issue.attachments.each do |a|
-      str << a.filename
-      str << " - #{a.description}" unless a.description.blank?
-      str << "\n" unless a==issue.attachments.last
-    end
-    str
+    issue.attachments
   end
 end
 
@@ -351,7 +343,7 @@ module Redmine
                     ''
                   end
                 when :attachments
-                  c.value(issue)
+                  c.value(issue).to_a.map {|a| a.filename}.join("\n")
                 when :journal
                   c.value(issue, options)
                 when :project
