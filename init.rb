@@ -40,7 +40,7 @@ unless Redmine::Plugin.registered_plugins.keys.include?(XLSE_AssetHelpers::PLUGI
                'closed_date_format' => "dd.mm.yyyy hh:mm:ss"
              })
 
-    requires_redmine :version_or_higher => '1.3.0'
+    requires_redmine :version_or_higher => '3.2.0'
   end
 
   require 'xls_export_hooks'
