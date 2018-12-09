@@ -22,29 +22,19 @@ With the help of this plugin you can export issues list with all information to 
 
 h3. Requirements
 
-* Redmine version 1.3.0 or higher.
-* "Plugin views with revisions":http://www.redmine.org/plugins/redmine_plugin_views_revisions
-
+* Redmine version 3.2.x or higher.
 
 h3. Installation and Setup
 
-# Run bundler ('bundle install') or with option ('bundle install --without export_attachments') if you want to use export attachments feature
- *NOTE: Remove specified version for 'rubyzip' and 'zip-zip' in Gemfile if you use Redmine 2.3.x or older before ‘bundle install’.*
+# Run bundler ('bundle install') or with option ('bundle install --without export_attachments') if you want to use export attachments feature.
 # Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins
 # Login and configure the plugin (Administration > Plugins > Configure)
-
-If you use Redmine 2.2.x or older, Do following steps.
-
-# Install plugin "Plugin views with revisions":http://www.redmine.org/plugins/redmine_plugin_views_revisions if you do not have it installed
-# Run rake task
- *rake redmine:plugins:process_version_change RAILS_ENV=production*
-
 
 h3. Features
 
 * Export active or all columns
 * Export issue descriptions
-* Export journal entries - both inline or as separate file per each issue
+* Export journal entries - both inline or as separate file, worksheet per each issue
 * Export status histories
 * Export relations information
 * Export spent time data
@@ -64,6 +54,12 @@ Plugin adds following links with 'XLS export:' prefix at the bottom of the page 
  Brings up dialog where user can choose export options before export
 
 h3. History
+
+0.2.1.t11 (on github)
+* Supported Redmine 4.0.0.
+* Support for Redmine 3.1.x and earlier was end.
+* Added option to write the journal entries to separated worksheets.
+* Fixed bugs.
 
 0.2.1.t10 (on github)
 * Supported Redmine 3.4.x, 3.3.x, 3.2.x.
