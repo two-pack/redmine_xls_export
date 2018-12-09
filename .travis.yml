@@ -1,17 +1,25 @@
 language: ruby
 rvm:
+  - 2.5
   - 2.4
   - 2.3
   - 2.2
 env:
   - REDMINE_VERSION=master VERBOSE=yes
-  - REDMINE_VERSION=3.4.6 VERBOSE=yes
-  - REDMINE_VERSION=3.3.8 VERBOSE=yes
+  - REDMINE_VERSION=4.0.0 VERBOSE=yes
+  - REDMINE_VERSION=3.4.7 VERBOSE=yes
+  - REDMINE_VERSION=3.3.9 VERBOSE=yes
   - REDMINE_VERSION=3.2.9 VERBOSE=yes
 matrix:
   exclude:
+  - rvm: 2.5
+    env: REDMINE_VERSION=3.4.7 VERBOSE=yes
+  - rvm: 2.5
+    env: REDMINE_VERSION=3.3.9 VERBOSE=yes
+  - rvm: 2.5
+    env: REDMINE_VERSION=3.2.9 VERBOSE=yes
   - rvm: 2.4
-    env: REDMINE_VERSION=3.3.8 VERBOSE=yes
+    env: REDMINE_VERSION=3.3.9 VERBOSE=yes
   - rvm: 2.4
     env: REDMINE_VERSION=3.2.9 VERBOSE=yes
   - rvm: 2.3

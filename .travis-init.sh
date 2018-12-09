@@ -19,7 +19,7 @@ case $REDMINE_VERSION in
           export GENERATE_SECRET=generate_session_store
           export REDMINE_TARBALL=https://github.com/redmine/redmine/archive/$REDMINE_VERSION.tar.gz
           ;;
-  2.* | 3.*)  export PATH_TO_PLUGINS=./plugins # for redmine 2.x and 3.x
+  2.* | 3.* | 4.*)  export PATH_TO_PLUGINS=./plugins # for redmine 2.x and 3.x and 4.x
           export GENERATE_SECRET=generate_secret_token
           export REDMINE_TARBALL=https://github.com/redmine/redmine/archive/$REDMINE_VERSION.tar.gz
           ;;
