@@ -1,4 +1,9 @@
 language: ruby
+before_install:
+  - BUNDLER_VER=`bundle --version`
+  - if [[ ${BUNDLER_VER} =~ ^Bundler\ version\ 2.*$ ]]; then rvm @global do gem install bundler -v '< 2.0.0'; fi
+  - if [[ ${BUNDLER_VER} =~ ^Bundler\ version\ 2.*$ ]]; then rvm @global do gem uninstall bundler -a -x -v '>= 2.0.0'; fi
+  - bundle --version
 rvm:
   - 2.5
   - 2.4
