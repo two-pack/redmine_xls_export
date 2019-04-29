@@ -352,6 +352,8 @@ module Redmine
                 when :created_on, :updated_on, :closed_on
                   datetime = issue.respond_to?(c.name) ? issue.send(c.name) : c.value(issue)
                   localtime(datetime)
+                when :"parent.subject"
+                  issue.parent.nil? ? "" : issue.parent.subject
               else
                 issue.respond_to?(c.name) ? issue.send(c.name) : c.value(issue)
               end
