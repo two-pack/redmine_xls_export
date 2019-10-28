@@ -17,16 +17,19 @@ fi
 case $REDMINE_VERSION in
   1.4.*)  export PATH_TO_PLUGINS=./vendor/plugins # for redmine < 2.0
           export GENERATE_SECRET=generate_session_store
+          export MIGRATE_PLUGINS=db:migrate_plugins
           export REDMINE_TARBALL=https://github.com/redmine/redmine/archive/$REDMINE_VERSION.tar.gz
           ;;
-  2.* | 3.* | 4.*)  export PATH_TO_PLUGINS=./plugins # for redmine 2.x and 3.x and 4.x
+  2.* | 3.* | 4.*)  export PATH_TO_PLUGINS=./plugins # for redmine 2.x and 3.x, 4.x
           export GENERATE_SECRET=generate_secret_token
+          export MIGRATE_PLUGINS=redmine:plugins:migrate
           export REDMINE_TARBALL=https://github.com/redmine/redmine/archive/$REDMINE_VERSION.tar.gz
           ;;
-  master) export PATH_TO_PLUGINS=./plugins
+  master | 2.*-stable | 3.*-stable | 4.*-stable) export PATH_TO_PLUGINS=./plugins
           export GENERATE_SECRET=generate_secret_token
+          export MIGRATE_PLUGINS=redmine:plugins:migrate
           export REDMINE_GIT_REPO=https://github.com/redmine/redmine.git
-          export REDMINE_GIT_TAG=master
+          export REDMINE_GIT_TAG=$REDMINE_VERSION
           ;;
   *)      echo "Unsupported platform $REDMINE_VERSION"
           exit 1
@@ -51,7 +54,7 @@ clone_redmine() {
   fi
 }
 
-run_tests() {
+run_tests_proc() {
   # exit if tests fail
   set -e
 
@@ -61,7 +64,21 @@ run_tests() {
     TRACE=--trace
   fi
 
-  script -e -c "bundle exec rake redmine:plugins:test NAME="$PLUGIN $VERBOSE
+  script -e -c "RUBYOPT=-W0 TESTOPTS=-v bundle exec rake redmine:plugins:test NAME="$PLUGIN $VERBOSE
+}
+
+run_tests() {
+  run_tests_proc | grep -E -v "WARN Selenium \[DEPRECATION\] Selenium::WebDriver::Error(.*)ensure the driver supports W3C WebDriver specification"
+}
+
+uninstall() {
+  set -e # exit if migrate fails
+  cd $PATH_TO_REDMINE
+  # clean up database
+  if [ "$VERBOSE" = "yes" ]; then
+    TRACE=--trace
+  fi
+  bundle exec rake $TRACE $MIGRATE_PLUGINS NAME=$PLUGIN VERSION=0
 }
 
 run_install() {
@@ -83,23 +100,12 @@ run_install() {
 
   # install gems
   mkdir -p vendor/bundle
-  RETRYCOUNT=0
-  STATUS=1
-  until [ ${RETRYCOUNT} -ge 5 ]
-  do
-    bundle install --path vendor/bundle && STATUS=0 && break
-    echo 'Try bundle again ...'
-    RETRYCOUNT=$[${RETRYCOUNT}+1]
-    sleep 1
-  done
-  if [ ${STATUS} -eq 1 ]; then
-    echo 'bundle install errors are happened 5 times...'
-    exit 1;
-  fi
+  bundle install --path vendor/bundle
 
   bundle exec rake db:migrate $TRACE
   bundle exec rake redmine:load_default_data REDMINE_LANG=en $TRACE
   bundle exec rake $GENERATE_SECRET $TRACE
+  bundle exec rake $MIGRATE_PLUGINS $TRACE
 }
 
 while getopts :irtu opt
@@ -107,6 +113,7 @@ do case "$opt" in
   r)  clone_redmine; exit 0;;
   i)  run_install;  exit 0;;
   t)  run_tests $2;  exit 0;;
-  [?]) echo "i: install; r: clone redmine; t: run tests";;
+  u)  uninstall;  exit 0;;
+  [?]) echo "i: install; r: clone redmine; t: run tests; u: uninstall";;
   esac
 done
