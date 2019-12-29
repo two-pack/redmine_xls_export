@@ -1,0 +1,66 @@
+name: CI
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 20 * * *' # JST 5:00
+
+jobs:
+  one:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby:
+          - v2.4.x
+          - v2.5.x
+          - v2.6.x
+        redmine:
+          - 3.4-stable
+          - 4.0-stable
+          - master
+        exclude:
+          - ruby: v2.5.x
+            redmine: 3.4-stable
+          - ruby: v2.6.x
+            redmine: 3.4-stable
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup System
+        run: |
+          sudo apt-get update
+          sudo apt-get install libsqlite3-dev
+
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - name: Update gems except Redmine v3.4.x
+        if: matrix.redmine != '3.4-stable'
+        run: |
+          gem update --system
+
+      - name: Update gems for Redmine v3.4.x
+        if: matrix.redmine == '3.4-stable'
+        run: |
+          gem install bundler -v 1.17.3
+          gem update --system 3.0.6
+
+      - name: Set up chromedriver
+        uses: nanasess/setup-chromedriver@master
+        with:
+          chromedriver-version: '79.0.3945.36'
+
+      - name: Check Versions
+        run: |
+          google-chrome --version
+          chromedriver --version
+          bundle --version
+
+      - name: Redmine plugin test
+        uses: two-pack/redmine-plugin-test-action@v1
+        with:
+          plugin-name: redmine_xls_export
+          redmine_version: ${{ matrix.redmine }}

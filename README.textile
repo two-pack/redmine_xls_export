@@ -13,7 +13,7 @@ https://github.com/two-pack/redmine_xls_export
 
 h2. Project Health
 
-!https://travis-ci.org/two-pack/redmine_xls_export.svg?branch=features!:https://travis-ci.org/two-pack/redmine_xls_export
+!https://github.com/two-pack/redmine_xlsx_format_issue_exporter/workflows/CI/badge.svg?branch=features!:https://github.com/two-pack/redmine_xlsx_format_issue_exporter/actions
 
 
 h2. XLS export plugin
