@@ -50,8 +50,6 @@ jobs:
 
       - name: Set up chromedriver
         uses: nanasess/setup-chromedriver@master
-        with:
-          chromedriver-version: '79.0.3945.36'
 
       - name: Check Versions
         run: |
