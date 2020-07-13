@@ -19,12 +19,12 @@ class DetailedPageTest < Redmine::IntegrationTest
   def setup
     login_with_user
     visit '/projects/ecookbook/issues_xls_export'
-    assert_not_nil page
+    assert_visit
   end
 
   def test_detailed_link_is_in_issues_page
     visit '/projects/ecookbook/issues'
-    assert_not_nil page
+    assert_visit
     assert has_link?('Detailed')
   end
 
@@ -34,7 +34,7 @@ class DetailedPageTest < Redmine::IntegrationTest
 
   def test_to_back_issues_page
     visit '/projects/ecookbook/issues'
-    assert_not_nil page
+    assert_visit
     click_link 'Tracker'
     assert has_selector?('th a.sort', :text => 'Tracker')
 
