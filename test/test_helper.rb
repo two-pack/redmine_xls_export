@@ -52,12 +52,12 @@ class ActionDispatch::IntegrationTest
 
   def show_configure_page
     visit '/settings/plugin/redmine_xls_export'
-    assert_not_nil page
+    assert_visit
   end
 
   def show_detailed_page
     visit '/projects/ecookbook/issues_xls_export'
-    assert_not_nil page
+    assert_visit
   end
 
   def save_exported_xls(name)
@@ -99,6 +99,10 @@ class ActionDispatch::IntegrationTest
     fill_in 'settings_issues_limit', :with => '0'
     fill_in 'issues_export_offset', :with => '0'
     fill_in 'settings_export_name', :with => 'issues_export'
+  end
+
+  def assert_visit
+    assert has_selector?("div#content")
   end
 end
 
