@@ -130,12 +130,12 @@ class XLS_JournalQueryColumn < XLS_QueryColumn
     journals = get_visible_journals(issue)
     journals.each do |journal|
       hist_str << "#{format_time(journal.created_on)} - #{journal.user.name}\n"
-      journal.details.each do |detail|
+      journal.visible_details.each do |detail|
         hist_str <<  " - #{show_detail(detail, true)}"
-        hist_str << "\n" unless detail == journal.details.last
+        hist_str << "\n" unless detail == journal.visible_details.last
       end
       if journal.notes?
-          hist_str << "\n" unless journal.details.empty?
+          hist_str << "\n" unless journal.visible_details.empty?
           hist_str << journal.notes.to_s
       end
       hist_str << "\n" unless journal == journals.last
@@ -436,9 +436,9 @@ module Redmine
           row.replace []
 
           details=''
-          journal.details.each do |detail|
+          journal.visible_details.each do |detail|
             details <<  "#{show_detail(detail, true)}"
-            details << "\n" unless detail == journal.details.last
+            details << "\n" unless detail == journal.visible_details.last
           end
           details = strip_html(details, options)
           notes = strip_html(journal.notes? ? journal.notes.to_s : '', options)
@@ -640,7 +640,7 @@ module Redmine
         issues.each do |issue|
           journals = get_visible_journals(issue)
           journals.each do |journal|
-            journal.details.each do |detail|
+            journal.visible_details.each do |detail|
               if detail.prop_key == "status_id"
                 row = sheet.row(idx+1)
                 row.replace []
