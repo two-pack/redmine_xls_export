@@ -11,7 +11,6 @@ jobs:
     strategy:
       matrix:
         redmine:
-          - v3.4
           - v4.0
           - v4.1
           - trunk
@@ -20,11 +19,6 @@ jobs:
           - v2.4
           - v2.5
           - v2.6
-        exclude:
-          - redmine: v3.4
-            ruby: v2.5
-          - redmine: v3.4
-            ruby: v2.6
 
     steps:
       - name: Redmine plugin test
