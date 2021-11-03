@@ -725,8 +725,8 @@ module Redmine
         assignee_changes = issue_updates.inject([]) do |assignees, journal|
           assignee_change = journal.details.select {|d| d.prop_key == 'assigned_to_id'}
           assignee_change = assignee_change.map do |d|
-            old_assignee = d.old_value.present? ? User.find(d.old_value) : 'nobody'
-            new_assignee = d.value.present? ? User.find(d.value) : 'nobody'
+            old_assignee = d.old_value.present? ? Principal.find(d.old_value) : 'nobody'
+            new_assignee = d.value.present? ? Principal.find(d.value) : 'nobody'
 
             [journal.created_on, old_assignee, new_assignee]
           end
