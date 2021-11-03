@@ -21,6 +21,28 @@ module Redmine
   end
 end
 
+module Redmine
+  module Export
+    module XLS
+      module Journals
+        def get_visible_journals(issue)
+          return issue.visible_journals_with_index if (issue.respond_to? :visible_journals_with_index)
+
+          journals = issue.journals.includes(:user, :details).
+            references(:user, :details).
+            reorder(:created_on, :id).to_a
+          journals.each_with_index {|j,i| j.indice = i+1}
+          journals.reject!(&:private_notes?) unless User.current.allowed_to?(:view_private_notes, issue.project)
+          Journal.preload_journals_details_custom_fields(journals)
+          journals.select! {|journal| journal.notes? || journal.visible_details.any?}
+          journals.reverse! if User.current.wants_comments_in_reverse_order?
+          journals
+        end
+      end
+    end
+  end
+end
+
 # taken from 'query'
 class XLS_QueryColumn
   attr_accessor :name, :sortable, :groupable, :default_order
@@ -97,6 +119,7 @@ class XLS_JournalQueryColumn < XLS_QueryColumn
   include CustomFieldsHelper
   include IssuesHelper
   include Redmine::Export::XLS::StripHTML
+  include Redmine::Export::XLS::Journals
 
   def caption
     l(:label_plugin_xlse_field_journal)
@@ -104,20 +127,18 @@ class XLS_JournalQueryColumn < XLS_QueryColumn
 
   def value(issue, options)
     hist_str = ''
-    issue_updates = issue.journals.includes(:user, :details).order("#{Journal.table_name}.created_on ASC").to_a
-    issue_updates.each do |journal|
-      if !journal.private_notes? or User.current.allowed_to?(:view_private_notes, journal.project)
-        hist_str << "#{format_time(journal.created_on)} - #{journal.user.name}\n"
-        journal.details.each do |detail|
-          hist_str <<  " - #{show_detail(detail, true)}"
-          hist_str << "\n" unless detail == journal.details.last
-        end
-        if journal.notes?
-            hist_str << "\n" unless journal.details.empty?
-            hist_str << journal.notes.to_s
-        end
-        hist_str << "\n" unless journal == issue_updates.last
+    journals = get_visible_journals(issue)
+    journals.each do |journal|
+      hist_str << "#{format_time(journal.created_on)} - #{journal.user.name}\n"
+      journal.visible_details.each do |detail|
+        hist_str <<  " - #{show_detail(detail, true)}"
+        hist_str << "\n" unless detail == journal.visible_details.last
       end
+      if journal.notes?
+          hist_str << "\n" unless journal.visible_details.empty?
+          hist_str << journal.notes.to_s
+      end
+      hist_str << "\n" unless journal == journals.last
     end
     strip_html(hist_str, options)
   end
@@ -128,6 +149,7 @@ module Redmine
   module Export
     module XLS
       include Redmine::Export::XLS::StripHTML
+      include Redmine::Export::XLS::Journals
       unloadable
 
       def show_value_for_xls(value)
@@ -378,7 +400,7 @@ module Redmine
           if options[:journal_worksheets]
             journal_details_to_xls(issue, options, book)
           end
-          
+
         end
 
         if sheet1
@@ -395,8 +417,8 @@ module Redmine
       end
 
       def journal_details_to_xls(issue, options, book_to_add = nil)
-        issue_updates = issue.journals.includes(:user, :details).order("#{Journal.table_name}.created_on ASC").to_a
-        return nil if issue_updates.size == 0
+        journals = get_visible_journals(issue)
+        return nil if journals.size == 0
 
         Spreadsheet.client_encoding = 'UTF-8'
         book = book_to_add ? book_to_add : Spreadsheet::Workbook.new
@@ -415,27 +437,25 @@ module Redmine
         sheet1.column(2).default_format = Spreadsheet::Format.new(:number_format => date_formats[:updated_on])
 
         idx=0
-        issue_updates.each do |journal|
-          if !journal.private_notes? or User.current.allowed_to?(:view_private_notes, journal.project)
-            row = sheet1.row(idx+1)
-            row.replace []
+        journals.each do |journal|
+          row = sheet1.row(idx+1)
+          row.replace []
 
-            details=''
-            journal.details.each do |detail|
-              details <<  "#{show_detail(detail, true)}"
-              details << "\n" unless detail == journal.details.last
-            end
-            details = strip_html(details, options)
-            notes = strip_html(journal.notes? ? journal.notes.to_s : '', options)
-
-            [issue.id,idx+1,localtime(journal.created_on),journal.user.name,details,notes].each_with_index do |e,e_idx|
-              lf_pos = get_value_width(e)
-              columns_width[e_idx] = lf_pos unless columns_width[e_idx] >= lf_pos
-              row << e
-            end
-
-            idx=idx+1
+          details=''
+          journal.visible_details.each do |detail|
+            details <<  "#{show_detail(detail, true)}"
+            details << "\n" unless detail == journal.visible_details.last
           end
+          details = strip_html(details, options)
+          notes = strip_html(journal.notes? ? journal.notes.to_s : '', options)
+
+          [issue.id,idx+1,localtime(journal.created_on),journal.user.name,details,notes].each_with_index do |e,e_idx|
+            lf_pos = get_value_width(e)
+            columns_width[e_idx] = lf_pos unless columns_width[e_idx] >= lf_pos
+            row << e
+          end
+
+          idx=idx+1
         end
 
         update_sheet_formatting(sheet1,columns_width)
