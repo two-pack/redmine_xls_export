@@ -1,3 +1,8 @@
+h2. This repository is already archived
+
+Thank all for contributing and using this plugin.
+And great thank original developer, Vitaly Klimov.
+
 h2. IMPORTANT INFORMATION
 
 Original plugin created by Vitaly Klimov. Thanks his great work!
@@ -9,7 +14,6 @@ And some features and translations, which are almost from above forum, are added
 https://github.com/two-pack/redmine_xls_export
 * 'official' branch has original source.
 * 'features' branch has something added to original.
-
 
 h2. Project Health
 
